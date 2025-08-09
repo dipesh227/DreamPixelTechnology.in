@@ -1,8 +1,9 @@
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from "@/components/ui/card";
-import { Check, FileText, Share2, Sparkles, BarChart2 } from "lucide-react";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { FileText, Share2, Sparkles, BarChart2 } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
+import { PricingSection } from "@/components/pricing-section";
 
 const features = [
   {
@@ -24,31 +25,6 @@ const features = [
     icon: <BarChart2 className="h-8 w-8" />,
     title: "Growth Analytics",
     description: "Track post performance with clear analytics on impressions, likes, and shares to understand what works.",
-  },
-];
-
-const pricingPlans = [
-  {
-    name: "Starter",
-    price: "₹200",
-    description: "For individuals and small teams getting started.",
-    features: ["25 Posts/Month", "3 Social Accounts", "Basic Analytics", "AI Caption Generation"],
-    cta: "Get Started",
-  },
-  {
-    name: "Growth",
-    price: "₹400",
-    description: "For growing businesses that need more power.",
-    features: ["100 Posts/Month", "10 Social Accounts", "Advanced Analytics", "AI Caption Generation", "Scheduling"],
-    cta: "Choose Growth",
-    popular: true,
-  },
-  {
-    name: "Pro",
-    price: "₹600",
-    description: "For agencies and enterprises at scale.",
-    features: ["Unlimited Posts", "Unlimited Accounts", "Full Analytics Suite", "Priority Support", "API Access"],
-    cta: "Contact Us",
   },
 ];
 
@@ -109,46 +85,7 @@ export default function Home() {
       </section>
 
       {/* Pricing Section */}
-      <section id="pricing" className="w-full py-20 md:py-24 lg:py-32">
-        <div className="container mx-auto px-4 md:px-6">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold">Pricing Plans for Every Stage</h2>
-            <p className="max-w-[600px] mx-auto text-muted-foreground mt-4">
-              Choose the plan that's right for you. Start for free, no credit card required.
-            </p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch">
-            {pricingPlans.map((plan) => (
-              <div key={plan.name} className={plan.popular ? "p-0.5 rounded-xl bg-gradient-to-br from-brand-cyan to-brand-yellow" : ""}>
-                <Card className="h-full flex flex-col">
-                  <CardHeader>
-                    {plan.popular && <div className="text-brand-cyan font-semibold mb-2">Most Popular</div>}
-                    <CardTitle>{plan.name}</CardTitle>
-                    <CardDescription>{plan.description}</CardDescription>
-                    <div>
-                      <span className="text-4xl font-bold">{plan.price}</span>
-                      <span className="text-muted-foreground">/month</span>
-                    </div>
-                  </CardHeader>
-                  <CardContent className="flex-1">
-                    <ul className="space-y-3">
-                      {plan.features.map((feature) => (
-                        <li key={feature} className="flex items-center">
-                          <Check className="h-5 w-5 text-green-500 mr-2" />
-                          <span>{feature}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </CardContent>
-                  <CardFooter>
-                    <Button className="w-full" variant={plan.popular ? "default" : "outline"}>{plan.cta}</Button>
-                  </CardFooter>
-                </Card>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <PricingSection />
 
       {/* Final CTA Section */}
       <section className="w-full py-20 md:py-24 lg:py-32 bg-secondary/50 dark:bg-background">
