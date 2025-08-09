@@ -67,8 +67,8 @@ export function FeaturesSection() {
         >
           {features.map((feature, index) => (
             <motion.div key={index} variants={itemVariants} className="h-full">
-              <Card className="flex flex-col items-center text-center p-6 border-border/80 hover:border-brand-cyan/50 hover:bg-secondary transition-all duration-300 transform hover:-translate-y-2 h-full">
-                <div className="p-4 bg-gradient-to-br from-brand-purple/20 to-brand-cyan/20 rounded-full mb-4 text-brand-cyan">
+              <Card className="flex flex-col items-center text-center p-6 border-border/80 hover:border-primary/50 hover:bg-secondary transition-all duration-300 transform hover:-translate-y-2 h-full">
+                <div className="p-4 bg-gradient-to-br from-brand-blue/20 to-brand-yellow/20 rounded-full mb-4 text-primary">
                   {feature.icon}
                 </div>
                 <CardHeader className="p-0">

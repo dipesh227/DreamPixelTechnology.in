@@ -7,28 +7,28 @@ const teamMembers = [
   {
     name: "Jane Doe",
     role: "CEO & Lead Strategist",
-    avatarUrl: "https://i.pravatar.cc/150?img=1",
+    avatarUrl: "https://picsum.photos/seed/team1/150/150",
     linkedin: "#",
     twitter: "#",
   },
   {
     name: "John Smith",
     role: "Head of Design",
-    avatarUrl: "https://i.pravatar.cc/150?img=2",
+    avatarUrl: "https://picsum.photos/seed/team2/150/150",
     linkedin: "#",
     twitter: "#",
   },
   {
     name: "Emily White",
     role: "Senior Developer",
-    avatarUrl: "https://i.pravatar.cc/150?img=3",
+    avatarUrl: "https://picsum.photos/seed/team3/150/150",
     linkedin: "#",
     twitter: "#",
   },
   {
     name: "David Green",
     role: "Marketing Manager",
-    avatarUrl: "https://i.pravatar.cc/150?img=4",
+    avatarUrl: "https://picsum.photos/seed/team4/150/150",
     linkedin: "#",
     twitter: "#",
   },
@@ -36,7 +36,7 @@ const teamMembers = [
 
 export default function TeamPage() {
   return (
-    <div className="container mx-auto py-16 px-4">
+    <div className="container mx-auto py-20 md:py-24 px-4">
       <div className="text-center max-w-3xl mx-auto">
         <h1 className="mt-4 text-4xl md:text-5xl font-bold tracking-tighter">
           Meet Our Talented Team

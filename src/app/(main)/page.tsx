@@ -21,13 +21,13 @@ export default function Home() {
           <div className="flex flex-col gap-6">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter !leading-[1.2]">
               Unify Your Content. <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-cyan to-brand-purple">Amplify</span> Your Reach.
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-blue to-brand-yellow">Amplify</span> Your Reach.
             </h1>
             <p className="max-w-[600px] text-lg text-muted-foreground md:text-xl">
               DreamPixel is the all-in-one platform for content management and AI-driven social media automation. Build your brand, engage your audience, and grow your business—all from one place.
             </p>
             <div className="flex gap-4">
-              <Button size="lg" className="bg-brand-cyan hover:bg-brand-cyan/90 text-primary-foreground group" asChild>
+              <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground group" asChild>
                 <Link href="/register">Get Started for Free <ArrowRight className="h-4 w-4 ml-2 transition-transform group-hover:translate-x-1" /></Link>
               </Button>
               <Button size="lg" variant="outline" asChild>
@@ -68,7 +68,7 @@ export default function Home() {
           <p className="max-w-[600px] mx-auto text-lg text-muted-foreground md:text-xl mb-8">
             Join hundreds of businesses growing with DreamPixel. Get started today.
           </p>
-          <Button size="lg" className="bg-brand-cyan hover:bg-brand-cyan/90 text-primary-foreground group" asChild>
+          <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground group" asChild>
             <Link href="/register">Sign Up Now <ArrowRight className="h-4 w-4 ml-2 transition-transform group-hover:translate-x-1" /></Link>
           </Button>
         </div>

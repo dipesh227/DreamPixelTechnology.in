@@ -7,44 +7,44 @@ const projects = [
   {
     title: "E-commerce Redesign",
     description: "A modern and intuitive e-commerce platform for a fashion brand, boosting sales by 30%.",
-    imageUrl: "/placeholder-project-1.jpg",
+    imageUrl: "https://picsum.photos/seed/project1/600/400",
     link: "#",
   },
   {
     title: "SaaS Dashboard",
     description: "Developed a sleek, user-friendly dashboard for a B2B SaaS application, improving user engagement.",
-    imageUrl: "/placeholder-project-2.jpg",
+    imageUrl: "https://picsum.photos/seed/project2/600/400",
     link: "#",
   },
   {
     title: "Non-Profit Website",
     description: "Created an impactful website for a non-profit organization, increasing donations and volunteer sign-ups.",
-    imageUrl: "/placeholder-project-3.jpg",
+    imageUrl: "https://picsum.photos/seed/project3/600/400",
     link: "#",
   },
   {
     title: "Mobile App UI/UX",
     description: "Designed the complete UI/UX for a new fitness tracking mobile application.",
-    imageUrl: "/placeholder-project-4.jpg",
+    imageUrl: "https://picsum.photos/seed/project4/600/400",
     link: "#",
   },
   {
     title: "Brand Identity for Tech Startup",
     description: "Developed a comprehensive brand identity, including logo, guidelines, and marketing collateral, for a new tech startup.",
-    imageUrl: "/placeholder-project-5.jpg",
+    imageUrl: "https://picsum.photos/seed/project5/600/400",
     link: "#",
   },
   {
     title: "SEO & Content Strategy for Healthcare",
     description: "Implemented an SEO and content marketing strategy that significantly increased organic traffic and patient inquiries for a healthcare provider.",
-    imageUrl: "/placeholder-project-6.jpg",
+    imageUrl: "https://picsum.photos/seed/project6/600/400",
     link: "#",
   },
 ];
 
 export default function PortfolioPage() {
   return (
-    <div className="container mx-auto py-16 px-4">
+    <div className="container mx-auto py-20 md:py-24 px-4">
       <div className="text-center max-w-3xl mx-auto">
         <h1 className="mt-4 text-4xl md:text-5xl font-bold tracking-tighter">
           Our Recent Work / Case Studies
