@@ -88,17 +88,17 @@ export function SocialComposer() {
               className="min-h-[150px] mt-2"
             />
           </div>
-          <div className="flex flex-col sm:flex-row gap-2">
-            <Button variant="outline" className="w-full sm:w-auto">
+          <div className="flex flex-col md:flex-row gap-2">
+            <Button variant="outline" className="w-full md:w-auto">
               <Sparkles className="h-4 w-4 mr-2" />
               AI Suggest
             </Button>
             <div className="flex-1" />
-            <Button variant="outline" className="w-full sm:w-auto">
+            <Button variant="outline" className="w-full md:w-auto">
               <Calendar className="h-4 w-4 mr-2" />
               Schedule
             </Button>
-            <Button onClick={handlePublish} disabled={isSubmitting} className="w-full sm:w-auto">
+            <Button onClick={handlePublish} disabled={isSubmitting} className="w-full md:w-auto">
               <Send className="h-4 w-4 mr-2" />
               {isSubmitting ? "Publishing..." : "Publish Now"}
             </Button>
