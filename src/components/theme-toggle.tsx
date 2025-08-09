@@ -16,9 +16,9 @@ export function ThemeToggle() {
   }, [])
 
   if (!mounted) {
-    // Render a placeholder or null on the server and during initial client render
-    // to prevent hydration mismatch
-    return <Button variant="ghost" size="icon" disabled />;
+    // Render null on the server and during initial client render
+    // to prevent hydration mismatch. The space will be filled once mounted.
+    return null;
   }
 
   return (
