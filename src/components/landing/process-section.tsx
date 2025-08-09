@@ -71,7 +71,7 @@ export function ProcessSection() {
             <motion.div key={index} variants={itemVariants}>
               <Card className="text-center p-6 border-0 bg-transparent shadow-none">
                 <div className="flex justify-center mb-4">
-                  <div className="p-4 bg-gradient-to-br from-brand-cyan/20 to-brand-pink/20 rounded-full text-brand-pink">
+                  <div className="p-4 bg-gradient-to-br from-brand-secondary/20 to-brand-highlight/20 rounded-full text-brand-secondary">
                     {step.icon}
                   </div>
                 </div>

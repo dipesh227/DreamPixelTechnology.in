@@ -21,7 +21,7 @@ export default function Home() {
           <div className="flex flex-col gap-6">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter !leading-[1.2]">
               Unify Your Content. <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-blue to-brand-yellow">Amplify</span> Your Reach.
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-primary to-brand-accent">Amplify</span> Your Reach.
             </h1>
             <p className="max-w-[600px] text-lg text-muted-foreground md:text-xl">
               DreamPixel is the all-in-one platform for content management and AI-driven social media automation. Build your brand, engage your audience, and grow your business—all from one place.

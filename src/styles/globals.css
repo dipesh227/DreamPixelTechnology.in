@@ -10,27 +10,27 @@
     --card-foreground: 224 71.4% 4.1%;
     --popover: 0 0% 100%;
     --popover-foreground: 224 71.4% 4.1%;
-    --primary: hsl(var(--brand-blue));
+    --primary: hsl(var(--brand-primary));
     --primary-foreground: 0 0% 100%;
     --secondary: 210 40% 96.1%;
     --secondary-foreground: 222.2 47.4% 11.2%;
     --muted: 210 40% 96.1%;
     --muted-foreground: 215.4 16.3% 46.9%;
-    --accent: hsl(var(--brand-yellow));
+    --accent: hsl(var(--brand-accent));
     --accent-foreground: 224 71.4% 4.1%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
-    --ring: hsl(var(--brand-blue));
+    --ring: hsl(var(--brand-primary));
     --radius: 0.75rem;
     
-    /* 5 Trending Colors */
-    --brand-blue: 210 100% 50%;
-    --brand-yellow: 45 100% 50%;
-    --brand-purple: 262 80% 65%;
-    --brand-pink: 330 85% 68%;
-    --brand-cyan: 190 80% 55%;
+    /* New 5-Color Combination */
+    --brand-primary: 217 91% 60%;   /* Modern Blue */
+    --brand-secondary: 170 75% 41%; /* Vibrant Teal */
+    --brand-accent: 25 95% 53%;     /* Energetic Orange */
+    --brand-highlight: 250 84% 70%; /* Soft Violet */
+    --brand-success: 142 71% 45%;   /* Clear Green */
   }
 
   .dark {
@@ -40,19 +40,19 @@
     --card-foreground: 210 40% 98%;
     --popover: 224 71.4% 4.1%;
     --popover-foreground: 210 40% 98%;
-    --primary: hsl(var(--brand-blue));
+    --primary: hsl(var(--brand-primary));
     --primary-foreground: 210 40% 98%;
     --secondary: 217.2 32.6% 17.5%;
     --secondary-foreground: 210 40% 98%;
     --muted: 217.2 32.6% 17.5%;
     --muted-foreground: 215 20.2% 65.1%;
-    --accent: hsl(var(--brand-yellow));
+    --accent: hsl(var(--brand-accent));
     --accent-foreground: 224 71.4% 4.1%;
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
     --border: 217.2 32.6% 17.5%;
     --input: 217.2 32.6% 17.5%;
-    --ring: hsl(var(--brand-blue));
+    --ring: hsl(var(--brand-primary));
   }
 }
 
@@ -73,6 +73,6 @@
 }
 
 .circuit-glow {
-    background-image: radial-gradient(circle at 25% 25%, hsla(var(--brand-blue), 0.2), transparent 35%),
-                      radial-gradient(circle at 75% 65%, hsla(var(--brand-yellow), 0.2), transparent 35%);
+    background-image: radial-gradient(circle at 25% 25%, hsla(var(--brand-primary), 0.2), transparent 35%),
+                      radial-gradient(circle at 75% 65%, hsla(var(--brand-accent), 0.2), transparent 35%);
 }

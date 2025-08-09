@@ -130,11 +130,11 @@ export function PricingSection() {
             <motion.div
               key={plan.name}
               variants={itemVariants}
-              className={plan.popular ? "p-0.5 rounded-xl bg-gradient-to-br from-brand-cyan to-brand-yellow" : ""}
+              className={plan.popular ? "p-0.5 rounded-xl bg-gradient-to-br from-brand-secondary to-brand-accent" : ""}
             >
               <Card className="h-full flex flex-col">
                 <CardHeader>
-                  {plan.popular && <div className="text-brand-cyan font-semibold mb-2">Most Popular</div>}
+                  {plan.popular && <div className="text-brand-secondary font-semibold mb-2">Most Popular</div>}
                   <CardTitle>{plan.name}</CardTitle>
                   <CardDescription>{plan.description}</CardDescription>
                   <div>
@@ -146,7 +146,7 @@ export function PricingSection() {
                   <ul className="space-y-3">
                     {(plan.features as string[]).map((feature) => (
                       <li key={feature} className="flex items-center">
-                        <Check className="h-5 w-5 text-green-500 mr-2" />
+                        <Check className="h-5 w-5 text-brand-success mr-2" />
                         <span>{feature}</span>
                       </li>
                     ))}
