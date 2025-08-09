@@ -4,13 +4,36 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { Label } from "@/components/ui/label";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import type { SocialAccount } from "@/lib/types";
-import { Linkedin, Twitter, Instagram, Facebook } from "lucide-react";
+import { 
+  Linkedin, 
+  Twitter, 
+  Instagram, 
+  Facebook,
+  Youtube,
+  MessageSquare,
+  Music,
+  MessageCircle,
+  Send,
+  Ghost,
+  Image // Using a generic image icon for Pinterest
+} from "lucide-react";
 
 const platformIcons: { [key: string]: React.ReactNode } = {
   linkedin: <Linkedin className="h-4 w-4" />,
   twitter: <Twitter className="h-4 w-4" />,
   instagram: <Instagram className="h-4 w-4" />,
   facebook: <Facebook className="h-4 w-4" />,
+  youtube: <Youtube className="h-4 w-4" />,
+  whatsapp: <MessageSquare className="h-4 w-4" />,
+  tiktok: <Music className="h-4 w-4" />,
+  wechat: <MessageSquare className="h-4 w-4" />,
+  messenger: <MessageCircle className="h-4 w-4" />,
+  telegram: <Send className="h-4 w-4" />,
+  snapchat: <Ghost className="h-4 w-4" />,
+  qq: <MessageSquare className="h-4 w-4" />,
+  reddit: <MessageSquare className="h-4 w-4" />, // Using a generic message icon for Reddit
+  pinterest: <Image className="h-4 w-4" />, // Using a generic image icon for Pinterest
+  discord: <MessageSquare className="h-4 w-4" />,
 };
 
 interface AccountSelectorProps {

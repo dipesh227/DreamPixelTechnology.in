@@ -15,6 +15,12 @@ import { toast } from "sonner";
 const mockAccounts: SocialAccount[] = [
   { id: "li-123", platform: "linkedin", account_name: "John Doe", avatar_url: "https://i.pravatar.cc/40?u=li" },
   { id: "tw-456", platform: "twitter", account_name: "@johndoe", avatar_url: "https://i.pravatar.cc/40?u=tw" },
+  { id: "fb-789", platform: "facebook", account_name: "John Doe", avatar_url: "https://i.pravatar.cc/40?u=fb" },
+  { id: "ig-101", platform: "instagram", account_name: "johndoe_pics", avatar_url: "https://i.pravatar.cc/40?u=ig" },
+  { id: "yt-112", platform: "youtube", account_name: "JohnDoeVlogs", avatar_url: "https://i.pravatar.cc/40?u=yt" },
+  { id: "rd-131", platform: "reddit", account_name: "u/johndoe", avatar_url: "https://i.pravatar.cc/40?u=rd" },
+  { id: "pi-141", platform: "pinterest", account_name: "John's Boards", avatar_url: "https://i.pravatar.cc/40?u=pi" },
+  { id: "di-151", platform: "discord", account_name: "johndoe#1234", avatar_url: "https://i.pravatar.cc/40?u=di" },
 ];
 
 export function SocialComposer() {
