@@ -2,26 +2,16 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { Menu } from "lucide-react";
+import { Menu, Search } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger, SheetClose } from "@/components/ui/sheet";
-import {
-  NavigationMenu,
-  NavigationMenuContent,
-  NavigationMenuItem,
-  NavigationMenuLink,
-  NavigationMenuList,
-  NavigationMenuTrigger,
-  navigationMenuTriggerStyle,
-} from "@/components/ui/navigation-menu";
 import { ThemeToggle } from "./theme-toggle";
-import { cn } from "@/lib/utils";
 import React from "react";
 import { createClient } from "@/lib/supabase/client";
 import type { User } from "@supabase/supabase-js";
 import { UserButton } from "./user-button";
 import { Skeleton } from "./ui/skeleton";
-import { mainNav, servicesNav } from "@/lib/navigation";
+import { mainNav } from "@/lib/navigation";
 
 export function Header() {
   const [user, setUser] = React.useState<User | null>(null);
@@ -49,46 +39,26 @@ export function Header() {
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-16 max-w-screen-2xl items-center">
-        <div className="mr-4 hidden md:flex">
-          <Link href="/" className="mr-6 flex items-center space-x-2">
-            <Image src="/logo.png" alt="DreamPixel Logo" width={180} height={40} priority />
-          </Link>
-          <NavigationMenu>
-            <NavigationMenuList>
-              {mainNav.map((item) => (
-                item.href === "/services" ? (
-                  <NavigationMenuItem key={item.title}>
-                    <NavigationMenuTrigger className="text-muted-foreground">
-                      {item.title}
-                    </NavigationMenuTrigger>
-                    <NavigationMenuContent>
-                      <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
-                        {servicesNav.map((service) => (
-                          <ListItem
-                            key={service.title}
-                            title={service.title}
-                            href={service.href}
-                          >
-                            {service.description}
-                          </ListItem>
-                        ))}
-                      </ul>
-                    </NavigationMenuContent>
-                  </NavigationMenuItem>
-                ) : (
-                  <NavigationMenuItem key={item.title}>
-                    <NavigationMenuLink asChild className={cn(navigationMenuTriggerStyle(), "text-muted-foreground")}>
-                      <Link href={item.href}>{item.title}</Link>
-                    </NavigationMenuLink>
-                  </NavigationMenuItem>
-                )
-              ))}
-            </NavigationMenuList>
-          </NavigationMenu>
-        </div>
+        {/* Logo */}
+        <Link href="/" className="mr-6 flex items-center space-x-2">
+          <Image src="/logo.png" alt="DreamPixel Logo" width={180} height={40} priority />
+        </Link>
         
+        {/* Desktop Navigation */}
+        <nav className="mr-auto hidden md:flex items-center gap-6 text-sm">
+          {mainNav.map((item) => (
+            <Link
+              key={item.title}
+              href={item.href}
+              className="text-muted-foreground transition-colors hover:text-foreground"
+            >
+              {item.title}
+            </Link>
+          ))}
+        </nav>
+
         {/* Mobile Menu Trigger */}
-        <div className="md:hidden">
+        <div className="md:hidden ml-auto">
           <Sheet>
             <SheetTrigger asChild>
               <Button variant="ghost" size="icon">
@@ -111,62 +81,24 @@ export function Header() {
           </Sheet>
         </div>
 
-        {/* Logo for Mobile */}
-        <div className="flex-1 flex justify-center md:hidden">
-            <Link href="/">
-                <Image src="/logo-icon.png" alt="DreamPixel Logo" width={32} height={32} />
-            </Link>
-        </div>
-
-        <div className="flex items-center justify-end space-x-2 md:flex-1">
-          <nav className="flex items-center gap-2">
-            <ThemeToggle />
-            {loading ? (
-              <div className="flex items-center gap-2">
-                <Skeleton className="h-10 w-24" />
-              </div>
-            ) : user ? (
-              <UserButton user={user} />
-            ) : (
-              <>
-                <Button variant="ghost" asChild className="text-muted-foreground">
-                  <Link href="/login">Log In</Link>
-                </Button>
-                <Button className="bg-accent hover:bg-accent/90 text-accent-foreground hidden sm:inline-flex" asChild>
-                  <Link href="/request-quote">Request a Quote</Link>
-                </Button>
-              </>
-            )}
-          </nav>
+        {/* Right side actions */}
+        <div className="hidden md:flex items-center justify-end space-x-2">
+          <ThemeToggle />
+          <Button variant="ghost" size="icon">
+            <Search className="h-5 w-5 text-muted-foreground" />
+            <span className="sr-only">Search</span>
+          </Button>
+          {loading ? (
+            <Skeleton className="h-10 w-24" />
+          ) : user ? (
+            <UserButton user={user} />
+          ) : (
+            <Button asChild className="bg-gradient-to-r from-brand-orange to-brand-red text-white">
+              <Link href="/register">Get Started</Link>
+            </Button>
+          )}
         </div>
       </div>
     </header>
   );
 }
-
-const ListItem = React.forwardRef<
-  React.ElementRef<"a">,
-  React.ComponentPropsWithoutRef<"a">
->(({ className, title, children, href, ...props }, ref) => {
-  return (
-    <li>
-      <NavigationMenuLink asChild>
-        <Link
-          ref={ref}
-          href={href ?? ""}
-          className={cn(
-            "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
-            className
-          )}
-          {...props}
-        >
-          <div className="text-sm font-medium leading-none">{title}</div>
-          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-            {children}
-          </p>
-        </Link>
-      </NavigationMenuLink>
-    </li>
-  )
-})
-ListItem.displayName = "ListItem"
