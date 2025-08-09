@@ -8,7 +8,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { createClient } from "@/lib/supabase/client";
-import { Loader2 } from "lucide-react";
+import { Loader2, HelpCircle } from "lucide-react";
 import { toast } from "sonner";
 
 interface FAQ {
@@ -65,7 +65,8 @@ export default function FAQPage() {
   return (
     <div className="container mx-auto py-16 px-4">
       <div className="text-center max-w-3xl mx-auto mb-12">
-        <h1 className="mt-4 text-4xl md:text-5xl font-bold tracking-tighter">
+        <h1 className="mt-4 text-4xl md:text-5xl font-bold tracking-tighter flex items-center justify-center gap-3">
+          <HelpCircle className="h-10 w-10 text-brand-accent" />
           Frequently Asked Questions
         </h1>
         <p className="mt-4 text-lg text-muted-foreground">

@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { createClient } from "@/lib/supabase/client";
-import { Loader2, Quote } from "lucide-react";
+import { Loader2, Quote, MessageSquare } from "lucide-react";
 import { toast } from "sonner";
 
 interface Testimonial {
@@ -62,7 +62,8 @@ export default function TestimonialsPage() {
   return (
     <div className="container mx-auto py-16 px-4">
       <div className="text-center max-w-3xl mx-auto mb-12">
-        <h1 className="mt-4 text-4xl md:text-5xl font-bold tracking-tighter">
+        <h1 className="mt-4 text-4xl md:text-5xl font-bold tracking-tighter flex items-center justify-center gap-3">
+          <MessageSquare className="h-10 w-10 text-brand-highlight" />
           What Our Clients Say
         </h1>
         <p className="mt-4 text-lg text-muted-foreground">

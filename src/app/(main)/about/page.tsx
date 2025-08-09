@@ -2,21 +2,21 @@ import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Check, Eye, Heart, Lightbulb } from "lucide-react";
+import { Check, Eye, Heart, Lightbulb, Users } from "lucide-react";
 
 const values = [
   {
-    icon: <Lightbulb className="h-8 w-8 text-brand-yellow" />,
+    icon: <Lightbulb className="h-8 w-8 text-brand-accent" />,
     title: "Innovation",
     description: "We constantly seek new and better ways to solve problems and drive growth for our clients.",
   },
   {
-    icon: <Heart className="h-8 w-8 text-brand-pink" />,
+    icon: <Heart className="h-8 w-8 text-brand-highlight" />,
     title: "Client-Centric",
     description: "Our clients' success is our success. We build partnerships based on trust and transparency.",
   },
   {
-    icon: <Check className="h-8 w-8 text-green-500" />,
+    icon: <Check className="h-8 w-8 text-brand-success" />,
     title: "Integrity",
     description: "We operate with honesty and adhere to the highest ethical standards in all our dealings.",
   },
@@ -40,13 +40,13 @@ export default function AboutPage() {
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div className="space-y-8">
             <div>
-              <h2 className="text-3xl font-bold flex items-center gap-3"><Eye className="h-8 w-8 text-brand-cyan" /> Our Mission</h2>
+              <h2 className="text-3xl font-bold flex items-center gap-3"><Eye className="h-8 w-8 text-brand-secondary" /> Our Mission</h2>
               <p className="mt-4 text-muted-foreground">
                 To empower businesses of all sizes to unify their content and amplify their reach through innovative, intuitive, and intelligent technology solutions. We strive to simplify the complexities of digital marketing, making it accessible and effective for everyone.
               </p>
             </div>
             <div>
-              <h2 className="text-3xl font-bold flex items-center gap-3"><Heart className="h-8 w-8 text-brand-pink" /> Our Vision</h2>
+              <h2 className="text-3xl font-bold flex items-center gap-3"><Heart className="h-8 w-8 text-brand-highlight" /> Our Vision</h2>
               <p className="mt-4 text-muted-foreground">
                 To become the indispensable all-in-one platform for brand building and content automation, fostering a world where every creator and business can effortlessly connect with their audience and achieve their full potential.
               </p>
@@ -95,7 +95,10 @@ export default function AboutPage() {
 
       {/* CTA Section */}
       <section className="container mx-auto py-20 text-center">
-        <h2 className="text-3xl font-bold tracking-tight">Join Us on Our Journey</h2>
+        <h2 className="text-3xl font-bold tracking-tight flex items-center justify-center gap-3">
+          <Users className="h-8 w-8 text-brand-primary" />
+          Join Us on Our Journey
+        </h2>
         <p className="mt-4 text-muted-foreground max-w-2xl mx-auto">
           We're always looking for passionate people to join our team and innovative clients to partner with. Let's build something amazing together.
         </p>

@@ -1,10 +1,10 @@
-import { Megaphone } from "lucide-react";
+import { Megaphone, CheckCircle } from "lucide-react";
 
 export default function DigitalMarketingPage() {
   return (
     <div className="container mx-auto py-10 px-4">
       <div className="text-center max-w-3xl mx-auto">
-        <Megaphone className="h-12 w-12 mx-auto text-brand-pink" />
+        <Megaphone className="h-12 w-12 mx-auto text-brand-highlight" />
         <h1 className="mt-4 text-4xl md:text-5xl font-bold tracking-tighter">
           Digital Marketing
         </h1>
@@ -19,12 +19,12 @@ export default function DigitalMarketingPage() {
         </p>
         <h3>Key Services:</h3>
         <ul>
-          <li>Search Engine Optimization (SEO)</li>
-          <li>Social Media Marketing (SMM)</li>
-          <li>Content Marketing</li>
-          <li>Email Marketing</li>
-          <li>Pay-Per-Click (PPC) Advertising</li>
-          <li>Analytics & Reporting</li>
+          <li><CheckCircle className="inline-block h-4 w-4 mr-2 text-brand-success" />Search Engine Optimization (SEO)</li>
+          <li><CheckCircle className="inline-block h-4 w-4 mr-2 text-brand-success" />Social Media Marketing (SMM)</li>
+          <li><CheckCircle className="inline-block h-4 w-4 mr-2 text-brand-success" />Content Marketing</li>
+          <li><CheckCircle className="inline-block h-4 w-4 mr-2 text-brand-success" />Email Marketing</li>
+          <li><CheckCircle className="inline-block h-4 w-4 mr-2 text-brand-success" />Pay-Per-Click (PPC) Advertising</li>
+          <li><CheckCircle className="inline-block h-4 w-4 mr-2 text-brand-success" />Analytics & Reporting</li>
         </ul>
         <p>
           Let us help you navigate the complexities of the digital world and achieve measurable success with a strong online presence.

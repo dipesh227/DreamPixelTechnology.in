@@ -1,4 +1,4 @@
-import { DollarSign } from "lucide-react";
+import { DollarSign, CheckCircle } from "lucide-react";
 
 export default function PpcAdvertisingPage() {
   return (
@@ -19,13 +19,13 @@ export default function PpcAdvertisingPage() {
         </p>
         <h3>Key Services:</h3>
         <ul>
-          <li>Google Ads Management</li>
-          <li>Bing Ads Management</li>
-          <li>Social Media Advertising (Paid Social)</li>
-          <li>Display Advertising</li>
-          <li>Remarketing Campaigns</li>
-          <li>A/B Testing & Optimization</li>
-          <li>Detailed Performance Reporting</li>
+          <li><CheckCircle className="inline-block h-4 w-4 mr-2 text-brand-success" />Google Ads Management</li>
+          <li><CheckCircle className="inline-block h-4 w-4 mr-2 text-brand-success" />Bing Ads Management</li>
+          <li><CheckCircle className="inline-block h-4 w-4 mr-2 text-brand-success" />Social Media Advertising (Paid Social)</li>
+          <li><CheckCircle className="inline-block h-4 w-4 mr-2 text-brand-success" />Display Advertising</li>
+          <li><CheckCircle className="inline-block h-4 w-4 mr-2 text-brand-success" />Remarketing Campaigns</li>
+          <li><CheckCircle className="inline-block h-4 w-4 mr-2 text-brand-success" />A/B Testing & Optimization</li>
+          <li><CheckCircle className="inline-block h-4 w-4 mr-2 text-brand-success" />Detailed Performance Reporting</li>
         </ul>
         <p>
           Get your brand in front of potential customers instantly and convert clicks into valuable leads and sales with our strategic PPC campaigns.

@@ -7,6 +7,7 @@ import type { User } from "@supabase/supabase-js";
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
 import { SocialComposer } from "@/components/posts/composer";
+import { LayoutDashboard } from "lucide-react";
 
 export default function DashboardPage() {
   const supabase = createClient();
@@ -56,7 +57,10 @@ export default function DashboardPage() {
     <div className="container mx-auto py-10 px-4">
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-8 gap-4">
         <div>
-          <h1 className="text-3xl font-bold">Dashboard</h1>
+          <h1 className="text-3xl font-bold flex items-center gap-2">
+            <LayoutDashboard className="h-7 w-7 text-brand-primary" />
+            Dashboard
+          </h1>
           <p className="mt-1 text-muted-foreground">Welcome back, {user.email}</p>
         </div>
         <Button onClick={handleSignOut}>Sign Out</Button>

@@ -1,4 +1,4 @@
-import { ShoppingCart } from "lucide-react";
+import { ShoppingCart, CheckCircle } from "lucide-react";
 
 export default function EcommerceSolutionsPage() {
   return (
@@ -19,13 +19,13 @@ export default function EcommerceSolutionsPage() {
         </p>
         <h3>Key Services:</h3>
         <ul>
-          <li>Custom E-commerce Website Development</li>
-          <li>Platform Migration (e.g., Shopify, WooCommerce, Magento)</li>
-          <li>Payment Gateway Integration</li>
-          <li>Inventory Management Solutions</li>
-          <li>Product Catalog Management</li>
-          <li>Security & SSL Implementation</li>
-          <li>Performance Optimization</li>
+          <li><CheckCircle className="inline-block h-4 w-4 mr-2 text-brand-success" />Custom E-commerce Website Development</li>
+          <li><CheckCircle className="inline-block h-4 w-4 mr-2 text-brand-success" />Platform Migration (e.g., Shopify, WooCommerce, Magento)</li>
+          <li><CheckCircle className="inline-block h-4 w-4 mr-2 text-brand-success" />Payment Gateway Integration</li>
+          <li><CheckCircle className="inline-block h-4 w-4 mr-2 text-brand-success" />Inventory Management Solutions</li>
+          <li><CheckCircle className="inline-block h-4 w-4 mr-2 text-brand-success" />Product Catalog Management</li>
+          <li><CheckCircle className="inline-block h-4 w-4 mr-2 text-brand-success" />Security & SSL Implementation</li>
+          <li><CheckCircle className="inline-block h-4 w-4 mr-2 text-brand-success" />Performance Optimization</li>
         </ul>
         <p>
           Empower your business with a powerful online storefront that drives sales and provides an excellent customer experience.

@@ -1,7 +1,7 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, GalleryVertical } from "lucide-react";
 
 const projects = [
   {
@@ -46,7 +46,8 @@ export default function PortfolioPage() {
   return (
     <div className="container mx-auto py-20 md:py-24 px-4">
       <div className="text-center max-w-3xl mx-auto">
-        <h1 className="mt-4 text-4xl md:text-5xl font-bold tracking-tighter">
+        <h1 className="mt-4 text-4xl md:text-5xl font-bold tracking-tighter flex items-center justify-center gap-3">
+          <GalleryVertical className="h-10 w-10 text-brand-secondary" />
           Our Recent Work / Case Studies
         </h1>
         <p className="mt-4 text-lg text-muted-foreground">

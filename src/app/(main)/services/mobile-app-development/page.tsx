@@ -1,4 +1,4 @@
-import { Smartphone } from "lucide-react";
+import { Smartphone, CheckCircle } from "lucide-react";
 
 export default function MobileAppDevelopmentPage() {
   return (
@@ -19,13 +19,13 @@ export default function MobileAppDevelopmentPage() {
         </p>
         <h3>Key Services:</h3>
         <ul>
-          <li>iOS App Development</li>
-          <li>Android App Development</li>
-          <li>Cross-Platform App Development (React Native, Flutter)</li>
-          <li>UI/UX Design for Mobile</li>
-          <li>App Testing & Quality Assurance</li>
-          <li>App Store Optimization (ASO)</li>
-          <li>Post-Launch Support & Maintenance</li>
+          <li><CheckCircle className="inline-block h-4 w-4 mr-2 text-brand-success" />iOS App Development</li>
+          <li><CheckCircle className="inline-block h-4 w-4 mr-2 text-brand-success" />Android App Development</li>
+          <li><CheckCircle className="inline-block h-4 w-4 mr-2 text-brand-success" />Cross-Platform App Development (React Native, Flutter)</li>
+          <li><CheckCircle className="inline-block h-4 w-4 mr-2 text-brand-success" />UI/UX Design for Mobile</li>
+          <li><CheckCircle className="inline-block h-4 w-4 mr-2 text-brand-success" />App Testing & Quality Assurance</li>
+          <li><CheckCircle className="inline-block h-4 w-4 mr-2 text-brand-success" />App Store Optimization (ASO)</li>
+          <li><CheckCircle className="inline-block h-4 w-4 mr-2 text-brand-success" />Post-Launch Support & Maintenance</li>
         </ul>
         <p>
           Expand your reach and connect with your audience on the go with a custom mobile application tailored to your needs.

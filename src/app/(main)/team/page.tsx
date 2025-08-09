@@ -1,6 +1,6 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Linkedin, Twitter } from "lucide-react";
+import { Linkedin, Twitter, Users } from "lucide-react";
 import Link from "next/link";
 
 const teamMembers = [
@@ -38,7 +38,8 @@ export default function TeamPage() {
   return (
     <div className="container mx-auto py-20 md:py-24 px-4">
       <div className="text-center max-w-3xl mx-auto">
-        <h1 className="mt-4 text-4xl md:text-5xl font-bold tracking-tighter">
+        <h1 className="mt-4 text-4xl md:text-5xl font-bold tracking-tighter flex items-center justify-center gap-3">
+          <Users className="h-10 w-10 text-brand-primary" />
           Meet Our Talented Team
         </h1>
         <p className="mt-4 text-lg text-muted-foreground">

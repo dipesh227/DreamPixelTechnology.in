@@ -1,10 +1,10 @@
-import { Lightbulb } from "lucide-react";
+import { Lightbulb, CheckCircle } from "lucide-react";
 
 export default function ContentCreationPage() {
   return (
     <div className="container mx-auto py-10 px-4">
       <div className="text-center max-w-3xl mx-auto">
-        <Lightbulb className="h-12 w-12 mx-auto text-brand-yellow" />
+        <Lightbulb className="h-12 w-12 mx-auto text-brand-accent" />
         <h1 className="mt-4 text-4xl md:text-5xl font-bold tracking-tighter">
           Content Creation
         </h1>
@@ -19,13 +19,13 @@ export default function ContentCreationPage() {
         </p>
         <h3>Key Services:</h3>
         <ul>
-          <li>Blog Post & Article Writing</li>
-          <li>Website Copywriting</li>
-          <li>Video Scripting & Production</li>
-          <li>Infographics & Visual Content</li>
-          <li>E-books & Whitepapers</li>
-          <li>Social Media Content</li>
-          <li>Content Strategy & Planning</li>
+          <li><CheckCircle className="inline-block h-4 w-4 mr-2 text-brand-success" />Blog Post & Article Writing</li>
+          <li><CheckCircle className="inline-block h-4 w-4 mr-2 text-brand-success" />Website Copywriting</li>
+          <li><CheckCircle className="inline-block h-4 w-4 mr-2 text-brand-success" />Video Scripting & Production</li>
+          <li><CheckCircle className="inline-block h-4 w-4 mr-2 text-brand-success" />Infographics & Visual Content</li>
+          <li><CheckCircle className="inline-block h-4 w-4 mr-2 text-brand-success" />E-books & Whitepapers</li>
+          <li><CheckCircle className="inline-block h-4 w-4 mr-2 text-brand-success" />Social Media Content</li>
+          <li><CheckCircle className="inline-block h-4 w-4 mr-2 text-brand-success" />Content Strategy & Planning</li>
         </ul>
         <p>
           From thought leadership articles to engaging video scripts, we ensure your content not only attracts but also retains your audience.
