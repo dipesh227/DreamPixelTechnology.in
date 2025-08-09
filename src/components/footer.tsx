@@ -4,10 +4,12 @@ import { footerNav } from "@/lib/navigation";
 
 export function Footer() {
   return (
-    <footer className="border-t">
+    <footer className="border-t bg-background">
       <div className="container py-12">
-        <div className="grid gap-8 md:grid-cols-5">
-          <div className="flex flex-col gap-4 md:col-span-2">
+        {/* Main footer content grid */}
+        <div className="grid gap-8 lg:grid-cols-5">
+          {/* Logo and tagline section */}
+          <div className="lg:col-span-2 flex flex-col gap-4">
             <Link href="/" className="flex items-center space-x-2">
               <Image src="/logo.png" alt="DreamPixel Logo" width={180} height={40} />
             </Link>
@@ -15,22 +17,28 @@ export function Footer() {
               Unify Your Content. Amplify Your Reach.
             </p>
           </div>
-          {footerNav.map((section) => (
-            <div key={section.title}>
-              <h4 className="font-semibold mb-4">{section.title}</h4>
-              <ul className="space-y-2">
-                {section.items.map((item) => (
-                  <li key={item.title}>
-                    <Link href={item.href} className="text-sm text-muted-foreground hover:text-foreground">
-                      {item.title}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
+          
+          {/* Links section with nested grid */}
+          <div className="lg:col-span-3 grid grid-cols-2 sm:grid-cols-3 gap-8">
+            {footerNav.map((section) => (
+              <div key={section.title}>
+                <h4 className="font-semibold mb-4">{section.title}</h4>
+                <ul className="space-y-2">
+                  {section.items.map((item) => (
+                    <li key={item.title}>
+                      <Link href={item.href} className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+                        {item.title}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
         </div>
-        <div className="mt-8 border-t pt-6 flex flex-col items-center justify-between gap-4 md:flex-row">
+
+        {/* Bottom copyright section */}
+        <div className="mt-12 border-t pt-8 flex flex-col items-center justify-between gap-4 md:flex-row">
           <p className="text-sm text-muted-foreground">
             © {new Date().getFullYear()} DreamPixel Technology. All rights reserved.
           </p>
