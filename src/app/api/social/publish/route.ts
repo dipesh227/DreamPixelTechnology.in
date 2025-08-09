@@ -1,5 +1,6 @@
 import { supabase } from '@/lib/supabaseClient';
 import { NextResponse } from 'next/server';
+import { getProvider } from '@/lib/socialProviders';
 
 export async function POST(request: Request) {
   const { data: { user } } = await supabase.auth.getUser();
@@ -7,23 +8,51 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
   }
 
-  const postData = await request.json();
+  const { accountId, content, media } = await request.json();
 
-  // Placeholder for actual publishing logic
-  console.log('Publishing post for user:', user.id, postData);
-  // This is where you would call socialProviders.ts functions
-
-  // For now, just create a record in social_posts
-  const { data, error } = await supabase.from('social_posts').insert({
-    ...postData,
-    user_id: user.id,
-    status: 'published',
-    published_at: new Date().toISOString(),
-  }).select().single();
-
-  if (error) {
-    return NextResponse.json({ error: error.message }, { status: 500 });
+  if (!accountId || !content) {
+    return NextResponse.json({ error: 'accountId and content are required' }, { status: 400 });
   }
 
-  return NextResponse.json({ message: 'Post published successfully', post: data }, { status: 200 });
+  // 1. Fetch the social account details from the database
+  const { data: socialAccount, error: accountError } = await supabase
+    .from('social_accounts')
+    .select('*')
+    .eq('id', accountId)
+    .eq('user_id', user.id)
+    .single();
+
+  if (accountError || !socialAccount) {
+    return NextResponse.json({ error: 'Social account not found or access denied.' }, { status: 404 });
+  }
+
+  // 2. Get the correct provider adapter
+  const provider = getProvider(socialAccount.platform);
+  if (!provider) {
+    return NextResponse.json({ error: `Publishing to ${socialAccount.platform} is not supported.` }, { status: 501 });
+  }
+
+  // 3. Use the provider to publish the post
+  const publishResult = await provider.publish(socialAccount, { content, media });
+
+  // 4. Create the social_post record in our database
+  const { data: post, error: postError } = await supabase.from('social_posts').insert({
+    user_id: user.id,
+    content,
+    media,
+    status: publishResult.success ? 'published' : 'failed',
+    published_at: publishResult.success ? new Date().toISOString() : null,
+    publish_response: publishResult.response,
+  }).select().single();
+
+  if (postError) {
+    console.error('CRITICAL: Failed to save post record after successful publish.', postError);
+    return NextResponse.json({ message: 'Post published, but failed to record locally.', post: publishResult.response }, { status: 207 });
+  }
+  
+  if (!publishResult.success) {
+      return NextResponse.json({ error: 'Failed to publish post', details: publishResult.error }, { status: 500 });
+  }
+
+  return NextResponse.json({ message: 'Post published successfully', post }, { status: 200 });
 }
