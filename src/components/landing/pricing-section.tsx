@@ -58,8 +58,34 @@ export function PricingSection() {
         .select('id, name, price, features, description, popular')
         .order('price', { ascending: true });
 
-      if (error) {
-        toast.error("Could not fetch pricing plans.");
+      if (error || !data || data.length === 0) {
+        toast.warning("Could not fetch pricing plans. Displaying sample plans.");
+        setPlans([
+          {
+            id: 'dummy_starter',
+            name: 'Starter',
+            price: 99900,
+            description: 'Ideal for individuals and small projects.',
+            features: ['10 Social Accounts', '100 Posts/Month', 'AI Content Suggestions', 'Basic Analytics'],
+            popular: false,
+          },
+          {
+            id: 'dummy_business',
+            name: 'Business',
+            price: 299900,
+            description: 'Perfect for growing businesses and agencies.',
+            features: ['50 Social Accounts', 'Unlimited Posts', 'Advanced AI Tools', 'Team Collaboration', 'Priority Support'],
+            popular: true,
+          },
+          {
+            id: 'dummy_pro',
+            name: 'Pro',
+            price: 0,
+            description: 'For large organizations with custom needs.',
+            features: ['Unlimited Everything', 'Dedicated Account Manager', 'Custom Integrations', 'API Access', '24/7/365 Support'],
+            popular: false,
+          },
+        ]);
       } else {
         const formattedPlans: Plan[] = data.map(plan => ({
             ...plan,
@@ -137,8 +163,9 @@ export function PricingSection() {
         setIsProcessingPayment(null);
       },
       prefill: {
-        name: user.user_metadata.first_name || user.email,
+        name: user.user_metadata.first_name || "Test User",
         email: user.email,
+        contact: "9000000000",
       },
       notes: {
         planId: plan.id,
