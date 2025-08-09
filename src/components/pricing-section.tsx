@@ -15,7 +15,6 @@ interface Plan {
   features: string[];
   description: string;
   popular: boolean;
-  cta: string;
 }
 
 export function PricingSection() {
@@ -28,27 +27,16 @@ export function PricingSection() {
     const fetchPlans = async () => {
       const { data, error } = await supabase
         .from('plans')
-        .select('id, name, price, features')
+        .select('id, name, price, features, description, popular')
         .order('price', { ascending: true });
 
       if (error) {
         toast.error("Could not fetch pricing plans.");
       } else {
-        const formattedPlans: Plan[] = data.map(plan => {
-            let description = "", popular = false, cta = "Choose Plan";
-            if (plan.name === 'Starter') {
-                description = "For individuals and small teams getting started.";
-                cta = "Get Started";
-            } else if (plan.name === 'Growth') {
-                description = "For growing businesses that need more power.";
-                popular = true;
-                cta = "Choose Growth";
-            } else if (plan.name === 'Pro') {
-                description = "For agencies and enterprises at scale.";
-                cta = "Contact Us";
-            }
-            return { ...plan, price: plan.price / 100, description, popular, cta };
-        });
+        const formattedPlans: Plan[] = data.map(plan => ({
+            ...plan,
+            price: plan.price / 100, // Convert from paise
+        }));
         setPlans(formattedPlans);
       }
       setLoading(false);
@@ -56,8 +44,13 @@ export function PricingSection() {
     fetchPlans();
   }, []);
 
-  const handleCheckout = async (planId: string) => {
-    setIsRedirecting(planId);
+  const handleCheckout = async (plan: Plan) => {
+    if (plan.name === 'Pro') {
+        router.push('/contact');
+        return;
+    }
+
+    setIsRedirecting(plan.id);
     const { data: { user } } = await supabase.auth.getUser();
     if (!user) {
         toast.info("Please log in or sign up to choose a plan.", {
@@ -70,7 +63,7 @@ export function PricingSection() {
     const res = await fetch('/api/stripe/create-checkout-session', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ planId }),
+        body: JSON.stringify({ planId: plan.id }),
     });
 
     if (!res.ok) {
@@ -87,6 +80,11 @@ export function PricingSection() {
         setIsRedirecting(null);
     }
   };
+
+  const getCtaText = (planName: string) => {
+    if (planName === 'Pro') return 'Contact Us';
+    return 'Choose Plan';
+  }
 
   if (loading) {
     return (
@@ -133,11 +131,11 @@ export function PricingSection() {
                   <Button 
                     className="w-full" 
                     variant={plan.popular ? "default" : "outline"}
-                    onClick={() => handleCheckout(plan.id)}
+                    onClick={() => handleCheckout(plan)}
                     disabled={isRedirecting === plan.id}
                   >
                     {isRedirecting === plan.id ? <Loader2 className="h-4 w-4 animate-spin mr-2" /> : null}
-                    {isRedirecting === plan.id ? 'Redirecting...' : plan.cta}
+                    {isRedirecting === plan.id ? 'Redirecting...' : getCtaText(plan.name)}
                   </Button>
                 </CardFooter>
               </Card>
