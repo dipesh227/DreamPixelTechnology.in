@@ -1,0 +1,1 @@
+// This hook will be responsible for fetching, creating, and managing social media posts.

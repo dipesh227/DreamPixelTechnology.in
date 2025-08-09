@@ -1,0 +1,1 @@
+// This hook will manage the user's wallet balance and transaction history.

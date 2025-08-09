@@ -1,0 +1,1 @@
+// This hook will manage user authentication state, session, and profile data.
