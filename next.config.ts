@@ -15,6 +15,12 @@ const nextConfig: NextConfig = {
         port: '',
         pathname: '/**',
       },
+      {
+        protocol: 'https',
+        hostname: 'jbehjwfwcxfxlmeolmtu.supabase.co',
+        port: '',
+        pathname: '/**',
+      },
     ],
   },
   webpack: (config, { isServer, dev }) => {
