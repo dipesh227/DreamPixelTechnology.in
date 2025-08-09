@@ -2,6 +2,8 @@ import { supabase } from '@/lib/supabaseClient';
 import { NextResponse } from 'next/server';
 import type { Provider } from '@supabase/supabase-js';
 
+export const runtime = 'nodejs'; // Explicitly set runtime to Node.js
+
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
   const provider = searchParams.get('provider') as Provider;

@@ -2,6 +2,8 @@ import { supabase } from '@/lib/supabaseClient';
 import { stripe } from '@/lib/stripe';
 import { NextResponse } from 'next/server';
 
+export const runtime = 'nodejs'; // Explicitly set runtime to Node.js
+
 export async function POST(request: Request) {
   const { planId } = await request.json();
   const { data: { user } } = await supabase.auth.getUser();

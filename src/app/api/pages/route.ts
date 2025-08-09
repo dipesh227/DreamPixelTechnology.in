@@ -1,6 +1,8 @@
 import { supabase } from '@/lib/supabaseClient';
 import { NextResponse } from 'next/server';
 
+export const runtime = 'nodejs'; // Explicitly set runtime to Node.js
+
 // Helper to check for admin role
 async function isAdmin(userId: string): Promise<boolean> {
   const { data, error } = await supabase.rpc('is_admin');

@@ -3,6 +3,8 @@ import { stripe } from '@/lib/stripe';
 import { NextResponse } from 'next/server';
 import Stripe from 'stripe';
 
+export const runtime = 'nodejs'; // Explicitly set runtime to Node.js
+
 const relevantEvents = new Set([
   'checkout.session.completed',
   'invoice.payment_succeeded',

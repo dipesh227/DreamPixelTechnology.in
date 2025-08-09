@@ -1,5 +1,7 @@
 import { NextResponse } from 'next/server';
 
+export const runtime = 'nodejs'; // Explicitly set runtime to Node.js
+
 export async function POST(request: Request) {
   // This is a placeholder for fetching external news.
   // In a real scenario, you would integrate with a news API here (e.g., NewsAPI, GNews).
