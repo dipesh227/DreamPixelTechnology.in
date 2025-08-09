@@ -2,57 +2,66 @@ import Link from "next/link";
 import Image from "next/image";
 import { footerNav } from "@/lib/navigation";
 
+const recentPosts = [
+    { title: "9 Best FREE AI Image Upscalers (2025)", href: "/blog/ai-image-upscalers" },
+    { title: "Dadan Review (2025) – Best Loom Alternative?", href: "/blog/dadan-review" },
+    { title: "11 Best Free AI Prompting Courses for 2025", href: "/blog/ai-prompting-courses" },
+];
+
 export function Footer() {
   return (
-    <footer className="border-t bg-background">
+    <footer className="bg-gray-900 text-gray-300">
       <div className="container py-12">
-        {/* Main footer content grid */}
-        <div className="grid gap-8 lg:grid-cols-5">
-          {/* Logo and tagline section */}
-          <div className="lg:col-span-2 flex flex-col gap-4">
-            <Link href="/" className="flex items-center space-x-2">
-              <Image src="/logo.png" alt="DreamPixel Technology Logo" width={180} height={40} />
-            </Link>
-            <p className="text-sm text-muted-foreground max-w-xs">
-              Unify Your Content. Amplify Your Reach.
+        <div className="grid gap-8 lg:grid-cols-4">
+          {/* Useful Links */}
+          <div>
+            <h4 className="font-semibold text-white mb-4">Useful Links</h4>
+            <ul className="space-y-2">
+              {footerNav[0].items.map((item) => (
+                <li key={item.title}>
+                  <Link href={item.href} className="text-sm hover:text-white transition-colors">
+                    {item.title}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Earning Disclaimer */}
+          <div>
+            <h4 className="font-semibold text-white mb-4">Earning Disclaimer</h4>
+            <p className="text-sm">
+              DreamPixel Technology participates in various affiliate marketing programs, which means we may get paid commissions on purchases made through our links to retailer sites.{" "}
+              <Link href="/privacy-policy" className="underline hover:text-white">Read full disclaimer</Link>.
             </p>
           </div>
+
+          {/* Recent Posts */}
+          <div>
+            <h4 className="font-semibold text-white mb-4">Recent Posts</h4>
+            <ul className="space-y-2">
+              {recentPosts.map((post) => (
+                <li key={post.title}>
+                  <Link href={post.href} className="text-sm hover:text-white transition-colors">
+                    {post.title}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
           
-          {/* Links section with nested grid */}
-          <div className="lg:col-span-3 grid grid-cols-2 sm:grid-cols-3 gap-8">
-            {footerNav.map((section) => (
-              <div key={section.title}>
-                <h4 className="font-semibold mb-4">{section.title}</h4>
-                <ul className="space-y-2">
-                  {section.items.map((item) => (
-                    <li key={item.title}>
-                      <Link href={item.href} className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-                        {item.title}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
+          {/* Logo and tagline section */}
+          <div className="flex flex-col gap-4 items-start lg:items-end">
+            <Link href="/" className="flex items-center space-x-2">
+              <Image src="/logo.png" alt="DreamPixel Technology Logo" width={180} height={40} className="brightness-0 invert" />
+            </Link>
           </div>
         </div>
 
         {/* Bottom copyright section */}
-        <div className="mt-12 border-t pt-8 flex flex-col items-center justify-between gap-4 md:flex-row">
-          <p className="text-sm text-muted-foreground">
+        <div className="mt-12 border-t border-gray-700 pt-8 text-center">
+          <p className="text-sm text-gray-500">
             © {new Date().getFullYear()} DreamPixel Technology. All rights reserved.
-          </p>
-          <p className="text-balance text-center text-sm leading-loose text-muted-foreground md:text-left">
-            Built by{" "}
-            <a
-              href="https://dreampixel.com"
-              target="_blank"
-              rel="noreferrer"
-              className="font-medium underline underline-offset-4"
-            >
-              DreamPixel Technology
-            </a>
-            .
           </p>
         </div>
       </div>
