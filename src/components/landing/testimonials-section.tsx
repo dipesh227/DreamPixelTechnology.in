@@ -15,19 +15,19 @@ const testimonials = [
     name: "Sarah L.",
     role: "Marketing Director, TechCorp",
     quote: "DreamPixel has revolutionized our content workflow. We're saving 10+ hours a week and our engagement is up by 40%. The AI caption generator is a game-changer!",
-    avatar: "https://picsum.photos/seed/woman1/150/150",
+    avatar: "https://picsum.photos/seed/client-woman1/150/150",
   },
   {
     name: "Mike R.",
     role: "Founder, StartupHub",
     quote: "As a small team, we were struggling to maintain a consistent social presence. DreamPixel automated everything. It's like having a dedicated social media manager.",
-    avatar: "https://picsum.photos/seed/man1/150/150",
+    avatar: "https://picsum.photos/seed/client-man1/150/150",
   },
   {
     name: "Jessica P.",
     role: "Freelance Content Creator",
     quote: "Managing multiple clients is a breeze with DreamPixel. The unified dashboard and scheduling features are indispensable. I can't imagine my workflow without it.",
-    avatar: "https://picsum.photos/seed/woman2/150/150",
+    avatar: "https://picsum.photos/seed/client-woman2/150/150",
   },
 ];
 

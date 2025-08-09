@@ -54,7 +54,7 @@ export default function AboutPage() {
           </div>
           <div className="hidden md:block">
             <Image 
-              src="https://picsum.photos/seed/about/800/600" 
+              src="https://picsum.photos/seed/techatwork/800/600" 
               alt="Our team collaborating" 
               width={800} 
               height={600} 

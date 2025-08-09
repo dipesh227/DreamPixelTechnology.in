@@ -7,37 +7,37 @@ const projects = [
   {
     title: "E-commerce Redesign",
     description: "A modern and intuitive e-commerce platform for a fashion brand, boosting sales by 30%.",
-    imageUrl: "https://picsum.photos/seed/project1/600/400",
+    imageUrl: "https://picsum.photos/seed/ecommerce/600/400",
     link: "#",
   },
   {
     title: "SaaS Dashboard",
     description: "Developed a sleek, user-friendly dashboard for a B2B SaaS application, improving user engagement.",
-    imageUrl: "https://picsum.photos/seed/project2/600/400",
+    imageUrl: "https://picsum.photos/seed/dashboard/600/400",
     link: "#",
   },
   {
     title: "Non-Profit Website",
     description: "Created an impactful website for a non-profit organization, increasing donations and volunteer sign-ups.",
-    imageUrl: "https://picsum.photos/seed/project3/600/400",
+    imageUrl: "https://picsum.photos/seed/charity/600/400",
     link: "#",
   },
   {
     title: "Mobile App UI/UX",
     description: "Designed the complete UI/UX for a new fitness tracking mobile application.",
-    imageUrl: "https://picsum.photos/seed/project4/600/400",
+    imageUrl: "https://picsum.photos/seed/mobileapp/600/400",
     link: "#",
   },
   {
     title: "Brand Identity for Tech Startup",
     description: "Developed a comprehensive brand identity, including logo, guidelines, and marketing collateral, for a new tech startup.",
-    imageUrl: "https://picsum.photos/seed/project5/600/400",
+    imageUrl: "https://picsum.photos/seed/branding/600/400",
     link: "#",
   },
   {
     title: "SEO & Content Strategy for Healthcare",
     description: "Implemented an SEO and content marketing strategy that significantly increased organic traffic and patient inquiries for a healthcare provider.",
-    imageUrl: "https://picsum.photos/seed/project6/600/400",
+    imageUrl: "https://picsum.photos/seed/analytics/600/400",
     link: "#",
   },
 ];
