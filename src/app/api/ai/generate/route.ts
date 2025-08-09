@@ -1,5 +1,6 @@
 import { supabase } from '@/lib/supabaseClient';
 import { NextResponse } from 'next/server';
+import { generateCaption } from '@/lib/ai';
 
 export async function POST(request: Request) {
   const { data: { user } } = await supabase.auth.getUser();
@@ -7,23 +8,56 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
   }
 
-  const { prompt } = await request.json();
+  const body = await request.json();
+  const { platform, keywords, tone, cta, audience } = body;
 
-  // Placeholder for AI generation logic from ai.ts
-  const generatedText = `This is an AI-generated caption based on the prompt: "${prompt}"`;
-
-  // Log the suggestion
-  const { data, error } = await supabase.from('ai_suggestions').insert({
-    user_id: user.id,
-    prompt,
-    result: generatedText,
-    tokens_used: generatedText.length, // Example token calculation
-  }).select().single();
-
-  if (error) {
-    // Still return the text, but log the error
-    console.error("Could not save AI suggestion:", error.message);
+  if (!platform || !keywords) {
+    return NextResponse.json({ error: 'platform and keywords are required' }, { status: 400 });
   }
 
-  return NextResponse.json({ suggestion: generatedText, suggestionId: data?.id });
+  // TODO: Add logic to check user's plan and AI usage limits before proceeding.
+
+  // 1. Generate the caption using the AI helper
+  const { result: suggestion, tokens, prompt } = await generateCaption({
+    platform,
+    keywords,
+    tone,
+    cta,
+    audience,
+  });
+
+  // 2. Log the suggestion in the database
+  const { data: suggestionRecord, error: suggestionError } = await supabase
+    .from('ai_suggestions')
+    .insert({
+      user_id: user.id,
+      prompt,
+      result: JSON.stringify(suggestion), // Store structured data as JSON string
+      tokens_used: tokens,
+      provider: 'mock-ai', // In a real app, this would be 'openai', etc.
+    })
+    .select()
+    .single();
+
+  if (suggestionError) {
+    // Still return the text to the user, but log the error for debugging
+    console.error("Could not save AI suggestion:", suggestionError.message);
+  }
+
+  // 3. Update daily usage stats
+  const today = new Date().toISOString().split('T')[0];
+  const { error: usageError } = await supabase.rpc('increment_ai_request_count', {
+      p_user_id: user.id,
+      p_day: today
+  });
+
+  if (usageError) {
+      console.error('Failed to update user usage stats:', usageError.message);
+  }
+
+  // 4. Return the structured suggestion to the client
+  return NextResponse.json({
+    suggestion,
+    suggestionId: suggestionRecord?.id,
+  });
 }
