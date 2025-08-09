@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
-import * as Razorpay from 'razorpay'; // Fixed import
-import { supabase } from '@/lib/supabaseClient'; // Assuming this is your browser client
+import Razorpay from 'razorpay'; // Changed to default import
+import { supabase } from '@/lib/supabaseClient';
 import crypto from 'crypto';
 
 export const runtime = 'nodejs';
@@ -88,6 +88,4 @@ export async function POST(request: Request) {
     console.error('Razorpay webhook handler failed:', error.message);
     return new NextResponse('Webhook handler failed. View server logs for details.', { status: 500 });
   }
-
-  return NextResponse.json({ received: true });
 }

@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
-import * as Razorpay from 'razorpay'; // Fixed import
-import { supabase } from '@/lib/supabaseClient'; // Assuming this is your browser client
+import Razorpay from 'razorpay'; // Changed to default import
+import { supabase } from '@/lib/supabaseClient';
 
 export const runtime = 'nodejs';
 
@@ -36,7 +36,7 @@ export async function POST(request: Request) {
       amount: plan.price, // amount in the smallest currency unit (paise for INR)
       currency: 'INR',
       receipt: `receipt_order_${planId}_${user.id}_${Date.now()}`,
-      payment_capture: 1, // 1 for automatic capture
+      payment_capture: 1 as 0 | 1, // Explicitly cast to 0 | 1
       notes: {
         userId: user.id,
         planId: planId,
