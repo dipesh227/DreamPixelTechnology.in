@@ -1,32 +1,9 @@
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { FileText, Share2, Sparkles, BarChart2, ArrowRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
-import { PricingSection } from "@/components/pricing-section";
-
-const features = [
-  {
-    icon: <FileText className="h-8 w-8" />,
-    title: "Unified CMS",
-    description: "Effortlessly manage your website pages, blog posts, and stories from a single, intuitive dashboard.",
-  },
-  {
-    icon: <Share2 className="h-8 w-8" />,
-    title: "Social Automation",
-    description: "Connect all your social accounts, schedule posts in advance, and publish across platforms with one click.",
-  },
-  {
-    icon: <Sparkles className="h-8 w-8" />,
-    title: "AI-Powered Creativity",
-    description: "Generate engaging, platform-aware captions and relevant hashtags instantly. Never run out of content ideas.",
-  },
-  {
-    icon: <BarChart2 className="h-8 w-8" />,
-    title: "Growth Analytics",
-    description: "Track post performance with clear analytics on impressions, likes, and shares to understand what works.",
-  },
-];
+import { PricingSection } from "@/components/landing/pricing-section";
+import { FeaturesSection } from "@/components/landing/features-section";
 
 export default function Home() {
   return (
@@ -61,31 +38,7 @@ export default function Home() {
       </section>
 
       {/* Features Section */}
-      <section id="features" className="w-full py-20 md:py-24 lg:py-32 bg-background">
-        <div className="container mx-auto px-4 md:px-6">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold">A Smarter Way to Manage Your Brand</h2>
-            <p className="max-w-[600px] mx-auto text-muted-foreground mt-4">
-              Everything you need to create, publish, and analyze your digital presence.
-            </p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {features.map((feature, index) => (
-              <Card key={index} className="flex flex-col items-center text-center p-6 border-border/80 hover:border-brand-cyan/50 hover:bg-secondary transition-all duration-300 transform hover:-translate-y-2">
-                <div className="p-4 bg-gradient-to-br from-brand-purple/20 to-brand-cyan/20 rounded-full mb-4 text-brand-cyan">
-                  {feature.icon}
-                </div>
-                <CardHeader className="p-0">
-                  <CardTitle>{feature.title}</CardTitle>
-                </CardHeader>
-                <CardContent className="p-0 mt-2">
-                  <p className="text-muted-foreground">{feature.description}</p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
+      <FeaturesSection />
 
       {/* Pricing Section */}
       <PricingSection />

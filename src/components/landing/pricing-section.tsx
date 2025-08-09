@@ -7,6 +7,7 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter }
 import { Check, Loader2 } from "lucide-react";
 import { toast } from 'sonner';
 import { useRouter } from 'next/navigation';
+import { motion } from 'framer-motion';
 
 interface Plan {
   id: string;
@@ -17,12 +18,32 @@ interface Plan {
   popular: boolean;
 }
 
-// Declare Razorpay global object
 declare global {
   interface Window {
     Razorpay: any;
   }
 }
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.2,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { y: 20, opacity: 0 },
+  visible: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      duration: 0.5,
+    },
+  },
+};
 
 export function PricingSection() {
   const [plans, setPlans] = useState<Plan[]>([]);
@@ -42,7 +63,7 @@ export function PricingSection() {
       } else {
         const formattedPlans: Plan[] = data.map(plan => ({
             ...plan,
-            price: plan.price, // Keep in paise for Razorpay
+            price: plan.price,
         }));
         setPlans(formattedPlans);
       }
@@ -99,7 +120,7 @@ export function PricingSection() {
     const { orderId, amount, currency } = await res.json();
 
     const options = {
-      key: process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID, // Your Razorpay Key ID
+      key: process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID,
       amount: amount,
       currency: currency,
       name: 'DreamPixel Technology',
@@ -124,7 +145,7 @@ export function PricingSection() {
         userId: user.id,
       },
       theme: {
-        color: '#00BCD4' // Your brand color
+        color: '#00BCD4'
       }
     };
 
@@ -159,9 +180,19 @@ export function PricingSection() {
             Choose the plan that's right for you. Start for free, no credit card required.
           </p>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch">
+        <motion.div
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+        >
           {plans.map((plan) => (
-            <div key={plan.name} className={plan.popular ? "p-0.5 rounded-xl bg-gradient-to-br from-brand-cyan to-brand-yellow" : ""}>
+            <motion.div
+              key={plan.name}
+              variants={itemVariants}
+              className={plan.popular ? "p-0.5 rounded-xl bg-gradient-to-br from-brand-cyan to-brand-yellow" : ""}
+            >
               <Card className="h-full flex flex-col">
                 <CardHeader>
                   {plan.popular && <div className="text-brand-cyan font-semibold mb-2">Most Popular</div>}
@@ -194,9 +225,9 @@ export function PricingSection() {
                   </Button>
                 </CardFooter>
               </Card>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
