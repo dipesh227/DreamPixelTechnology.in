@@ -11,7 +11,7 @@ export function Footer() {
           {/* Logo and tagline section */}
           <div className="lg:col-span-2 flex flex-col gap-4">
             <Link href="/" className="flex items-center space-x-2">
-              <Image src="/logo.png" alt="DreamPixel Logo" width={180} height={40} />
+              <Image src="/logo.png" alt="DreamPixel Technology Logo" width={180} height={40} />
             </Link>
             <p className="text-sm text-muted-foreground max-w-xs">
               Unify Your Content. Amplify Your Reach.
@@ -45,12 +45,12 @@ export function Footer() {
           <p className="text-balance text-center text-sm leading-loose text-muted-foreground md:text-left">
             Built by{" "}
             <a
-              href="#"
+              href="https://dreampixel.com"
               target="_blank"
               rel="noreferrer"
               className="font-medium underline underline-offset-4"
             >
-              DreamPixel
+              DreamPixel Technology
             </a>
             .
           </p>

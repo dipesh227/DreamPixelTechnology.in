@@ -17,8 +17,27 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "DreamPixel Technology - Unify Your Content. Amplify Your Reach.",
-  description: "The all-in-one platform for content management and AI-driven social media automation.",
+  metadataBase: new URL('https://jbehjwfwcxfxlmeolmtu.supabase.co'), // Replace with your actual domain
+  title: {
+    default: "DreamPixel Technology | Web Design, Digital Marketing & AI Automation",
+    template: "%s | DreamPixel Technology",
+  },
+  description: "DreamPixel Technology is an all-in-one platform for content management and AI-driven social media automation. We offer web design, SEO, and digital marketing services to amplify your reach.",
+  openGraph: {
+    title: "DreamPixel Technology",
+    description: "Unify Your Content. Amplify Your Reach.",
+    url: "https://jbehjwfwcxfxlmeolmtu.supabase.co", // Replace with your actual domain
+    siteName: "DreamPixel Technology",
+    images: [
+      {
+        url: '/hero-graphic.png', // Replace with a proper OG image URL
+        width: 1200,
+        height: 630,
+      },
+    ],
+    locale: 'en_US',
+    type: 'website',
+  },
 };
 
 export default function RootLayout({

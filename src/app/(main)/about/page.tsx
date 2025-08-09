@@ -3,6 +3,12 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Check, Eye, Heart, Lightbulb, Users } from "lucide-react";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "About Us",
+  description: "Learn about DreamPixel Technology's mission to empower businesses through innovative digital solutions. Meet our dedicated team and discover our core values.",
+};
 
 const values = [
   {
@@ -11,12 +17,12 @@ const values = [
     description: "We constantly seek new and better ways to solve problems and drive growth for our clients.",
   },
   {
-    icon: <Heart className="h-8 w-8 text-brand-highlight" />,
+    icon: <Heart className="h-8 w-8 text-brand-violet" />,
     title: "Client-Centric",
     description: "Our clients' success is our success. We build partnerships based on trust and transparency.",
   },
   {
-    icon: <Check className="h-8 w-8 text-brand-success" />,
+    icon: <Check className="h-8 w-8 text-success" />,
     title: "Integrity",
     description: "We operate with honesty and adhere to the highest ethical standards in all our dealings.",
   },
@@ -40,13 +46,13 @@ export default function AboutPage() {
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div className="space-y-8">
             <div>
-              <h2 className="text-3xl font-bold flex items-center gap-3"><Eye className="h-8 w-8 text-brand-secondary" /> Our Mission</h2>
+              <h2 className="text-3xl font-bold flex items-center gap-3"><Eye className="h-8 w-8 text-brand-teal" /> Our Mission</h2>
               <p className="mt-4 text-muted-foreground">
                 To empower businesses of all sizes to unify their content and amplify their reach through innovative, intuitive, and intelligent technology solutions. We strive to simplify the complexities of digital marketing, making it accessible and effective for everyone.
               </p>
             </div>
             <div>
-              <h2 className="text-3xl font-bold flex items-center gap-3"><Heart className="h-8 w-8 text-brand-highlight" /> Our Vision</h2>
+              <h2 className="text-3xl font-bold flex items-center gap-3"><Heart className="h-8 w-8 text-brand-violet" /> Our Vision</h2>
               <p className="mt-4 text-muted-foreground">
                 To become the indispensable all-in-one platform for brand building and content automation, fostering a world where every creator and business can effortlessly connect with their audience and achieve their full potential.
               </p>
@@ -55,7 +61,7 @@ export default function AboutPage() {
           <div className="hidden md:block">
             <Image 
               src="https://picsum.photos/seed/techatwork/800/600" 
-              alt="Our team collaborating" 
+              alt="Our team collaborating at DreamPixel Technology" 
               width={800} 
               height={600} 
               className="rounded-lg shadow-lg"

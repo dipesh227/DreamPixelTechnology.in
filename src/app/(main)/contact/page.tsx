@@ -4,6 +4,12 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Mail, Phone, MapPin, User, Pencil, Send } from "lucide-react";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Contact Us",
+  description: "Contact DreamPixel Technology for inquiries about our web design, SEO, and digital marketing services. Reach out via our form, email, or phone to start your project.",
+};
 
 export default function ContactPage() {
   return (

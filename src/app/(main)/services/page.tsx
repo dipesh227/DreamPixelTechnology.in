@@ -4,6 +4,12 @@ import React from "react";
 import Link from "next/link";
 import { ProcessSection } from "@/components/landing/process-section";
 import { Button } from "@/components/ui/button";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Digital Agency Services",
+  description: "DreamPixel Technology offers a comprehensive suite of digital services including web design, development, SEO, social media marketing, and content creation to elevate your brand.",
+};
 
 const services = [
   {
