@@ -17,10 +17,17 @@ interface Plan {
   popular: boolean;
 }
 
+// Declare Razorpay global object
+declare global {
+  interface Window {
+    Razorpay: any;
+  }
+}
+
 export function PricingSection() {
   const [plans, setPlans] = useState<Plan[]>([]);
   const [loading, setLoading] = useState(true);
-  const [isRedirecting, setIsRedirecting] = useState<string | null>(null);
+  const [isProcessingPayment, setIsProcessingPayment] = useState<string | null>(null);
   const router = useRouter();
 
   useEffect(() => {
@@ -35,7 +42,7 @@ export function PricingSection() {
       } else {
         const formattedPlans: Plan[] = data.map(plan => ({
             ...plan,
-            price: plan.price / 100, // Convert from paise
+            price: plan.price, // Keep in paise for Razorpay
         }));
         setPlans(formattedPlans);
       }
@@ -44,41 +51,89 @@ export function PricingSection() {
     fetchPlans();
   }, []);
 
+  const loadRazorpayScript = () => {
+    return new Promise((resolve) => {
+      const script = document.createElement('script');
+      script.src = 'https://checkout.razorpay.com/v1/checkout.js';
+      script.onload = () => resolve(true);
+      script.onerror = () => resolve(false);
+      document.body.appendChild(script);
+    });
+  };
+
   const handleCheckout = async (plan: Plan) => {
     if (plan.name === 'Pro') {
         router.push('/contact');
         return;
     }
 
-    setIsRedirecting(plan.id);
+    setIsProcessingPayment(plan.id);
     const { data: { user } } = await supabase.auth.getUser();
     if (!user) {
         toast.info("Please log in or sign up to choose a plan.", {
             action: { label: "Login", onClick: () => router.push('/login') },
         });
-        setIsRedirecting(null);
+        setIsProcessingPayment(null);
         return;
     }
 
-    const res = await fetch('/api/stripe/create-checkout-session', {
+    const scriptLoaded = await loadRazorpayScript();
+    if (!scriptLoaded) {
+      toast.error("Razorpay SDK failed to load. Please try again.");
+      setIsProcessingPayment(null);
+      return;
+    }
+
+    const res = await fetch('/api/razorpay/create-order', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ planId: plan.id }),
     });
 
     if (!res.ok) {
-        toast.error("Failed to create checkout session. Please try again.");
-        setIsRedirecting(null);
+        toast.error("Failed to create Razorpay order. Please try again.");
+        setIsProcessingPayment(null);
         return;
     }
 
-    const { url } = await res.json();
-    if (url) {
-        window.location.href = url;
-    } else {
-        toast.error("Could not redirect to payment page.");
-        setIsRedirecting(null);
-    }
+    const { orderId, amount, currency } = await res.json();
+
+    const options = {
+      key: process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID, // Your Razorpay Key ID
+      amount: amount,
+      currency: currency,
+      name: 'DreamPixel Technology',
+      description: `Subscription for ${plan.name} Plan`,
+      order_id: orderId,
+      handler: async function (response: any) {
+        if (response.razorpay_payment_id) {
+          toast.success("Payment successful! Redirecting to dashboard...");
+          router.push('/dashboard?payment_success=true');
+          router.refresh();
+        } else {
+          toast.error("Payment failed. Please try again.");
+        }
+        setIsProcessingPayment(null);
+      },
+      prefill: {
+        name: user.user_metadata.first_name || user.email,
+        email: user.email,
+      },
+      notes: {
+        planId: plan.id,
+        userId: user.id,
+      },
+      theme: {
+        color: '#00BCD4' // Your brand color
+      }
+    };
+
+    const rzp1 = new window.Razorpay(options);
+    rzp1.on('payment.failed', function (response: any){
+        toast.error(`Payment failed: ${response.error.description}`);
+        setIsProcessingPayment(null);
+    });
+    rzp1.open();
   };
 
   const getCtaText = (planName: string) => {
@@ -113,7 +168,7 @@ export function PricingSection() {
                   <CardTitle>{plan.name}</CardTitle>
                   <CardDescription>{plan.description}</CardDescription>
                   <div>
-                    <span className="text-4xl font-bold">₹{plan.price}</span>
+                    <span className="text-4xl font-bold">₹{plan.price / 100}</span>
                     <span className="text-muted-foreground">/month</span>
                   </div>
                 </CardHeader>
@@ -132,10 +187,10 @@ export function PricingSection() {
                     className="w-full" 
                     variant={plan.popular ? "default" : "outline"}
                     onClick={() => handleCheckout(plan)}
-                    disabled={isRedirecting === plan.id}
+                    disabled={isProcessingPayment === plan.id}
                   >
-                    {isRedirecting === plan.id ? <Loader2 className="h-4 w-4 animate-spin mr-2" /> : null}
-                    {isRedirecting === plan.id ? 'Redirecting...' : getCtaText(plan.name)}
+                    {isProcessingPayment === plan.id ? <Loader2 className="h-4 w-4 animate-spin mr-2" /> : null}
+                    {isProcessingPayment === plan.id ? 'Processing...' : getCtaText(plan.name)}
                   </Button>
                 </CardFooter>
               </Card>
