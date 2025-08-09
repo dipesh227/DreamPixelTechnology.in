@@ -1,6 +1,6 @@
 import { supabase } from '@/lib/supabaseClient';
 import { NextResponse } from 'next/server';
-import { getProvider } from '@/lib/socialProviders';
+import { getProvider } from '@/lib/posts';
 
 export async function POST(request: Request) {
   const { data: { user } } = await supabase.auth.getUser();

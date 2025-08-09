@@ -6,8 +6,8 @@ import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { Sparkles, Send, Calendar } from "lucide-react";
-import { AccountSelector } from "./account-selector";
-import { PlatformPreview } from "./platform-preview";
+import { AccountSelector } from "@/components/forms/account-selector";
+import { PlatformPreview } from "@/components/posts/platform-preview";
 import type { SocialAccount, SocialPlatform } from "@/lib/types";
 import { toast } from "sonner";
 
@@ -39,9 +39,9 @@ export function SocialComposer() {
     setIsSubmitting(true);
     toast.info("Publishing post...");
 
-    // This simulates calling the /api/social/publish endpoint for each account
+    // This simulates calling the /api/posts/publish endpoint for each account
     const promises = selectedAccounts.map(accountId => 
-      fetch('/api/social/publish', {
+      fetch('/api/posts/publish', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ accountId, content }),
@@ -100,7 +100,7 @@ export function SocialComposer() {
             </Button>
             <Button onClick={handlePublish} disabled={isSubmitting} className="w-full sm:w-auto">
               <Send className="h-4 w-4 mr-2" />
-              {isSubmitting ? "Publishing..." : "Publishing Now"}
+              {isSubmitting ? "Publishing..." : "Publish Now"}
             </Button>
           </div>
         </CardContent>

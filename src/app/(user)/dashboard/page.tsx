@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 import type { User } from "@supabase/supabase-js";
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
-import { SocialComposer } from "@/components/social/composer";
+import { SocialComposer } from "@/components/posts/composer";
 
 export default function DashboardPage() {
   const router = useRouter();
