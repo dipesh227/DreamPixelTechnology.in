@@ -5,6 +5,7 @@ import { ThemeProvider } from "@/components/theme-provider";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 import { Toaster } from "@/components/ui/sonner";
+import { cn } from "@/lib/utils";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -48,7 +49,10 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={cn(
+          `${geistSans.variable} ${geistMono.variable} antialiased`,
+          "circuit-background"
+        )}
       >
         <ThemeProvider
           attribute="class"
@@ -56,7 +60,8 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <div className="relative flex min-h-screen flex-col bg-background">
+          <div className="relative flex min-h-screen flex-col">
+            <div className="absolute inset-0 -z-10 animated-glow-background" />
             <Header />
             <main className="flex-1">{children}</main>
             <Footer />
