@@ -1,0 +1,9 @@
+<!-- This is a placeholder SVG for hero-graphic.png -->
+<svg width="600" height="500" viewBox="0 0 600 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="600" height="500" fill="#1E1E1E"/>
+<circle cx="300" cy="250" r="150" fill="#00BCD4" fill-opacity="0.2"/>
+<circle cx="300" cy="250" r="120" stroke="#00BCD4" stroke-width="2" stroke-dasharray="5 5"/>
+<path d="M200 250 L400 250 M300 150 L300 350" stroke="#00BCD4" stroke-width="2"/>
+<text x="300" y="260" font-family="Arial" font-size="24" fill="#00BCD4" text-anchor="middle">DreamPixel</text>
+<text x="300" y="290" font-family="Arial" font-size="16" fill="#00BCD4" text-anchor="middle">Illustration Placeholder</text>
+</svg>
