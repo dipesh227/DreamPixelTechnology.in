@@ -26,15 +26,10 @@ export function Footer() {
           <div>
             <h4 className="font-semibold mb-4">Services</h4>
             <ul className="space-y-2">
+              <li><Link href="/services" className="text-sm text-muted-foreground hover:text-foreground">All Services</Link></li>
               <li><Link href="/services/web-design-development" className="text-sm text-muted-foreground hover:text-foreground">Web Design & Development</Link></li>
               <li><Link href="/services/digital-marketing" className="text-sm text-muted-foreground hover:text-foreground">Digital Marketing</Link></li>
               <li><Link href="/services/seo-services" className="text-sm text-muted-foreground hover:text-foreground">SEO Services</Link></li>
-              <li><Link href="/services/social-media-marketing" className="text-sm text-muted-foreground hover:text-foreground">Social Media Marketing</Link></li>
-              <li><Link href="/services/content-creation" className="text-sm text-muted-foreground hover:text-foreground">Content Creation</Link></li>
-              <li><Link href="/services/branding-identity" className="text-sm text-muted-foreground hover:text-foreground">Branding & Identity</Link></li>
-              <li><Link href="/services/e-commerce-solutions" className="text-sm text-muted-foreground hover:text-foreground">E-commerce Solutions</Link></li>
-              <li><Link href="/services/mobile-app-development" className="text-sm text-muted-foreground hover:text-foreground">Mobile App Development</Link></li>
-              <li><Link href="/services/ppc-advertising" className="text-sm text-muted-foreground hover:text-foreground">PPC Advertising</Link></li>
             </ul>
           </div>
           <div>
@@ -44,6 +39,11 @@ export function Footer() {
               <li><Link href="/portfolio" className="text-sm text-muted-foreground hover:text-foreground">Portfolio / Case Studies</Link></li>
               <li><Link href="/testimonials" className="text-sm text-muted-foreground hover:text-foreground">Client Testimonials</Link></li>
               <li><Link href="/faq" className="text-sm text-muted-foreground hover:text-foreground">FAQs</Link></li>
+            </ul>
+          </div>
+          <div>
+            <h4 className="font-semibold mb-4">Legal</h4>
+            <ul className="space-y-2">
               <li><Link href="/privacy-policy" className="text-sm text-muted-foreground hover:text-foreground">Privacy Policy</Link></li>
             </ul>
           </div>
