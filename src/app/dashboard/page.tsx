@@ -1,6 +1,6 @@
 "use client";
 
-import { createClient } from "@/integrations/supabase/client";
+import { supabase } from "@/integrations/supabase/client";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import type { User } from "@supabase/supabase-js";
@@ -8,7 +8,6 @@ import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
 
 export default function DashboardPage() {
-  const supabase = createClient();
   const router = useRouter();
   const [user, setUser] = useState<User | null>(null);
   const [loading, setLoading] = useState(true);
@@ -24,7 +23,7 @@ export default function DashboardPage() {
       setLoading(false);
     };
     getUser();
-  }, [supabase, router]);
+  }, [router]);
 
   const handleSignOut = async () => {
     await supabase.auth.signOut();
