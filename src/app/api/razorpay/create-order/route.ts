@@ -1,13 +1,8 @@
 import { NextResponse } from 'next/server';
-import Razorpay from 'razorpay'; // Changed to default import
+import Razorpay from 'razorpay';
 import { supabase } from '@/lib/supabaseClient';
 
 export const runtime = 'nodejs';
-
-const razorpay = new Razorpay({
-  key_id: process.env.RAZORPAY_KEY_ID || '',
-  key_secret: process.env.RAZORPAY_KEY_SECRET || '',
-});
 
 export async function POST(request: Request) {
   const { planId } = await request.json();
@@ -20,6 +15,11 @@ export async function POST(request: Request) {
   if (!planId) {
     return NextResponse.json({ error: 'Plan ID is required' }, { status: 400 });
   }
+
+  const razorpay = new Razorpay({
+    key_id: process.env.RAZORPAY_KEY_ID || '',
+    key_secret: process.env.RAZORPAY_KEY_SECRET || '',
+  });
 
   const { data: plan, error: planError } = await supabase
     .from('plans')
