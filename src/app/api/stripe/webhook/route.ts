@@ -1,6 +1,5 @@
 import { supabase } from '@/lib/supabaseClient';
 import { stripe } from '@/lib/stripe';
-import { headers } from 'next/headers';
 import { NextResponse } from 'next/server';
 import Stripe from 'stripe';
 
@@ -12,7 +11,7 @@ const relevantEvents = new Set([
 
 export async function POST(request: Request) {
   const body = await request.text();
-  const sig = headers().get('Stripe-Signature') as string;
+  const sig = request.headers.get('Stripe-Signature') as string;
   const webhookSecret = process.env.STRIPE_WEBHOOK_SECRET;
 
   if (!sig || !webhookSecret) {

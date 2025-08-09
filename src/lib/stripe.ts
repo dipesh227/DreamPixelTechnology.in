@@ -5,6 +5,7 @@ if (!process.env.STRIPE_SECRET_KEY) {
 }
 
 export const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
-  apiVersion: '2024-06-20',
+  // apiVersion is optional; the library will use its default version.
+  // This avoids the specific version mismatch from the type definitions.
   typescript: true,
 });
