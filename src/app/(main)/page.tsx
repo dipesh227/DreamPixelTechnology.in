@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { FileText, Share2, Sparkles, BarChart2 } from "lucide-react";
+import { FileText, Share2, Sparkles, BarChart2, ArrowRight } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import { PricingSection } from "@/components/pricing-section";
@@ -32,22 +32,25 @@ export default function Home() {
   return (
     <div className="flex flex-col min-h-screen">
       {/* Hero Section */}
-      <section className="w-full py-20 md:py-24 lg:py-32 bg-background relative overflow-hidden">
-        <div className="absolute inset-0 -z-10 h-full w-full bg-white bg-[linear-gradient(to_right,#f0f0f0_1px,transparent_1px),linear-gradient(to_bottom,#f0f0f0_1px,transparent_1px)] bg-[size:6rem_4rem]"><div className="absolute bottom-0 left-0 right-0 top-0 bg-[radial-gradient(circle_500px_at_50%_200px,#d5f5f6,transparent)]"></div></div>
+      <section className="w-full py-20 md:py-24 lg:py-32 relative overflow-hidden">
+        <div className="absolute inset-0 -z-10 circuit-background">
+            <div className="absolute inset-0 circuit-glow" />
+        </div>
         <div className="container mx-auto grid md:grid-cols-2 gap-8 items-center px-4 md:px-6">
           <div className="flex flex-col gap-6">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter">
-              Unify Your Content. <span className="text-brand-cyan">Amplify</span> Your Reach.
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter !leading-[1.2]">
+              Unify Your Content. <br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-cyan to-brand-purple">Amplify</span> Your Reach.
             </h1>
             <p className="max-w-[600px] text-lg text-muted-foreground md:text-xl">
               DreamPixel is the all-in-one platform for content management and AI-driven social media automation. Build your brand, engage your audience, and grow your business—all from one place.
             </p>
             <div className="flex gap-4">
-              <Button size="lg" className="bg-brand-cyan hover:bg-brand-cyan/90 text-primary-foreground" asChild>
-                <Link href="/register">Get Started for Free</Link>
+              <Button size="lg" className="bg-brand-cyan hover:bg-brand-cyan/90 text-primary-foreground group" asChild>
+                <Link href="/register">Get Started for Free <ArrowRight className="h-4 w-4 ml-2 transition-transform group-hover:translate-x-1" /></Link>
               </Button>
               <Button size="lg" variant="outline" asChild>
-                <Link href="#">Request a Demo</Link>
+                <Link href="/contact">Request a Demo</Link>
               </Button>
             </div>
           </div>
@@ -58,7 +61,7 @@ export default function Home() {
       </section>
 
       {/* Features Section */}
-      <section id="features" className="w-full py-20 md:py-24 lg:py-32 bg-secondary/50 dark:bg-background">
+      <section id="features" className="w-full py-20 md:py-24 lg:py-32 bg-background">
         <div className="container mx-auto px-4 md:px-6">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold">A Smarter Way to Manage Your Brand</h2>
@@ -68,8 +71,8 @@ export default function Home() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {features.map((feature, index) => (
-              <Card key={index} className="flex flex-col items-center text-center p-6 transition-transform hover:-translate-y-2 duration-300">
-                <div className="p-4 bg-brand-cyan/10 rounded-full mb-4 text-brand-cyan">
+              <Card key={index} className="flex flex-col items-center text-center p-6 border-border/80 hover:border-brand-cyan/50 hover:bg-secondary transition-all duration-300 transform hover:-translate-y-2">
+                <div className="p-4 bg-gradient-to-br from-brand-purple/20 to-brand-cyan/20 rounded-full mb-4 text-brand-cyan">
                   {feature.icon}
                 </div>
                 <CardHeader className="p-0">
@@ -88,7 +91,7 @@ export default function Home() {
       <PricingSection />
 
       {/* Final CTA Section */}
-      <section className="w-full py-20 md:py-24 lg:py-32 bg-secondary/50 dark:bg-background">
+      <section className="w-full py-20 md:py-24 lg:py-32 bg-secondary/50">
         <div className="container mx-auto text-center px-4 md:px-6">
           <h2 className="text-3xl md:text-4xl font-bold tracking-tighter mb-4">
             Ready to Transform Your Digital Presence?
@@ -96,8 +99,8 @@ export default function Home() {
           <p className="max-w-[600px] mx-auto text-lg text-muted-foreground md:text-xl mb-8">
             Join hundreds of businesses growing with DreamPixel. Get started today.
           </p>
-          <Button size="lg" className="bg-brand-cyan hover:bg-brand-cyan/90 text-primary-foreground" asChild>
-            <Link href="/register">Sign Up Now</Link>
+          <Button size="lg" className="bg-brand-cyan hover:bg-brand-cyan/90 text-primary-foreground group" asChild>
+            <Link href="/register">Sign Up Now <ArrowRight className="h-4 w-4 ml-2 transition-transform group-hover:translate-x-1" /></Link>
           </Button>
         </div>
       </section>

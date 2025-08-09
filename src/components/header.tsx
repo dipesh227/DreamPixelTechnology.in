@@ -2,18 +2,62 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { Menu } from "lucide-react";
+import { Menu, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import {
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  NavigationMenuTrigger,
+  navigationMenuTriggerStyle,
+} from "@/components/ui/navigation-menu";
 import { ThemeToggle } from "./theme-toggle";
+import { cn } from "@/lib/utils";
+import React from "react";
 
-const navLinks = [
-  { href: "/#features", label: "Features" },
-  { href: "/#pricing", label: "Pricing" },
-  { href: "/about", label: "About" },
-  { href: "/blog", label: "Blog" },
-  { href: "/contact", label: "Contact" },
+const features: { title: string; href: string; description: string }[] = [
+  {
+    title: "Unified CMS",
+    href: "/features/cms",
+    description: "Manage website pages, blog posts, and stories from one dashboard.",
+  },
+  {
+    title: "Social Automation",
+    href: "/features/social-automation",
+    description: "Connect social accounts, schedule posts, and publish across platforms.",
+  },
+  {
+    title: "AI Creative Suite",
+    href: "/features/ai-tools",
+    description: "Generate engaging captions, hashtags, and content ideas instantly.",
+  },
+  {
+    title: "Growth Analytics",
+    href: "/features/analytics",
+    description: "Track post performance with clear analytics to understand what works.",
+  },
 ];
+
+const solutions: { title: string; href: string; description: string }[] = [
+    {
+        title: "For Agencies",
+        href: "/solutions/for-agencies",
+        description: "Manage multiple clients, streamline workflows, and deliver results.",
+    },
+    {
+        title: "For Startups",
+        href: "/solutions/for-startups",
+        description: "Build your brand, engage your audience, and grow your business.",
+    },
+    {
+        title: "For Creators",
+        href: "/solutions/for-creators",
+        description: "Automate your content, save time, and focus on creating.",
+    }
+]
 
 export function Header() {
   return (
@@ -23,17 +67,56 @@ export function Header() {
           <Link href="/" className="mr-6 flex items-center space-x-2">
             <Image src="/logo.png" alt="DreamPixel Logo" width={180} height={40} priority />
           </Link>
-          <nav className="flex items-center gap-6 text-sm">
-            {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className="text-foreground/60 transition-colors hover:text-foreground/80"
-              >
-                {link.label}
-              </Link>
-            ))}
-          </nav>
+          <NavigationMenu>
+            <NavigationMenuList>
+              <NavigationMenuItem>
+                <NavigationMenuTrigger>Features</NavigationMenuTrigger>
+                <NavigationMenuContent>
+                  <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
+                    {features.map((component) => (
+                      <ListItem
+                        key={component.title}
+                        title={component.title}
+                        href={component.href}
+                      >
+                        {component.description}
+                      </ListItem>
+                    ))}
+                  </ul>
+                </NavigationMenuContent>
+              </NavigationMenuItem>
+              <NavigationMenuItem>
+                <NavigationMenuTrigger>Solutions</NavigationMenuTrigger>
+                <NavigationMenuContent>
+                  <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] lg:w-[600px] ">
+                     {solutions.map((component) => (
+                      <ListItem
+                        key={component.title}
+                        title={component.title}
+                        href={component.href}
+                      >
+                        {component.description}
+                      </ListItem>
+                    ))}
+                  </ul>
+                </NavigationMenuContent>
+              </NavigationMenuItem>
+              <NavigationMenuItem>
+                <Link href="/pricing" legacyBehavior passHref>
+                  <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                    Pricing
+                  </NavigationMenuLink>
+                </Link>
+              </NavigationMenuItem>
+              <NavigationMenuItem>
+                <Link href="/blog" legacyBehavior passHref>
+                  <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                    Blog
+                  </NavigationMenuLink>
+                </Link>
+              </NavigationMenuItem>
+            </NavigationMenuList>
+          </NavigationMenu>
         </div>
         <div className="flex flex-1 items-center justify-between space-x-2 md:justify-end">
           <div className="w-full flex-1 md:w-auto md:flex-none">
@@ -50,11 +133,7 @@ export function Header() {
                   <Image src="/logo.png" alt="DreamPixel Logo" width={150} height={35} />
                 </Link>
                 <div className="flex flex-col space-y-4 mt-6">
-                  {navLinks.map((link) => (
-                    <Link key={link.href} href={link.href}>
-                      {link.label}
-                    </Link>
-                  ))}
+                  {/* Add mobile nav links here */}
                 </div>
               </SheetContent>
             </Sheet>
@@ -73,3 +152,29 @@ export function Header() {
     </header>
   );
 }
+
+const ListItem = React.forwardRef<
+  React.ElementRef<"a">,
+  React.ComponentPropsWithoutRef<"a">
+>(({ className, title, children, ...props }, ref) => {
+  return (
+    <li>
+      <NavigationMenuLink asChild>
+        <a
+          ref={ref}
+          className={cn(
+            "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
+            className
+          )}
+          {...props}
+        >
+          <div className="text-sm font-medium leading-none">{title}</div>
+          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+            {children}
+          </p>
+        </a>
+      </NavigationMenuLink>
+    </li>
+  )
+})
+ListItem.displayName = "ListItem"

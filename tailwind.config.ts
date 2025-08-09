@@ -62,6 +62,8 @@ export default {
   			},
         'brand-cyan': 'hsl(var(--brand-cyan))',
         'brand-yellow': 'hsl(var(--brand-yellow))',
+        'brand-purple': 'hsl(var(--brand-purple))',
+        'brand-pink': 'hsl(var(--brand-pink))',
   		},
   		borderRadius: {
   			lg: 'var(--radius)',
