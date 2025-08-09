@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import { footerNav } from "@/lib/navigation";
 
 export function Footer() {
   return (
@@ -14,39 +15,20 @@ export function Footer() {
               Unify Your Content. Amplify Your Reach.
             </p>
           </div>
-          <div>
-            <h4 className="font-semibold mb-4">Company</h4>
-            <ul className="space-y-2">
-              <li><Link href="/about" className="text-sm text-muted-foreground hover:text-foreground">About Us</Link></li>
-              <li><Link href="/careers" className="text-sm text-muted-foreground hover:text-foreground">Careers</Link></li>
-              <li><Link href="/contact" className="text-sm text-muted-foreground hover:text-foreground">Contact Us</Link></li>
-              <li><Link href="/request-quote" className="text-sm text-muted-foreground hover:text-foreground">Request a Quote</Link></li>
-            </ul>
-          </div>
-          <div>
-            <h4 className="font-semibold mb-4">Services</h4>
-            <ul className="space-y-2">
-              <li><Link href="/services" className="text-sm text-muted-foreground hover:text-foreground">All Services</Link></li>
-              <li><Link href="/services/web-design-development" className="text-sm text-muted-foreground hover:text-foreground">Web Design & Development</Link></li>
-              <li><Link href="/services/digital-marketing" className="text-sm text-muted-foreground hover:text-foreground">Digital Marketing</Link></li>
-              <li><Link href="/services/seo-services" className="text-sm text-muted-foreground hover:text-foreground">SEO Services</Link></li>
-            </ul>
-          </div>
-          <div>
-            <h4 className="font-semibold mb-4">Resources</h4>
-            <ul className="space-y-2">
-              <li><Link href="/blog" className="text-sm text-muted-foreground hover:text-foreground">Blog / Insights</Link></li>
-              <li><Link href="/portfolio" className="text-sm text-muted-foreground hover:text-foreground">Portfolio / Case Studies</Link></li>
-              <li><Link href="/testimonials" className="text-sm text-muted-foreground hover:text-foreground">Client Testimonials</Link></li>
-              <li><Link href="/faq" className="text-sm text-muted-foreground hover:text-foreground">FAQs</Link></li>
-            </ul>
-          </div>
-          <div>
-            <h4 className="font-semibold mb-4">Legal</h4>
-            <ul className="space-y-2">
-              <li><Link href="/privacy-policy" className="text-sm text-muted-foreground hover:text-foreground">Privacy Policy</Link></li>
-            </ul>
-          </div>
+          {footerNav.map((section) => (
+            <div key={section.title}>
+              <h4 className="font-semibold mb-4">{section.title}</h4>
+              <ul className="space-y-2">
+                {section.items.map((item) => (
+                  <li key={item.title}>
+                    <Link href={item.href} className="text-sm text-muted-foreground hover:text-foreground">
+                      {item.title}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
         </div>
         <div className="mt-8 border-t pt-6 flex flex-col items-center justify-between gap-4 md:flex-row">
           <p className="text-sm text-muted-foreground">
