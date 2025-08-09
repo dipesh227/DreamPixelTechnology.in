@@ -1,4 +1,4 @@
-import { supabase } from '@/lib/supabaseClient';
+import { createClient } from '@/lib/supabase/server';
 import { NextResponse } from 'next/server';
 import type { Provider } from '@supabase/supabase-js';
 
@@ -8,6 +8,7 @@ export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
   const provider = searchParams.get('provider') as Provider;
   const origin = new URL(request.url).origin;
+  const supabase = createClient();
 
   if (!provider) {
     return NextResponse.json({ error: 'Provider is required' }, { status: 400 });
