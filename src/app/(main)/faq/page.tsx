@@ -7,7 +7,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { supabase } from "@/lib/supabaseClient";
+import { createClient } from "@/lib/supabase/client";
 import { Loader2 } from "lucide-react";
 import { toast } from "sonner";
 
@@ -22,6 +22,7 @@ export default function FAQPage() {
   const [faqs, setFaqs] = useState<FAQ[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const supabase = createClient();
 
   useEffect(() => {
     const fetchFaqs = async () => {
@@ -42,7 +43,7 @@ export default function FAQPage() {
     };
 
     fetchFaqs();
-  }, []);
+  }, [supabase]);
 
   if (loading) {
     return (

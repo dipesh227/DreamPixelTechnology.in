@@ -2,13 +2,14 @@
 
 import { Auth } from '@supabase/auth-ui-react';
 import { ThemeSupa } from '@supabase/auth-ui-shared';
-import { supabase } from '@/lib/supabaseClient';
+import { createClient } from '@/lib/supabase/client';
 import { useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { useTheme } from 'next-themes';
 import type { AuthChangeEvent, Session } from '@supabase/supabase-js';
 
 export default function LoginPage() {
+  const supabase = createClient();
   const router = useRouter();
   const { resolvedTheme } = useTheme();
 
@@ -25,7 +26,7 @@ export default function LoginPage() {
     return () => {
       subscription.unsubscribe();
     };
-  }, [router]);
+  }, [router, supabase]);
 
   return (
     <div className="flex justify-center items-center min-h-[calc(100vh-112px)] bg-background px-4">

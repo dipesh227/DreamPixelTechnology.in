@@ -1,7 +1,7 @@
-import { supabase } from '@/lib/supabaseClient'
+import { createClient } from '@/lib/supabase/server'
 import { NextResponse } from 'next/server'
 
-export const runtime = 'nodejs'; // Explicitly set runtime to Node.js
+export const runtime = 'nodejs';
 
 export async function GET(request: Request) {
   const { searchParams, origin } = new URL(request.url)
@@ -9,6 +9,7 @@ export async function GET(request: Request) {
   const next = searchParams.get('next') ?? '/dashboard'
 
   if (code) {
+    const supabase = createClient()
     const { error } = await supabase.auth.exchangeCodeForSession(code)
     if (!error) {
       return NextResponse.redirect(`${origin}${next}`)

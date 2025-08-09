@@ -1,10 +1,11 @@
-import { supabase } from '@/lib/supabaseClient';
+import { createClient } from '@/lib/supabase/server';
 import { NextResponse } from 'next/server';
+import type { SupabaseClient } from '@supabase/supabase-js';
 
-export const runtime = 'nodejs'; // Explicitly set runtime to Node.js
+export const runtime = 'nodejs';
 
 // Helper to check for admin role
-async function isAdmin(): Promise<boolean> {
+async function isAdmin(supabase: SupabaseClient): Promise<boolean> {
   const { data, error } = await supabase.rpc('is_admin');
   if (error) {
     console.error('Error checking admin role:', error);
@@ -15,8 +16,9 @@ async function isAdmin(): Promise<boolean> {
 
 // GET all tech updates (admin only)
 export async function GET(request: Request) {
+  const supabase = createClient();
   const { data: { user } } = await supabase.auth.getUser();
-  if (!user || !(await isAdmin())) {
+  if (!user || !(await isAdmin(supabase))) {
     return NextResponse.json({ error: 'Forbidden' }, { status: 403 });
   }
 
@@ -29,8 +31,9 @@ export async function GET(request: Request) {
 
 // POST a new tech update (admin only)
 export async function POST(request: Request) {
+  const supabase = createClient();
   const { data: { user } } = await supabase.auth.getUser();
-  if (!user || !(await isAdmin())) {
+  if (!user || !(await isAdmin(supabase))) {
     return NextResponse.json({ error: 'Forbidden' }, { status: 403 });
   }
 
@@ -45,8 +48,9 @@ export async function POST(request: Request) {
 
 // PUT to update a tech update (admin only)
 export async function PUT(request: Request) {
+    const supabase = createClient();
     const { data: { user } } = await supabase.auth.getUser();
-    if (!user || !(await isAdmin())) {
+    if (!user || !(await isAdmin(supabase))) {
         return NextResponse.json({ error: 'Forbidden' }, { status: 403 });
     }
 
@@ -65,8 +69,9 @@ export async function PUT(request: Request) {
 
 // DELETE a tech update (admin only)
 export async function DELETE(request: Request) {
+    const supabase = createClient();
     const { data: { user } } = await supabase.auth.getUser();
-    if (!user || !(await isAdmin())) {
+    if (!user || !(await isAdmin(supabase))) {
         return NextResponse.json({ error: 'Forbidden' }, { status: 403 });
     }
 

@@ -1,10 +1,11 @@
-import { supabase } from '@/lib/supabaseClient';
+import { createClient } from '@/lib/supabase/server';
 import { NextResponse } from 'next/server';
 import { generateCaption } from '@/lib/posts';
 
-export const runtime = 'nodejs'; // Explicitly set runtime to Node.js
+export const runtime = 'nodejs';
 
 export async function POST(request: Request) {
+  const supabase = createClient();
   const { data: { user } } = await supabase.auth.getUser();
   if (!user) {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });

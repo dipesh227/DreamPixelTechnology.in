@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from 'react';
-import { supabase } from '@/lib/supabaseClient';
+import { createClient } from '@/lib/supabase/client';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from "@/components/ui/card";
 import { Check, Loader2 } from "lucide-react";
@@ -42,6 +42,7 @@ const itemVariants = {
 export function PricingSection() {
   const [plans, setPlans] = useState<Plan[]>([]);
   const [loading, setLoading] = useState(true);
+  const supabase = createClient();
 
   useEffect(() => {
     const fetchPlans = async () => {
@@ -88,7 +89,7 @@ export function PricingSection() {
       setLoading(false);
     };
     fetchPlans();
-  }, []);
+  }, [supabase]);
 
   const getCtaText = (planName: string) => {
     if (planName === 'Pro') return 'Contact Us';

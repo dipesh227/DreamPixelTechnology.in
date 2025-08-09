@@ -1,5 +1,3 @@
-import { supabase } from '@/lib/supabaseClient';
-
 // --- Types (from former socialProviders.ts) ---
 export interface SocialAccount {
   id: string;

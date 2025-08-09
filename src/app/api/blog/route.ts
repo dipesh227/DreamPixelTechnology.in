@@ -1,10 +1,11 @@
-import { supabase } from '@/lib/supabaseClient';
+import { createClient } from '@/lib/supabase/server';
 import { NextResponse } from 'next/server';
+import type { SupabaseClient } from '@supabase/supabase-js';
 
-export const runtime = 'nodejs'; // Explicitly set runtime to Node.js
+export const runtime = 'nodejs';
 
 // Helper to check for admin role
-async function isAdmin(): Promise<boolean> {
+async function isAdmin(supabase: SupabaseClient): Promise<boolean> {
   const { data, error } = await supabase.rpc('is_admin');
   if (error) {
     console.error('Error checking admin role:', error);
@@ -15,6 +16,7 @@ async function isAdmin(): Promise<boolean> {
 
 // GET all blog posts (admin/author view)
 export async function GET(request: Request) {
+  const supabase = createClient();
   const { data: { user } } = await supabase.auth.getUser();
   if (!user) {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
@@ -22,8 +24,7 @@ export async function GET(request: Request) {
 
   let query = supabase.from('blog').select('*');
   
-  // If not admin, only show user's own posts
-  if (!(await isAdmin())) {
+  if (!(await isAdmin(supabase))) {
     query = query.eq('author_id', user.id);
   }
 
@@ -37,6 +38,7 @@ export async function GET(request: Request) {
 
 // POST a new blog post
 export async function POST(request: Request) {
+  const supabase = createClient();
   const { data: { user } } = await supabase.auth.getUser();
   if (!user) {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
@@ -53,6 +55,7 @@ export async function POST(request: Request) {
 
 // PUT to update a blog post
 export async function PUT(request: Request) {
+    const supabase = createClient();
     const { data: { user } } = await supabase.auth.getUser();
     if (!user) {
         return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
@@ -64,7 +67,7 @@ export async function PUT(request: Request) {
     }
 
     let query = supabase.from('blog').update(updateData).eq('id', id);
-    if (!(await isAdmin())) {
+    if (!(await isAdmin(supabase))) {
         query = query.eq('author_id', user.id);
     }
     
@@ -78,6 +81,7 @@ export async function PUT(request: Request) {
 
 // DELETE a blog post
 export async function DELETE(request: Request) {
+    const supabase = createClient();
     const { data: { user } } = await supabase.auth.getUser();
     if (!user) {
         return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
@@ -89,7 +93,7 @@ export async function DELETE(request: Request) {
     }
     
     let query = supabase.from('blog').delete().eq('id', id);
-    if (!(await isAdmin())) {
+    if (!(await isAdmin(supabase))) {
         query = query.eq('author_id', user.id);
     }
 

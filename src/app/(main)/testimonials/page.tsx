@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { supabase } from "@/lib/supabaseClient";
+import { createClient } from "@/lib/supabase/client";
 import { Loader2, Quote } from "lucide-react";
 import { toast } from "sonner";
 
@@ -19,6 +19,7 @@ export default function TestimonialsPage() {
   const [testimonials, setTestimonials] = useState<Testimonial[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const supabase = createClient();
 
   useEffect(() => {
     const fetchTestimonials = async () => {
@@ -39,7 +40,7 @@ export default function TestimonialsPage() {
     };
 
     fetchTestimonials();
-  }, []);
+  }, [supabase]);
 
   if (loading) {
     return (
