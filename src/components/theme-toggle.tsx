@@ -8,6 +8,18 @@ import { Button } from "@/components/ui/button"
 
 export function ThemeToggle() {
   const { setTheme, theme } = useTheme()
+  const [mounted, setMounted] = React.useState(false)
+
+  // useEffect runs only on the client after initial render
+  React.useEffect(() => {
+    setMounted(true)
+  }, [])
+
+  if (!mounted) {
+    // Render a placeholder or null on the server and during initial client render
+    // to prevent hydration mismatch
+    return <Button variant="ghost" size="icon" disabled />;
+  }
 
   return (
     <Button
