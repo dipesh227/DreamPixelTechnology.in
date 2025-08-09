@@ -1,9 +1,9 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  // Forcing a cache invalidation by updating this file.
-  webpack: (config) => {
-    if (process.env.NODE_ENV === "development") {
+  webpack: (config, { isServer, dev }) => {
+    // Only run the component tagger in development mode
+    if (dev && !isServer) {
       config.module.rules.push({
         test: /\.(jsx|tsx)$/,
         exclude: /node_modules/,
