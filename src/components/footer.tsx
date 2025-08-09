@@ -26,16 +26,19 @@ export function Footer() {
             <h4 className="font-semibold mb-4">Company</h4>
             <ul className="space-y-2">
               <li><Link href="/about" className="text-sm text-muted-foreground hover:text-foreground">About Us</Link></li>
-              <li><Link href="/blog" className="text-sm text-muted-foreground hover:text-foreground">Blog</Link></li>
+              <li><Link href="/team" className="text-sm text-muted-foreground hover:text-foreground">Team</Link></li>
               <li><Link href="/careers" className="text-sm text-muted-foreground hover:text-foreground">Careers</Link></li>
             </ul>
           </div>
           <div>
-            <h4 className="font-semibold mb-4">Connect</h4>
-            <div className="flex flex-col items-center md:items-start">
-                <Image src="/whatsapp-qr.png" alt="WhatsApp QR Code" width={80} height={80} />
-                <p className="text-xs text-muted-foreground mt-2">Scan for WhatsApp</p>
-            </div>
+            <h4 className="font-semibold mb-4">Resources</h4>
+            <ul className="space-y-2">
+              <li><Link href="/blog" className="text-sm text-muted-foreground hover:text-foreground">Blog</Link></li>
+              <li><Link href="/faq" className="text-sm text-muted-foreground hover:text-foreground">FAQ</Link></li>
+              <li><Link href="/testimonials" className="text-sm text-muted-foreground hover:text-foreground">Testimonials</Link></li>
+              <li><Link href="/privacy-policy" className="text-sm text-muted-foreground hover:text-foreground">Privacy Policy</Link></li>
+              <li><Link href="/terms" className="text-sm text-muted-foreground hover:text-foreground">Terms of Service</Link></li>
+            </ul>
           </div>
         </div>
         <div className="mt-8 border-t pt-6 flex flex-col items-center justify-between gap-4 md:flex-row">

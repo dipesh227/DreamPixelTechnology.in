@@ -103,6 +103,16 @@ export function Header() {
               </NavigationMenuItem>
               <NavigationMenuItem>
                 <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
+                  <Link href="/services">Services</Link>
+                </NavigationMenuLink>
+              </NavigationMenuItem>
+              <NavigationMenuItem>
+                <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
+                  <Link href="/portfolio">Portfolio</Link>
+                </NavigationMenuLink>
+              </NavigationMenuItem>
+              <NavigationMenuItem>
+                <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
                   <Link href="/pricing">Pricing</Link>
                 </NavigationMenuLink>
               </NavigationMenuItem>
@@ -130,6 +140,17 @@ export function Header() {
                 </Link>
                 <div className="flex flex-col space-y-4 mt-6">
                   {/* Add mobile nav links here */}
+                  <Link href="/services" className="text-lg font-medium hover:text-primary">Services</Link>
+                  <Link href="/portfolio" className="text-lg font-medium hover:text-primary">Portfolio</Link>
+                  <Link href="/pricing" className="text-lg font-medium hover:text-primary">Pricing</Link>
+                  <Link href="/blog" className="text-lg font-medium hover:text-primary">Blog</Link>
+                  <Link href="/about" className="text-lg font-medium hover:text-primary">About Us</Link>
+                  <Link href="/contact" className="text-lg font-medium hover:text-primary">Contact</Link>
+                  <Link href="/careers" className="text-lg font-medium hover:text-primary">Careers</Link>
+                  <Link href="/faq" className="text-lg font-medium hover:text-primary">FAQ</Link>
+                  <Link href="/testimonials" className="text-lg font-medium hover:text-primary">Testimonials</Link>
+                  <Link href="/privacy-policy" className="text-lg font-medium hover:text-primary">Privacy Policy</Link>
+                  <Link href="/terms" className="text-lg font-medium hover:text-primary">Terms of Service</Link>
                 </div>
               </SheetContent>
             </Sheet>
