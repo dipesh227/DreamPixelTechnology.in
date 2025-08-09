@@ -2,8 +2,12 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
-import { PricingSection } from "@/components/landing/pricing-section";
 import { FeaturesSection } from "@/components/landing/features-section";
+import { ProcessSection } from "@/components/landing/process-section";
+import { ComparisonSection } from "@/components/landing/comparison-section";
+import { TestimonialsSection } from "@/components/landing/testimonials-section";
+import { PricingSection } from "@/components/landing/pricing-section";
+import { FaqSection } from "@/components/landing/faq-section";
 
 export default function Home() {
   return (
@@ -40,11 +44,23 @@ export default function Home() {
       {/* Features Section */}
       <FeaturesSection />
 
+      {/* Process Section */}
+      <ProcessSection />
+
+      {/* Comparison Section */}
+      <ComparisonSection />
+
+      {/* Testimonials Section */}
+      <TestimonialsSection />
+
       {/* Pricing Section */}
       <PricingSection />
 
+      {/* FAQ Section */}
+      <FaqSection />
+
       {/* Final CTA Section */}
-      <section className="w-full py-20 md:py-24 lg:py-32 bg-secondary/50">
+      <section className="w-full py-20 md:py-24 lg:py-32 bg-background">
         <div className="container mx-auto text-center px-4 md:px-6">
           <h2 className="text-3xl md:text-4xl font-bold tracking-tighter mb-4">
             Ready to Transform Your Digital Presence?
