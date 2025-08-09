@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from "@/components/ui/card";
 import { Check, FileText, Share2, Sparkles, BarChart2 } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 
 const features = [
   {
@@ -55,27 +56,33 @@ export default function Home() {
   return (
     <div className="flex flex-col min-h-screen">
       {/* Hero Section */}
-      <section className="w-full py-20 md:py-32 lg:py-40 bg-background">
-        <div className="container mx-auto text-center px-4 md:px-6">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter mb-4">
-            Unify Your Content. Amplify Your Reach.
-          </h1>
-          <p className="max-w-[700px] mx-auto text-lg text-muted-foreground md:text-xl mb-8">
-            DreamPixel is the all-in-one platform for content management and AI-driven social media automation. Build your brand, engage your audience, and grow your business—all from one place.
-          </p>
-          <div className="flex gap-4 justify-center">
-            <Button size="lg" asChild>
-              <Link href="#">Get Started for Free</Link>
-            </Button>
-            <Button size="lg" variant="outline" asChild>
-              <Link href="#">Request a Demo</Link>
-            </Button>
+      <section className="w-full py-20 md:py-24 lg:py-32 bg-background relative overflow-hidden">
+        <div className="absolute inset-0 -z-10 h-full w-full bg-white bg-[linear-gradient(to_right,#f0f0f0_1px,transparent_1px),linear-gradient(to_bottom,#f0f0f0_1px,transparent_1px)] bg-[size:6rem_4rem]"><div className="absolute bottom-0 left-0 right-0 top-0 bg-[radial-gradient(circle_500px_at_50%_200px,#d5f5f6,transparent)]"></div></div>
+        <div className="container mx-auto grid md:grid-cols-2 gap-8 items-center px-4 md:px-6">
+          <div className="flex flex-col gap-6">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter">
+              Unify Your Content. <span className="text-brand-cyan">Amplify</span> Your Reach.
+            </h1>
+            <p className="max-w-[600px] text-lg text-muted-foreground md:text-xl">
+              DreamPixel is the all-in-one platform for content management and AI-driven social media automation. Build your brand, engage your audience, and grow your business—all from one place.
+            </p>
+            <div className="flex gap-4">
+              <Button size="lg" className="bg-brand-cyan hover:bg-brand-cyan/90 text-primary-foreground" asChild>
+                <Link href="/register">Get Started for Free</Link>
+              </Button>
+              <Button size="lg" variant="outline" asChild>
+                <Link href="#">Request a Demo</Link>
+              </Button>
+            </div>
+          </div>
+          <div className="hidden md:block">
+            <Image src="/hero-graphic.png" alt="DreamPixel platform illustration" width={600} height={500} className="mx-auto" />
           </div>
         </div>
       </section>
 
       {/* Features Section */}
-      <section id="features" className="w-full py-20 md:py-24 lg:py-32 bg-secondary dark:bg-background">
+      <section id="features" className="w-full py-20 md:py-24 lg:py-32 bg-secondary/50 dark:bg-background">
         <div className="container mx-auto px-4 md:px-6">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold">A Smarter Way to Manage Your Brand</h2>
@@ -85,8 +92,8 @@ export default function Home() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {features.map((feature, index) => (
-              <Card key={index} className="flex flex-col items-center text-center p-6">
-                <div className="p-4 bg-primary/10 rounded-full mb-4 text-primary">
+              <Card key={index} className="flex flex-col items-center text-center p-6 transition-transform hover:-translate-y-2 duration-300">
+                <div className="p-4 bg-brand-cyan/10 rounded-full mb-4 text-brand-cyan">
                   {feature.icon}
                 </div>
                 <CardHeader className="p-0">
@@ -110,39 +117,41 @@ export default function Home() {
               Choose the plan that's right for you. Start for free, no credit card required.
             </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-start">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch">
             {pricingPlans.map((plan) => (
-              <Card key={plan.name} className={plan.popular ? "border-primary ring-2 ring-primary" : ""}>
-                <CardHeader>
-                  {plan.popular && <div className="text-primary font-semibold mb-2">Most Popular</div>}
-                  <CardTitle>{plan.name}</CardTitle>
-                  <CardDescription>{plan.description}</CardDescription>
-                  <div>
-                    <span className="text-4xl font-bold">{plan.price}</span>
-                    <span className="text-muted-foreground">/month</span>
-                  </div>
-                </CardHeader>
-                <CardContent>
-                  <ul className="space-y-3">
-                    {plan.features.map((feature) => (
-                      <li key={feature} className="flex items-center">
-                        <Check className="h-5 w-5 text-green-500 mr-2" />
-                        <span>{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </CardContent>
-                <CardFooter>
-                  <Button className="w-full" variant={plan.popular ? "default" : "outline"}>{plan.cta}</Button>
-                </CardFooter>
-              </Card>
+              <div key={plan.name} className={plan.popular ? "p-0.5 rounded-xl bg-gradient-to-br from-brand-cyan to-brand-yellow" : ""}>
+                <Card className="h-full flex flex-col">
+                  <CardHeader>
+                    {plan.popular && <div className="text-brand-cyan font-semibold mb-2">Most Popular</div>}
+                    <CardTitle>{plan.name}</CardTitle>
+                    <CardDescription>{plan.description}</CardDescription>
+                    <div>
+                      <span className="text-4xl font-bold">{plan.price}</span>
+                      <span className="text-muted-foreground">/month</span>
+                    </div>
+                  </CardHeader>
+                  <CardContent className="flex-1">
+                    <ul className="space-y-3">
+                      {plan.features.map((feature) => (
+                        <li key={feature} className="flex items-center">
+                          <Check className="h-5 w-5 text-green-500 mr-2" />
+                          <span>{feature}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </CardContent>
+                  <CardFooter>
+                    <Button className="w-full" variant={plan.popular ? "default" : "outline"}>{plan.cta}</Button>
+                  </CardFooter>
+                </Card>
+              </div>
             ))}
           </div>
         </div>
       </section>
 
       {/* Final CTA Section */}
-      <section className="w-full py-20 md:py-24 lg:py-32 bg-secondary dark:bg-background">
+      <section className="w-full py-20 md:py-24 lg:py-32 bg-secondary/50 dark:bg-background">
         <div className="container mx-auto text-center px-4 md:px-6">
           <h2 className="text-3xl md:text-4xl font-bold tracking-tighter mb-4">
             Ready to Transform Your Digital Presence?
@@ -150,8 +159,8 @@ export default function Home() {
           <p className="max-w-[600px] mx-auto text-lg text-muted-foreground md:text-xl mb-8">
             Join hundreds of businesses growing with DreamPixel. Get started today.
           </p>
-          <Button size="lg" asChild>
-            <Link href="#">Sign Up Now</Link>
+          <Button size="lg" className="bg-brand-cyan hover:bg-brand-cyan/90 text-primary-foreground" asChild>
+            <Link href="/register">Sign Up Now</Link>
           </Button>
         </div>
       </section>
