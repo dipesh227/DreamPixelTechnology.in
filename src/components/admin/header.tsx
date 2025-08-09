@@ -24,6 +24,7 @@ import {
   Newspaper,
   BookOpen,
   Settings,
+  Zap, // For Tech Updates
 } from "lucide-react";
 import { UserNav } from "./user-nav";
 import { usePathname } from "next/navigation";
@@ -35,6 +36,7 @@ const mobileNavItems = [
   { href: "/admin/pages", icon: FileText, label: "Pages" },
   { href: "/admin/blog", icon: Newspaper, label: "Blog" },
   { href: "/admin/stories", icon: BookOpen, label: "Stories" },
+  { href: "/admin/tech-updates", icon: Zap, label: "Tech Updates" }, // New
   { href: "/admin/settings", icon: Settings, label: "Settings" },
 ];
 

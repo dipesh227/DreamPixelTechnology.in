@@ -16,6 +16,7 @@ import {
   Newspaper,
   BookOpen,
   BarChart3,
+  Zap, // For Tech Updates
 } from "lucide-react";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
@@ -27,6 +28,7 @@ const navItems = [
   { href: "/admin/pages", icon: FileText, label: "Pages" },
   { href: "/admin/blog", icon: Newspaper, label: "Blog" },
   { href: "/admin/stories", icon: BookOpen, label: "Stories" },
+  { href: "/admin/tech-updates", icon: Zap, label: "Tech Updates" }, // New
 ];
 
 export function AdminSidebar() {
