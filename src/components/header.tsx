@@ -58,7 +58,9 @@ export function Header() {
               {mainNav.map((item) => (
                 item.href === "/services" ? (
                   <NavigationMenuItem key={item.title}>
-                    <NavigationMenuTrigger>{item.title}</NavigationMenuTrigger>
+                    <NavigationMenuTrigger className="text-muted-foreground">
+                      {item.title}
+                    </NavigationMenuTrigger>
                     <NavigationMenuContent>
                       <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
                         {servicesNav.map((service) => (
@@ -75,7 +77,7 @@ export function Header() {
                   </NavigationMenuItem>
                 ) : (
                   <NavigationMenuItem key={item.title}>
-                    <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
+                    <NavigationMenuLink asChild className={cn(navigationMenuTriggerStyle(), "text-muted-foreground")}>
                       <Link href={item.href}>{item.title}</Link>
                     </NavigationMenuLink>
                   </NavigationMenuItem>
@@ -101,7 +103,7 @@ export function Header() {
               <div className="flex flex-col space-y-4 mt-6">
                 {mainNav.map((item) => (
                   <SheetClose asChild key={item.title}>
-                    <Link href={item.href} className="text-lg font-medium hover:text-primary">{item.title}</Link>
+                    <Link href={item.href} className="text-lg font-medium text-foreground hover:text-primary">{item.title}</Link>
                   </SheetClose>
                 ))}
               </div>
@@ -127,7 +129,7 @@ export function Header() {
               <UserButton user={user} />
             ) : (
               <>
-                <Button variant="ghost" asChild>
+                <Button variant="ghost" asChild className="text-muted-foreground">
                   <Link href="/login">Log In</Link>
                 </Button>
                 <Button className="bg-accent hover:bg-accent/90 text-accent-foreground hidden sm:inline-flex" asChild>
