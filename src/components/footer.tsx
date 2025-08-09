@@ -1,45 +1,68 @@
 import Link from "next/link";
 import Image from "next/image";
-import { footerNav } from "@/lib/navigation";
-import { Twitter, Linkedin, Instagram, Facebook } from "lucide-react";
+
+const usefulLinks = [
+    { title: "About Us", href: "/about" },
+    { title: "Contact Us", href: "/contact" },
+    { title: "Blog", href: "/blog" },
+    { title: "Services", href: "/services" },
+    { title: "Portfolio", href: "/portfolio" },
+    { title: "Privacy Policy", href: "/privacy-policy" },
+];
+
+const recentPosts = [
+    { title: "9 Best FREE AI Image Upscalers (2025)", href: "/blog/ai-image-upscalers" },
+    { title: "Dadan Review (2025) – Best Loom Alternative?", href: "/blog/dadan-review" },
+    { title: "11 Best Free AI Prompting Courses for 2025", href: "/blog/ai-prompting-courses" },
+];
 
 export function Footer() {
   return (
-    <footer className="bg-gray-900 text-gray-400">
+    <footer className="bg-gray-900 text-gray-300">
       <div className="container py-12">
-        <div className="grid gap-8 lg:grid-cols-12">
-          {/* Logo and About Section */}
-          <div className="lg:col-span-4">
-            <Link href="/" className="flex items-center space-x-2 mb-4">
-              <Image src="/logo.png" alt="DreamPixel Technology Logo" width={180} height={40} className="brightness-0 invert" />
-            </Link>
-            <p className="text-sm mb-4">
-              DreamPixel Technology is your go-to resource for unbiased reviews and guides on digital tools. We help you build and grow your online business with the right technology.
-            </p>
-            <div className="flex items-center gap-4">
-              <Link href="#" className="hover:text-white"><Twitter className="h-5 w-5" /></Link>
-              <Link href="#" className="hover:text-white"><Linkedin className="h-5 w-5" /></Link>
-              <Link href="#" className="hover:text-white"><Instagram className="h-5 w-5" /></Link>
-              <Link href="#" className="hover:text-white"><Facebook className="h-5 w-5" /></Link>
-            </div>
+        <div className="grid gap-8 lg:grid-cols-4">
+          {/* Useful Links */}
+          <div>
+            <h4 className="font-semibold text-white mb-4">Useful Links</h4>
+            <ul className="space-y-2">
+              {usefulLinks.map((item) => (
+                <li key={item.title}>
+                  <Link href={item.href} className="text-sm hover:text-white transition-colors">
+                    {item.title}
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </div>
 
-          {/* Links Sections */}
-          <div className="lg:col-span-8 grid grid-cols-2 md:grid-cols-4 gap-8">
-            {footerNav.map((section) => (
-              <div key={section.title}>
-                <h4 className="font-semibold text-white mb-4">{section.title}</h4>
-                <ul className="space-y-2">
-                  {section.items.map((item) => (
-                    <li key={item.title}>
-                      <Link href={item.href} className="text-sm hover:text-white transition-colors">
-                        {item.title}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
+          {/* Earning Disclaimer */}
+          <div>
+            <h4 className="font-semibold text-white mb-4">Earning Disclaimer</h4>
+            <p className="text-sm">
+              DreamPixel Technology participates in various affiliate marketing programs, which means we may get paid commissions on purchases made through our links to retailer sites.{" "}
+              <Link href="/privacy-policy" className="underline hover:text-white">Read full disclaimer</Link>.
+            </p>
+          </div>
+
+          {/* Recent Posts */}
+          <div>
+            <h4 className="font-semibold text-white mb-4">Recent Posts</h4>
+            <ul className="space-y-2">
+              {recentPosts.map((post) => (
+                <li key={post.title}>
+                  <Link href={post.href} className="text-sm hover:text-white transition-colors">
+                    {post.title}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+          
+          {/* Logo section */}
+          <div className="flex flex-col gap-4 items-start lg:items-end">
+            <Link href="/" className="flex items-center space-x-2">
+              <Image src="/logo.png" alt="DreamPixel Technology Logo" width={180} height={40} className="brightness-0 invert" />
+            </Link>
           </div>
         </div>
 
