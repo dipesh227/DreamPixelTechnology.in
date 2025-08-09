@@ -17,6 +17,10 @@ import {
 import { ThemeToggle } from "./theme-toggle";
 import { cn } from "@/lib/utils";
 import React from "react";
+import { createClient } from "@/lib/supabase/client";
+import type { User } from "@supabase/supabase-js";
+import { UserButton } from "./user-button";
+import { Skeleton } from "./ui/skeleton";
 
 const servicesLinks: { title: string; href: string; description: string }[] = [
   {
@@ -67,6 +71,28 @@ const servicesLinks: { title: string; href: string; description: string }[] = [
 ];
 
 export function Header() {
+  const [user, setUser] = React.useState<User | null>(null);
+  const [loading, setLoading] = React.useState(true);
+  const supabase = createClient();
+
+  React.useEffect(() => {
+    const getUser = async () => {
+      const { data: { user } } = await supabase.auth.getUser();
+      setUser(user);
+      setLoading(false);
+    };
+
+    getUser();
+
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
+        setUser(session?.user ?? null);
+    });
+
+    return () => {
+        subscription.unsubscribe();
+    };
+  }, [supabase]);
+
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-16 max-w-screen-2xl items-center">
@@ -181,12 +207,23 @@ export function Header() {
           </div>
           <nav className="flex items-center gap-2">
             <ThemeToggle />
-            <Button variant="ghost" asChild>
-              <Link href="/login">Log In</Link>
-            </Button>
-            <Button className="bg-brand-cyan hover:bg-brand-cyan/90 text-primary-foreground" asChild>
-              <Link href="/request-quote">Request a Quote</Link>
-            </Button>
+            {loading ? (
+              <div className="flex items-center gap-2">
+                <Skeleton className="h-10 w-20" />
+                <Skeleton className="h-10 w-32" />
+              </div>
+            ) : user ? (
+              <UserButton user={user} />
+            ) : (
+              <>
+                <Button variant="ghost" asChild>
+                  <Link href="/login">Log In</Link>
+                </Button>
+                <Button className="bg-brand-cyan hover:bg-brand-cyan/90 text-primary-foreground" asChild>
+                  <Link href="/request-quote">Request a Quote</Link>
+                </Button>
+              </>
+            )}
           </nav>
         </div>
       </div>
