@@ -7,55 +7,55 @@ import { Button } from "@/components/ui/button";
 
 const services = [
   {
-    icon: <Code className="h-8 w-8 text-brand-secondary" />,
+    icon: <Code className="h-8 w-8 text-brand-blue" />,
     title: "Web Design & Development",
     description: "Crafting stunning, responsive, and high-performing websites tailored to your brand.",
     href: "/services/web-design-development"
   },
   {
-    icon: <Megaphone className="h-8 w-8 text-brand-highlight" />,
+    icon: <Megaphone className="h-8 w-8 text-brand-orange" />,
     title: "Digital Marketing",
     description: "Driving traffic and conversions through comprehensive online strategies.",
     href: "/services/digital-marketing"
   },
   {
-    icon: <Search className="h-8 w-8 text-brand-primary" />,
+    icon: <Search className="h-8 w-8 text-brand-teal" />,
     title: "SEO Services",
     description: "Improving your search engine rankings to increase organic visibility and attract more customers.",
     href: "/services/seo-services"
   },
   {
-    icon: <Users className="h-8 w-8 text-brand-success" />,
+    icon: <Users className="h-8 w-8 text-brand-green" />,
     title: "Social Media Marketing",
     description: "Managing your social presence, engaging with your community, and growing your online reach.",
     href: "/services/social-media-marketing"
   },
   {
-    icon: <Lightbulb className="h-8 w-8 text-brand-accent" />,
+    icon: <Lightbulb className="h-8 w-8 text-brand-orange" />,
     title: "Content Creation",
     description: "Producing engaging and valuable content, from blog posts to video scripts, that captivates your audience.",
     href: "/services/content-creation"
   },
   {
-    icon: <Palette className="h-8 w-8 text-brand-highlight" />,
+    icon: <Palette className="h-8 w-8 text-brand-violet" />,
     title: "Branding & Identity",
     description: "Building strong brand identities that resonate with your audience and stand out in the market.",
     href: "/services/branding-identity"
   },
   {
-    icon: <ShoppingCart className="h-8 w-8 text-red-500" />,
+    icon: <ShoppingCart className="h-8 w-8 text-destructive" />,
     title: "E-commerce Solutions",
     description: "Developing robust and secure online stores that provide seamless shopping experiences.",
     href: "/services/e-commerce-solutions"
   },
   {
-    icon: <Smartphone className="h-8 w-8 text-indigo-500" />,
+    icon: <Smartphone className="h-8 w-8 text-brand-blue" />,
     title: "Mobile App Development",
     description: "Creating intuitive and high-performance mobile applications for iOS and Android.",
     href: "/services/mobile-app-development"
   },
   {
-    icon: <DollarSign className="h-8 w-8 text-amber-500" />,
+    icon: <DollarSign className="h-8 w-8 text-brand-green" />,
     title: "Pay-Per-Click Advertising (PPC)",
     description: "Managing targeted ad campaigns to drive immediate traffic and conversions.",
     href: "/services/ppc-advertising"
@@ -78,7 +78,7 @@ export default function ServicesPage() {
         <div className="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service, index) => (
             <Link href={service.href} key={index}>
-              <Card className="bg-secondary/50 border-border/80 flex flex-col items-center text-center p-6 h-full hover:border-brand-secondary/50 hover:bg-secondary transition-all duration-300 transform hover:-translate-y-2">
+              <Card className="bg-card flex flex-col items-center text-center p-6 h-full hover:border-primary/50 hover:bg-secondary transition-all duration-300 transform hover:-translate-y-2">
                 <div className="p-4 rounded-full mb-4">
                   {service.icon}
                 </div>

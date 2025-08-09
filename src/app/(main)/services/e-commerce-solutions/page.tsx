@@ -4,7 +4,7 @@ export default function EcommerceSolutionsPage() {
   return (
     <div className="container mx-auto py-10 px-4">
       <div className="text-center max-w-3xl mx-auto">
-        <ShoppingCart className="h-12 w-12 mx-auto text-red-500" />
+        <ShoppingCart className="h-12 w-12 mx-auto text-destructive" />
         <h1 className="mt-4 text-4xl md:text-5xl font-bold tracking-tighter">
           E-commerce Solutions
         </h1>
@@ -19,13 +19,13 @@ export default function EcommerceSolutionsPage() {
         </p>
         <h3>Key Services:</h3>
         <ul>
-          <li><CheckCircle className="inline-block h-4 w-4 mr-2 text-brand-success" />Custom E-commerce Website Development</li>
-          <li><CheckCircle className="inline-block h-4 w-4 mr-2 text-brand-success" />Platform Migration (e.g., Shopify, WooCommerce, Magento)</li>
-          <li><CheckCircle className="inline-block h-4 w-4 mr-2 text-brand-success" />Payment Gateway Integration</li>
-          <li><CheckCircle className="inline-block h-4 w-4 mr-2 text-brand-success" />Inventory Management Solutions</li>
-          <li><CheckCircle className="inline-block h-4 w-4 mr-2 text-brand-success" />Product Catalog Management</li>
-          <li><CheckCircle className="inline-block h-4 w-4 mr-2 text-brand-success" />Security & SSL Implementation</li>
-          <li><CheckCircle className="inline-block h-4 w-4 mr-2 text-brand-success" />Performance Optimization</li>
+          <li><CheckCircle className="inline-block h-4 w-4 mr-2 text-success" />Custom E-commerce Website Development</li>
+          <li><CheckCircle className="inline-block h-4 w-4 mr-2 text-success" />Platform Migration (e.g., Shopify, WooCommerce, Magento)</li>
+          <li><CheckCircle className="inline-block h-4 w-4 mr-2 text-success" />Payment Gateway Integration</li>
+          <li><CheckCircle className="inline-block h-4 w-4 mr-2 text-success" />Inventory Management Solutions</li>
+          <li><CheckCircle className="inline-block h-4 w-4 mr-2 text-success" />Product Catalog Management</li>
+          <li><CheckCircle className="inline-block h-4 w-4 mr-2 text-success" />Security & SSL Implementation</li>
+          <li><CheckCircle className="inline-block h-4 w-4 mr-2 text-success" />Performance Optimization</li>
         </ul>
         <p>
           Empower your business with a powerful online storefront that drives sales and provides an excellent customer experience.

@@ -130,7 +130,7 @@ export function Header() {
                 <Button variant="ghost" asChild>
                   <Link href="/login">Log In</Link>
                 </Button>
-                <Button className="bg-brand-accent hover:bg-brand-accent/90 text-primary-foreground hidden sm:inline-flex" asChild>
+                <Button className="bg-accent hover:bg-accent/90 text-accent-foreground hidden sm:inline-flex" asChild>
                   <Link href="/request-quote">Request a Quote</Link>
                 </Button>
               </>

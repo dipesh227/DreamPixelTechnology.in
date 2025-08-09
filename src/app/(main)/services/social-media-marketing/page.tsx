@@ -4,7 +4,7 @@ export default function SocialMediaMarketingPage() {
   return (
     <div className="container mx-auto py-10 px-4">
       <div className="text-center max-w-3xl mx-auto">
-        <Users className="h-12 w-12 mx-auto text-brand-success" />
+        <Users className="h-12 w-12 mx-auto text-brand-green" />
         <h1 className="mt-4 text-4xl md:text-5xl font-bold tracking-tighter">
           Social Media Marketing
         </h1>
@@ -19,12 +19,12 @@ export default function SocialMediaMarketingPage() {
         </p>
         <h3>Key Services:</h3>
         <ul>
-          <li><CheckCircle className="inline-block h-4 w-4 mr-2 text-brand-success" />Social Media Strategy Development</li>
-          <li><CheckCircle className="inline-block h-4 w-4 mr-2 text-brand-success" />Content Planning & Creation</li>
-          <li><CheckCircle className="inline-block h-4 w-4 mr-2 text-brand-success" />Community Management & Engagement</li>
-          <li><CheckCircle className="inline-block h-4 w-4 mr-2 text-brand-success" />Paid Social Advertising (Facebook, Instagram, LinkedIn, Twitter)</li>
-          <li><CheckCircle className="inline-block h-4 w-4 mr-2 text-brand-success" />Influencer Marketing</li>
-          <li><CheckCircle className="inline-block h-4 w-4 mr-2 text-brand-success" />Social Media Analytics</li>
+          <li><CheckCircle className="inline-block h-4 w-4 mr-2 text-success" />Social Media Strategy Development</li>
+          <li><CheckCircle className="inline-block h-4 w-4 mr-2 text-success" />Content Planning & Creation</li>
+          <li><CheckCircle className="inline-block h-4 w-4 mr-2 text-success" />Community Management & Engagement</li>
+          <li><CheckCircle className="inline-block h-4 w-4 mr-2 text-success" />Paid Social Advertising (Facebook, Instagram, LinkedIn, Twitter)</li>
+          <li><CheckCircle className="inline-block h-4 w-4 mr-2 text-success" />Influencer Marketing</li>
+          <li><CheckCircle className="inline-block h-4 w-4 mr-2 text-success" />Social Media Analytics</li>
         </ul>
         <p>
           Connect with your customers, foster a vibrant community, and achieve your business goals through effective social media presence.

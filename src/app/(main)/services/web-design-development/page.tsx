@@ -4,7 +4,7 @@ export default function WebDesignDevelopmentPage() {
   return (
     <div className="container mx-auto py-10 px-4">
       <div className="text-center max-w-3xl mx-auto">
-        <Code className="h-12 w-12 mx-auto text-brand-secondary" />
+        <Code className="h-12 w-12 mx-auto text-brand-blue" />
         <h1 className="mt-4 text-4xl md:text-5xl font-bold tracking-tighter">
           Web Design & Development
         </h1>
@@ -19,12 +19,12 @@ export default function WebDesignDevelopmentPage() {
         </p>
         <h3>Key Services:</h3>
         <ul>
-          <li><CheckCircle className="inline-block h-4 w-4 mr-2 text-brand-success" />Custom Website Design</li>
-          <li><CheckCircle className="inline-block h-4 w-4 mr-2 text-brand-success" />Responsive Development (Mobile-first)</li>
-          <li><CheckCircle className="inline-block h-4 w-4 mr-2 text-brand-success" />E-commerce Website Development</li>
-          <li><CheckCircle className="inline-block h-4 w-4 mr-2 text-brand-success" />Content Management Systems (CMS) Integration</li>
-          <li><CheckCircle className="inline-block h-4 w-4 mr-2 text-brand-success" />Website Maintenance & Support</li>
-          <li><CheckCircle className="inline-block h-4 w-4 mr-2 text-brand-success" />Performance Optimization</li>
+          <li><CheckCircle className="inline-block h-4 w-4 mr-2 text-success" />Custom Website Design</li>
+          <li><CheckCircle className="inline-block h-4 w-4 mr-2 text-success" />Responsive Development (Mobile-first)</li>
+          <li><CheckCircle className="inline-block h-4 w-4 mr-2 text-success" />E-commerce Website Development</li>
+          <li><CheckCircle className="inline-block h-4 w-4 mr-2 text-success" />Content Management Systems (CMS) Integration</li>
+          <li><CheckCircle className="inline-block h-4 w-4 mr-2 text-success" />Website Maintenance & Support</li>
+          <li><CheckCircle className="inline-block h-4 w-4 mr-2 text-success" />Performance Optimization</li>
         </ul>
         <p>
           Whether you need a brand new website or a redesign of an existing one, we deliver solutions that are visually appealing, highly functional, and optimized for search engines.

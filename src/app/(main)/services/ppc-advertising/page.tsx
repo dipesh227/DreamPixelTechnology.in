@@ -4,7 +4,7 @@ export default function PpcAdvertisingPage() {
   return (
     <div className="container mx-auto py-10 px-4">
       <div className="text-center max-w-3xl mx-auto">
-        <DollarSign className="h-12 w-12 mx-auto text-amber-500" />
+        <DollarSign className="h-12 w-12 mx-auto text-brand-green" />
         <h1 className="mt-4 text-4xl md:text-5xl font-bold tracking-tighter">
           Pay-Per-Click Advertising (PPC)
         </h1>
@@ -19,13 +19,13 @@ export default function PpcAdvertisingPage() {
         </p>
         <h3>Key Services:</h3>
         <ul>
-          <li><CheckCircle className="inline-block h-4 w-4 mr-2 text-brand-success" />Google Ads Management</li>
-          <li><CheckCircle className="inline-block h-4 w-4 mr-2 text-brand-success" />Bing Ads Management</li>
-          <li><CheckCircle className="inline-block h-4 w-4 mr-2 text-brand-success" />Social Media Advertising (Paid Social)</li>
-          <li><CheckCircle className="inline-block h-4 w-4 mr-2 text-brand-success" />Display Advertising</li>
-          <li><CheckCircle className="inline-block h-4 w-4 mr-2 text-brand-success" />Remarketing Campaigns</li>
-          <li><CheckCircle className="inline-block h-4 w-4 mr-2 text-brand-success" />A/B Testing & Optimization</li>
-          <li><CheckCircle className="inline-block h-4 w-4 mr-2 text-brand-success" />Detailed Performance Reporting</li>
+          <li><CheckCircle className="inline-block h-4 w-4 mr-2 text-success" />Google Ads Management</li>
+          <li><CheckCircle className="inline-block h-4 w-4 mr-2 text-success" />Bing Ads Management</li>
+          <li><CheckCircle className="inline-block h-4 w-4 mr-2 text-success" />Social Media Advertising (Paid Social)</li>
+          <li><CheckCircle className="inline-block h-4 w-4 mr-2 text-success" />Display Advertising</li>
+          <li><CheckCircle className="inline-block h-4 w-4 mr-2 text-success" />Remarketing Campaigns</li>
+          <li><CheckCircle className="inline-block h-4 w-4 mr-2 text-success" />A/B Testing & Optimization</li>
+          <li><CheckCircle className="inline-block h-4 w-4 mr-2 text-success" />Detailed Performance Reporting</li>
         </ul>
         <p>
           Get your brand in front of potential customers instantly and convert clicks into valuable leads and sales with our strategic PPC campaigns.

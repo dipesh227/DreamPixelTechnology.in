@@ -4,55 +4,60 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
+    --background: 240 10% 99%; /* Softer, almost white */
     --foreground: 224 71.4% 4.1%;
     --card: 0 0% 100%;
     --card-foreground: 224 71.4% 4.1%;
     --popover: 0 0% 100%;
     --popover-foreground: 224 71.4% 4.1%;
-    --primary: hsl(var(--brand-primary));
+    --primary: hsl(var(--brand-blue));
     --primary-foreground: 0 0% 100%;
-    --secondary: 210 40% 96.1%;
+    --secondary: 220 14.3% 95.9%;
     --secondary-foreground: 222.2 47.4% 11.2%;
-    --muted: 210 40% 96.1%;
+    --muted: 220 14.3% 95.9%;
     --muted-foreground: 215.4 16.3% 46.9%;
-    --accent: hsl(var(--brand-accent));
+    --accent: hsl(var(--brand-orange));
     --accent-foreground: 224 71.4% 4.1%;
-    --destructive: 0 84.2% 60.2%;
+    --destructive: hsl(var(--brand-red));
     --destructive-foreground: 210 40% 98%;
+    --success: hsl(var(--brand-green));
+    --success-foreground: 210 40% 98%;
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
-    --ring: hsl(var(--brand-primary));
+    --ring: hsl(var(--brand-blue));
     --radius: 0.75rem;
     
-    /* New 5-Color Combination */
-    --brand-primary: 217 91% 60%;   /* Modern Blue */
-    --brand-secondary: 170 75% 41%; /* Vibrant Teal */
-    --brand-accent: 25 95% 53%;     /* Energetic Orange */
-    --brand-highlight: 250 84% 70%; /* Soft Violet */
-    --brand-success: 142 71% 45%;   /* Clear Green */
+    /* Core Brand Colors */
+    --brand-blue: 217 91% 60%;
+    --brand-teal: 170 75% 41%;
+    --brand-orange: 25 95% 53%;
+    --brand-violet: 250 84% 70%;
+    --brand-green: 142 71% 45%;
+    --brand-red: 0 84.2% 60.2%;
   }
 
   .dark {
-    --background: 224 71.4% 4.1%;
+    --background: 222.2 84% 4.9%;
     --foreground: 210 40% 98%;
-    --card: 224 71.4% 8%;
+    --card: 222.2 84% 6.9%;
     --card-foreground: 210 40% 98%;
-    --popover: 224 71.4% 4.1%;
+    --popover: 222.2 84% 4.9%;
     --popover-foreground: 210 40% 98%;
-    --primary: hsl(var(--brand-primary));
+    --primary: hsl(var(--brand-blue));
     --primary-foreground: 210 40% 98%;
     --secondary: 217.2 32.6% 17.5%;
     --secondary-foreground: 210 40% 98%;
     --muted: 217.2 32.6% 17.5%;
     --muted-foreground: 215 20.2% 65.1%;
-    --accent: hsl(var(--brand-accent));
+    --accent: hsl(var(--brand-orange));
     --accent-foreground: 224 71.4% 4.1%;
-    --destructive: 0 62.8% 30.6%;
+    --destructive: 0 62.8% 50.6%;
     --destructive-foreground: 210 40% 98%;
+    --success: 142 61% 50.6%;
+    --success-foreground: 210 40% 98%;
     --border: 217.2 32.6% 17.5%;
     --input: 217.2 32.6% 17.5%;
-    --ring: hsl(var(--brand-primary));
+    --ring: hsl(var(--brand-blue));
   }
 }
 
@@ -73,6 +78,6 @@
 }
 
 .circuit-glow {
-    background-image: radial-gradient(circle at 25% 25%, hsla(var(--brand-primary), 0.2), transparent 35%),
-                      radial-gradient(circle at 75% 65%, hsla(var(--brand-accent), 0.2), transparent 35%);
+    background-image: radial-gradient(circle at 25% 25%, hsla(var(--brand-blue), 0.15), transparent 35%),
+                      radial-gradient(circle at 75% 65%, hsla(var(--brand-orange), 0.15), transparent 35%);
 }

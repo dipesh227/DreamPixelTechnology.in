@@ -4,7 +4,7 @@ export default function MobileAppDevelopmentPage() {
   return (
     <div className="container mx-auto py-10 px-4">
       <div className="text-center max-w-3xl mx-auto">
-        <Smartphone className="h-12 w-12 mx-auto text-indigo-500" />
+        <Smartphone className="h-12 w-12 mx-auto text-brand-blue" />
         <h1 className="mt-4 text-4xl md:text-5xl font-bold tracking-tighter">
           Mobile App Development
         </h1>
@@ -19,13 +19,13 @@ export default function MobileAppDevelopmentPage() {
         </p>
         <h3>Key Services:</h3>
         <ul>
-          <li><CheckCircle className="inline-block h-4 w-4 mr-2 text-brand-success" />iOS App Development</li>
-          <li><CheckCircle className="inline-block h-4 w-4 mr-2 text-brand-success" />Android App Development</li>
-          <li><CheckCircle className="inline-block h-4 w-4 mr-2 text-brand-success" />Cross-Platform App Development (React Native, Flutter)</li>
-          <li><CheckCircle className="inline-block h-4 w-4 mr-2 text-brand-success" />UI/UX Design for Mobile</li>
-          <li><CheckCircle className="inline-block h-4 w-4 mr-2 text-brand-success" />App Testing & Quality Assurance</li>
-          <li><CheckCircle className="inline-block h-4 w-4 mr-2 text-brand-success" />App Store Optimization (ASO)</li>
-          <li><CheckCircle className="inline-block h-4 w-4 mr-2 text-brand-success" />Post-Launch Support & Maintenance</li>
+          <li><CheckCircle className="inline-block h-4 w-4 mr-2 text-success" />iOS App Development</li>
+          <li><CheckCircle className="inline-block h-4 w-4 mr-2 text-success" />Android App Development</li>
+          <li><CheckCircle className="inline-block h-4 w-4 mr-2 text-success" />Cross-Platform App Development (React Native, Flutter)</li>
+          <li><CheckCircle className="inline-block h-4 w-4 mr-2 text-success" />UI/UX Design for Mobile</li>
+          <li><CheckCircle className="inline-block h-4 w-4 mr-2 text-success" />App Testing & Quality Assurance</li>
+          <li><CheckCircle className="inline-block h-4 w-4 mr-2 text-success" />App Store Optimization (ASO)</li>
+          <li><CheckCircle className="inline-block h-4 w-4 mr-2 text-success" />Post-Launch Support & Maintenance</li>
         </ul>
         <p>
           Expand your reach and connect with your audience on the go with a custom mobile application tailored to your needs.

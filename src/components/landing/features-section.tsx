@@ -6,22 +6,22 @@ import { FileText, Share2, Sparkles, BarChart2 } from "lucide-react";
 
 const features = [
   {
-    icon: <FileText className="h-8 w-8" />,
+    icon: <FileText className="h-8 w-8 text-brand-blue" />,
     title: "Unified CMS",
     description: "Effortlessly manage your website pages, blog posts, and stories from a single, intuitive dashboard.",
   },
   {
-    icon: <Share2 className="h-8 w-8" />,
+    icon: <Share2 className="h-8 w-8 text-brand-teal" />,
     title: "Social Automation",
     description: "Connect all your social accounts, schedule posts in advance, and publish across platforms with one click.",
   },
   {
-    icon: <Sparkles className="h-8 w-8" />,
+    icon: <Sparkles className="h-8 w-8 text-brand-orange" />,
     title: "AI-Powered Creativity",
     description: "Generate engaging, platform-aware captions and relevant hashtags instantly. Never run out of content ideas.",
   },
   {
-    icon: <BarChart2 className="h-8 w-8" />,
+    icon: <BarChart2 className="h-8 w-8 text-brand-green" />,
     title: "Growth Analytics",
     description: "Track post performance with clear analytics on impressions, likes, and shares to understand what works.",
   },
@@ -68,7 +68,7 @@ export function FeaturesSection() {
           {features.map((feature, index) => (
             <motion.div key={index} variants={itemVariants} className="h-full">
               <Card className="flex flex-col items-center text-center p-6 border-border/80 hover:border-primary/50 hover:bg-secondary transition-all duration-300 transform hover:-translate-y-2 h-full">
-                <div className="p-4 bg-gradient-to-br from-brand-blue/20 to-brand-yellow/20 rounded-full mb-4 text-primary">
+                <div className="p-4 bg-secondary rounded-full mb-4">
                   {feature.icon}
                 </div>
                 <CardHeader className="p-0">

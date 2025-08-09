@@ -40,6 +40,10 @@ export default {
   				DEFAULT: 'hsl(var(--destructive))',
   				foreground: 'hsl(var(--destructive-foreground))'
   			},
+        success: {
+          DEFAULT: 'hsl(var(--success))',
+          foreground: 'hsl(var(--success-foreground))'
+        },
   			border: 'hsl(var(--border))',
   			input: 'hsl(var(--input))',
   			ring: 'hsl(var(--ring))',
@@ -60,11 +64,12 @@ export default {
   				border: 'hsl(var(--sidebar-border))',
   				ring: 'hsl(var(--sidebar-ring))'
   			},
-        'brand-primary': 'hsl(var(--brand-primary))',
-        'brand-secondary': 'hsl(var(--brand-secondary))',
-        'brand-accent': 'hsl(var(--brand-accent))',
-        'brand-highlight': 'hsl(var(--brand-highlight))',
-        'brand-success': 'hsl(var(--brand-success))',
+        'brand-blue': 'hsl(var(--brand-blue))',
+        'brand-teal': 'hsl(var(--brand-teal))',
+        'brand-orange': 'hsl(var(--brand-orange))',
+        'brand-violet': 'hsl(var(--brand-violet))',
+        'brand-green': 'hsl(var(--brand-green))',
+        'brand-red': 'hsl(var(--brand-red))',
   		},
   		borderRadius: {
   			lg: 'var(--radius)',
