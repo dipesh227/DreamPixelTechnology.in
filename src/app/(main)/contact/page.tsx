@@ -1,40 +1,72 @@
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Textarea } from "@/components/ui/textarea";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Mail, Phone, MapPin, User, Pencil, Send } from "lucide-react";
+
 export default function ContactPage() {
   return (
-    <div className="container mx-auto py-10 px-4">
-      <h1 className="text-3xl font-bold">Contact Us</h1>
-      <p className="mt-4 text-muted-foreground">
-        Have questions or ready to start your project? Reach out to us using the form below or connect through our contact details. We look forward to hearing from you!
-      </p>
-      <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-8">
-        <div>
-          <h2 className="text-2xl font-semibold mb-4">Get in Touch</h2>
-          <p className="text-muted-foreground">
-            <strong>Email:</strong> info@dreampixel.com<br />
-            <strong>Phone:</strong> +91 98765 43210<br />
-            <strong>Address:</strong> 123 Digital Street, Tech City, India
-          </p>
+    <div className="container mx-auto py-16 px-4">
+      <div className="text-center max-w-3xl mx-auto">
+        <h1 className="text-4xl md:text-5xl font-bold tracking-tighter">Contact Us</h1>
+        <p className="mt-4 text-lg text-muted-foreground">
+          Have questions or ready to start your project? Reach out to us using the form below or connect through our contact details. We look forward to hearing from you!
+        </p>
+      </div>
+      <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-12">
+        <div className="space-y-6">
+          <h2 className="text-3xl font-semibold">Get in Touch</h2>
+          <div className="flex items-start gap-4">
+            <Mail className="h-6 w-6 text-brand-primary mt-1" />
+            <div>
+              <h3 className="font-semibold">Email</h3>
+              <a href="mailto:info@dreampixel.com" className="text-muted-foreground hover:text-primary">info@dreampixel.com</a>
+            </div>
+          </div>
+          <div className="flex items-start gap-4">
+            <Phone className="h-6 w-6 text-brand-primary mt-1" />
+            <div>
+              <h3 className="font-semibold">Phone</h3>
+              <p className="text-muted-foreground">+91 98765 43210</p>
+            </div>
+          </div>
+          <div className="flex items-start gap-4">
+            <MapPin className="h-6 w-6 text-brand-primary mt-1" />
+            <div>
+              <h3 className="font-semibold">Address</h3>
+              <p className="text-muted-foreground">123 Digital Street, Tech City, India</p>
+            </div>
+          </div>
         </div>
-        <div>
-          <h2 className="text-2xl font-semibold mb-4">Send Us a Message</h2>
-          {/* Placeholder for a contact form */}
-          <form className="space-y-4">
-            <div>
-              <label htmlFor="name" className="block text-sm font-medium text-foreground">Name</label>
-              <input type="text" id="name" className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring-primary sm:text-sm bg-input" />
-            </div>
-            <div>
-              <label htmlFor="email" className="block text-sm font-medium text-foreground">Email</label>
-              <input type="email" id="email" className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring-primary sm:text-sm bg-input" />
-            </div>
-            <div>
-              <label htmlFor="message" className="block text-sm font-medium text-foreground">Message</label>
-              <textarea id="message" rows={4} className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring-primary sm:text-sm bg-input"></textarea>
-            </div>
-            <button type="submit" className="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-primary-foreground bg-primary hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary">
-              Send Message
-            </button>
-          </form>
-        </div>
+        <Card>
+          <CardHeader>
+            <CardTitle>Send Us a Message</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <form className="space-y-6">
+              <div className="relative">
+                <Label htmlFor="name" className="sr-only">Name</Label>
+                <User className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
+                <Input type="text" id="name" placeholder="Your Name" className="pl-10" />
+              </div>
+              <div className="relative">
+                <Label htmlFor="email" className="sr-only">Email</Label>
+                <Mail className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
+                <Input type="email" id="email" placeholder="Your Email" className="pl-10" />
+              </div>
+              <div className="relative">
+                <Label htmlFor="message" className="sr-only">Message</Label>
+                <Pencil className="absolute left-3 top-3 h-5 w-5 text-muted-foreground" />
+                <Textarea id="message" rows={5} placeholder="Your Message" className="pl-10 pt-2" />
+              </div>
+              <Button type="submit" className="w-full">
+                <Send className="h-4 w-4 mr-2" />
+                Send Message
+              </Button>
+            </form>
+          </CardContent>
+        </Card>
       </div>
     </div>
   );
