@@ -6,6 +6,14 @@ import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { ThemeToggle } from "./theme-toggle";
 
+const navLinks = [
+  { href: "/#features", label: "Features" },
+  { href: "/#pricing", label: "Pricing" },
+  { href: "/about", label: "About" },
+  { href: "/blog", label: "Blog" },
+  { href: "/contact", label: "Contact" },
+];
+
 export function Header() {
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -18,24 +26,15 @@ export function Header() {
             </span>
           </Link>
           <nav className="flex items-center gap-6 text-sm">
-            <Link
-              href="/#features"
-              className="text-foreground/60 transition-colors hover:text-foreground/80"
-            >
-              Features
-            </Link>
-            <Link
-              href="/#pricing"
-              className="text-foreground/60 transition-colors hover:text-foreground/80"
-            >
-              Pricing
-            </Link>
-            <Link
-              href="#"
-              className="text-foreground/60 transition-colors hover:text-foreground/80"
-            >
-              Blog
-            </Link>
+            {navLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className="text-foreground/60 transition-colors hover:text-foreground/80"
+              >
+                {link.label}
+              </Link>
+            ))}
           </nav>
         </div>
         <div className="flex flex-1 items-center justify-between space-x-2 md:justify-end">
@@ -54,9 +53,11 @@ export function Header() {
                   <span className="font-bold">DreamPixel</span>
                 </Link>
                 <div className="flex flex-col space-y-4 mt-6">
-                  <Link href="/#features">Features</Link>
-                  <Link href="/#pricing">Pricing</Link>
-                  <Link href="#">Blog</Link>
+                  {navLinks.map((link) => (
+                    <Link key={link.href} href={link.href}>
+                      {link.label}
+                    </Link>
+                  ))}
                 </div>
               </SheetContent>
             </Sheet>
@@ -67,7 +68,7 @@ export function Header() {
               <Link href="/login">Log In</Link>
             </Button>
             <Button asChild>
-              <Link href="/login">Sign Up</Link>
+              <Link href="/register">Sign Up</Link>
             </Button>
           </nav>
         </div>
