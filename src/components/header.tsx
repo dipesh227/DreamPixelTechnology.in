@@ -19,13 +19,13 @@ export function Header() {
           </Link>
           <nav className="flex items-center gap-6 text-sm">
             <Link
-              href="#features"
+              href="/#features"
               className="text-foreground/60 transition-colors hover:text-foreground/80"
             >
               Features
             </Link>
             <Link
-              href="#pricing"
+              href="/#pricing"
               className="text-foreground/60 transition-colors hover:text-foreground/80"
             >
               Pricing
@@ -54,8 +54,8 @@ export function Header() {
                   <span className="font-bold">DreamPixel</span>
                 </Link>
                 <div className="flex flex-col space-y-4 mt-6">
-                  <Link href="#features">Features</Link>
-                  <Link href="#pricing">Pricing</Link>
+                  <Link href="/#features">Features</Link>
+                  <Link href="/#pricing">Pricing</Link>
                   <Link href="#">Blog</Link>
                 </div>
               </SheetContent>
@@ -63,8 +63,12 @@ export function Header() {
           </div>
           <nav className="flex items-center gap-2">
             <ThemeToggle />
-            <Button variant="ghost">Log In</Button>
-            <Button>Sign Up</Button>
+            <Button variant="ghost" asChild>
+              <Link href="/login">Log In</Link>
+            </Button>
+            <Button asChild>
+              <Link href="/login">Sign Up</Link>
+            </Button>
           </nav>
         </div>
       </div>
