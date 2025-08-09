@@ -65,7 +65,7 @@ export default function TestimonialsPage() {
           What Our Clients Say
         </h1>
         <p className="mt-4 text-lg text-muted-foreground">
-          Hear directly from businesses and individuals who have experienced the DreamPixel difference.
+          Hear directly from businesses and individuals who have experienced the DreamPixel difference. Their success stories are our greatest motivation.
         </p>
       </div>
 

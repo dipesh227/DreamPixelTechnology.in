@@ -68,7 +68,7 @@ export default function FAQPage() {
           Frequently Asked Questions
         </h1>
         <p className="mt-4 text-lg text-muted-foreground">
-          Find answers to the most common questions about our services, platform, and pricing.
+          Find answers to the most common questions about our services, platform, and pricing. If you can't find what you're looking for, feel free to contact us directly.
         </p>
       </div>
 
@@ -85,7 +85,7 @@ export default function FAQPage() {
             ))}
           </Accordion>
         ) : (
-          <p className="text-center text-muted-foreground">No FAQs available at the moment.</p>
+          <p className="text-center text-muted-foreground">No FAQs available at the moment. Please check back later!</p>
         )}
       </div>
     </div>

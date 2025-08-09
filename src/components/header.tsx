@@ -18,46 +18,53 @@ import { ThemeToggle } from "./theme-toggle";
 import { cn } from "@/lib/utils";
 import React from "react";
 
-const features: { title: string; href: string; description:string }[] = [
+const servicesLinks: { title: string; href: string; description: string }[] = [
   {
-    title: "Unified CMS",
-    href: "/features/cms",
-    description: "Manage website pages, blog posts, and stories from one dashboard.",
+    title: "Web Design & Development",
+    href: "/services/web-design-development",
+    description: "Crafting stunning, responsive, and high-performing websites.",
   },
   {
-    title: "Social Automation",
-    href: "/features/social-automation",
-    description: "Connect social accounts, schedule posts, and publish across platforms.",
+    title: "Digital Marketing",
+    href: "/services/digital-marketing",
+    description: "Driving traffic and conversions through comprehensive online strategies.",
   },
   {
-    title: "AI Creative Suite",
-    href: "/features/ai-tools",
-    description: "Generate engaging captions, hashtags, and content ideas instantly.",
+    title: "SEO Services",
+    href: "/services/seo-services",
+    description: "Improving search engine rankings for organic visibility.",
   },
   {
-    title: "Growth Analytics",
-    href: "/features/analytics",
-    description: "Track post performance with clear analytics to understand what works.",
+    title: "Social Media Marketing",
+    href: "/services/social-media-marketing",
+    description: "Engage your audience and grow your online reach.",
+  },
+  {
+    title: "Content Creation",
+    href: "/services/content-creation",
+    description: "Producing engaging and valuable content that captivates.",
+  },
+  {
+    title: "Branding & Identity",
+    href: "/services/branding-identity",
+    description: "Building strong brand identities that stand out.",
+  },
+  {
+    title: "E-commerce Solutions",
+    href: "/services/e-commerce-solutions",
+    description: "Developing robust and secure online stores.",
+  },
+  {
+    title: "Mobile App Development",
+    href: "/services/mobile-app-development",
+    description: "Creating intuitive and high-performance mobile applications.",
+  },
+  {
+    title: "PPC Advertising",
+    href: "/services/ppc-advertising",
+    description: "Managing targeted ad campaigns for immediate traffic.",
   },
 ];
-
-const solutions: { title: string; href: string; description: string }[] = [
-    {
-        title: "For Agencies",
-        href: "/solutions/for-agencies",
-        description: "Manage multiple clients, streamline workflows, and deliver results.",
-    },
-    {
-        title: "For Startups",
-        href: "/solutions/for-startups",
-        description: "Build your brand, engage your audience, and grow your business.",
-    },
-    {
-        title: "For Creators",
-        href: "/solutions/for-creators",
-        description: "Automate your content, save time, and focus on creating.",
-    }
-]
 
 export function Header() {
   return (
@@ -70,41 +77,30 @@ export function Header() {
           <NavigationMenu>
             <NavigationMenuList>
               <NavigationMenuItem>
-                <NavigationMenuTrigger>Features</NavigationMenuTrigger>
-                <NavigationMenuContent>
-                  <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
-                    {features.map((component) => (
-                      <ListItem
-                        key={component.title}
-                        title={component.title}
-                        href={component.href}
-                      >
-                        {component.description}
-                      </ListItem>
-                    ))}
-                  </ul>
-                </NavigationMenuContent>
-              </NavigationMenuItem>
-              <NavigationMenuItem>
-                <NavigationMenuTrigger>Solutions</NavigationMenuTrigger>
-                <NavigationMenuContent>
-                  <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] lg:w-[600px] ">
-                     {solutions.map((component) => (
-                      <ListItem
-                        key={component.title}
-                        title={component.title}
-                        href={component.href}
-                      >
-                        {component.description}
-                      </ListItem>
-                    ))}
-                  </ul>
-                </NavigationMenuContent>
+                <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
+                  <Link href="/">Home</Link>
+                </NavigationMenuLink>
               </NavigationMenuItem>
               <NavigationMenuItem>
                 <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-                  <Link href="/services">Services</Link>
+                  <Link href="/about">About Us</Link>
                 </NavigationMenuLink>
+              </NavigationMenuItem>
+              <NavigationMenuItem>
+                <NavigationMenuTrigger>Our Services</NavigationMenuTrigger>
+                <NavigationMenuContent>
+                  <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
+                    {servicesLinks.map((component) => (
+                      <ListItem
+                        key={component.title}
+                        title={component.title}
+                        href={component.href}
+                      >
+                        {component.description}
+                      </ListItem>
+                    ))}
+                  </ul>
+                </NavigationMenuContent>
               </NavigationMenuItem>
               <NavigationMenuItem>
                 <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
@@ -113,12 +109,32 @@ export function Header() {
               </NavigationMenuItem>
               <NavigationMenuItem>
                 <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-                  <Link href="/pricing">Pricing</Link>
+                  <Link href="/testimonials">Testimonials</Link>
                 </NavigationMenuLink>
               </NavigationMenuItem>
               <NavigationMenuItem>
                 <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
                   <Link href="/blog">Blog</Link>
+                </NavigationMenuLink>
+              </NavigationMenuItem>
+              <NavigationMenuItem>
+                <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
+                  <Link href="/careers">Careers</Link>
+                </NavigationMenuLink>
+              </NavigationMenuItem>
+              <NavigationMenuItem>
+                <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
+                  <Link href="/contact">Contact Us</Link>
+                </NavigationMenuLink>
+              </NavigationMenuItem>
+              <NavigationMenuItem>
+                <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
+                  <Link href="/faq">FAQs</Link>
+                </NavigationMenuLink>
+              </NavigationMenuItem>
+              <NavigationMenuItem>
+                <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
+                  <Link href="/privacy-policy">Privacy Policy</Link>
                 </NavigationMenuLink>
               </NavigationMenuItem>
             </NavigationMenuList>
@@ -139,18 +155,26 @@ export function Header() {
                   <Image src="/logo.png" alt="DreamPixel Logo" width={150} height={35} />
                 </Link>
                 <div className="flex flex-col space-y-4 mt-6">
-                  {/* Add mobile nav links here */}
-                  <Link href="/services" className="text-lg font-medium hover:text-primary">Services</Link>
-                  <Link href="/portfolio" className="text-lg font-medium hover:text-primary">Portfolio</Link>
-                  <Link href="/pricing" className="text-lg font-medium hover:text-primary">Pricing</Link>
-                  <Link href="/blog" className="text-lg font-medium hover:text-primary">Blog</Link>
+                  <Link href="/" className="text-lg font-medium hover:text-primary">Home</Link>
                   <Link href="/about" className="text-lg font-medium hover:text-primary">About Us</Link>
-                  <Link href="/contact" className="text-lg font-medium hover:text-primary">Contact</Link>
-                  <Link href="/careers" className="text-lg font-medium hover:text-primary">Careers</Link>
-                  <Link href="/faq" className="text-lg font-medium hover:text-primary">FAQ</Link>
+                  <Link href="/services" className="text-lg font-medium hover:text-primary">Our Services</Link>
+                  <Link href="/services/web-design-development" className="ml-4 text-base text-muted-foreground hover:text-primary">Web Design & Development</Link>
+                  <Link href="/services/digital-marketing" className="ml-4 text-base text-muted-foreground hover:text-primary">Digital Marketing</Link>
+                  <Link href="/services/seo-services" className="ml-4 text-base text-muted-foreground hover:text-primary">SEO Services</Link>
+                  <Link href="/services/social-media-marketing" className="ml-4 text-base text-muted-foreground hover:text-primary">Social Media Marketing</Link>
+                  <Link href="/services/content-creation" className="ml-4 text-base text-muted-foreground hover:text-primary">Content Creation</Link>
+                  <Link href="/services/branding-identity" className="ml-4 text-base text-muted-foreground hover:text-primary">Branding & Identity</Link>
+                  <Link href="/services/e-commerce-solutions" className="ml-4 text-base text-muted-foreground hover:text-primary">E-commerce Solutions</Link>
+                  <Link href="/services/mobile-app-development" className="ml-4 text-base text-muted-foreground hover:text-primary">Mobile App Development</Link>
+                  <Link href="/services/ppc-advertising" className="ml-4 text-base text-muted-foreground hover:text-primary">Pay-Per-Click Advertising (PPC)</Link>
+                  <Link href="/portfolio" className="text-lg font-medium hover:text-primary">Portfolio</Link>
                   <Link href="/testimonials" className="text-lg font-medium hover:text-primary">Testimonials</Link>
+                  <Link href="/blog" className="text-lg font-medium hover:text-primary">Blog</Link>
+                  <Link href="/careers" className="text-lg font-medium hover:text-primary">Careers</Link>
+                  <Link href="/contact" className="text-lg font-medium hover:text-primary">Contact Us</Link>
+                  <Link href="/faq" className="text-lg font-medium hover:text-primary">FAQs</Link>
                   <Link href="/privacy-policy" className="text-lg font-medium hover:text-primary">Privacy Policy</Link>
-                  <Link href="/terms" className="text-lg font-medium hover:text-primary">Terms of Service</Link>
+                  <Link href="/request-quote" className="text-lg font-medium hover:text-primary">Request a Quote</Link>
                 </div>
               </SheetContent>
             </Sheet>
@@ -161,7 +185,7 @@ export function Header() {
               <Link href="/login">Log In</Link>
             </Button>
             <Button className="bg-brand-cyan hover:bg-brand-cyan/90 text-primary-foreground" asChild>
-              <Link href="/register">Sign Up</Link>
+              <Link href="/request-quote">Request a Quote</Link>
             </Button>
           </nav>
         </div>

@@ -28,6 +28,18 @@ const projects = [
     imageUrl: "/placeholder-project-4.jpg",
     link: "#",
   },
+  {
+    title: "Brand Identity for Tech Startup",
+    description: "Developed a comprehensive brand identity, including logo, guidelines, and marketing collateral, for a new tech startup.",
+    imageUrl: "/placeholder-project-5.jpg",
+    link: "#",
+  },
+  {
+    title: "SEO & Content Strategy for Healthcare",
+    description: "Implemented an SEO and content marketing strategy that significantly increased organic traffic and patient inquiries for a healthcare provider.",
+    imageUrl: "/placeholder-project-6.jpg",
+    link: "#",
+  },
 ];
 
 export default function PortfolioPage() {
@@ -35,10 +47,10 @@ export default function PortfolioPage() {
     <div className="container mx-auto py-16 px-4">
       <div className="text-center max-w-3xl mx-auto">
         <h1 className="mt-4 text-4xl md:text-5xl font-bold tracking-tighter">
-          Our Recent Work
+          Our Recent Work / Case Studies
         </h1>
         <p className="mt-4 text-lg text-muted-foreground">
-          Explore a selection of our successful projects that showcase our expertise in design, development, and digital strategy.
+          Explore a selection of our successful projects that showcase our expertise in design, development, and digital strategy. Each case study highlights the challenges, our solutions, and the measurable results achieved for our clients.
         </p>
       </div>
 
@@ -62,7 +74,7 @@ export default function PortfolioPage() {
             </CardContent>
             <div className="p-6 pt-0">
               <Link href={project.link} className="inline-flex items-center text-primary hover:underline">
-                View Project <ArrowUpRight className="ml-1 h-4 w-4" />
+                View Case Study <ArrowUpRight className="ml-1 h-4 w-4" />
               </Link>
             </div>
           </Card>
