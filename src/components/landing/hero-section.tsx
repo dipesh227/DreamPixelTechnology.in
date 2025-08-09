@@ -59,7 +59,14 @@ export function HeroSection() {
           <div className="absolute -bottom-10 right-0 w-72 h-72 bg-blue-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 hidden lg:block"></div>
           <div className="absolute -top-10 left-0 w-72 h-72 bg-orange-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 hidden lg:block"></div>
           <div className="relative">
-            <Image src="/hero-graphic.png" alt="DreamPixel platform illustration" width={600} height={500} className="mx-auto" />
+            <Image 
+              src="https://picsum.photos/seed/web-agency-desk/1200/700" 
+              alt="A modern web agency workspace showing collaboration and digital solutions" 
+              width={1200} 
+              height={700} 
+              className="mx-auto rounded-lg shadow-2xl" 
+              priority 
+            />
           </div>
         </div>
         <div className="flex justify-center mt-8">
