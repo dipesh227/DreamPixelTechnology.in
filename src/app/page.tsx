@@ -5,14 +5,20 @@ import {
   CardDescription,
   CardHeader,
   CardTitle,
+  CardFooter,
 } from "@/components/ui/card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
+import {
   Bot,
   BarChart,
-  Bell,
-  ChevronRight,
-  Code,
+  Check,
   Menu,
   Share2,
 } from "lucide-react";
@@ -139,6 +145,140 @@ export default function Home() {
                   </CardDescription>
                 </CardContent>
               </Card>
+            </div>
+          </div>
+        </section>
+        <section id="pricing" className="w-full py-12 md:py-24 lg:py-32">
+          <div className="container px-4 md:px-6">
+            <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
+              <div className="inline-block rounded-lg bg-muted px-3 py-1 text-sm">
+                Pricing Plans
+              </div>
+              <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
+                Find the Perfect Plan
+              </h2>
+              <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+                Start for free and scale up as you grow. No credit card required.
+              </p>
+            </div>
+            <div className="mx-auto grid max-w-md items-start gap-8 lg:max-w-5xl lg:grid-cols-3">
+              <Card className="flex flex-col">
+                <CardHeader>
+                  <CardTitle>Starter</CardTitle>
+                  <CardDescription>For individuals and small teams just getting started.</CardDescription>
+                  <div className="text-4xl font-bold pt-4">$19<span className="text-lg font-normal text-muted-foreground">/mo</span></div>
+                </CardHeader>
+                <CardContent className="flex-1">
+                  <ul className="space-y-3">
+                    <li className="flex items-center gap-2"><Check className="h-4 w-4 text-success" /> 1 Social Profile</li>
+                    <li className="flex items-center gap-2"><Check className="h-4 w-4 text-success" /> 10 AI Generations/mo</li>
+                    <li className="flex items-center gap-2"><Check className="h-4 w-4 text-success" /> Basic Analytics</li>
+                  </ul>
+                </CardContent>
+                <CardFooter>
+                  <Button variant="outline" className="w-full">Get Started</Button>
+                </CardFooter>
+              </Card>
+              <Card className="flex flex-col border-primary shadow-brand relative">
+                <div className="absolute top-0 -translate-y-1/2 w-full flex justify-center">
+                  <div className="bg-brand-gradient text-primary-foreground px-4 py-1 rounded-full text-sm font-semibold">Most Popular</div>
+                </div>
+                <CardHeader>
+                  <CardTitle>Pro</CardTitle>
+                  <CardDescription>For growing businesses and social media managers.</CardDescription>
+                  <div className="text-4xl font-bold pt-4">$49<span className="text-lg font-normal text-muted-foreground">/mo</span></div>
+                </CardHeader>
+                <CardContent className="flex-1">
+                  <ul className="space-y-3">
+                    <li className="flex items-center gap-2"><Check className="h-4 w-4 text-success" /> 10 Social Profiles</li>
+                    <li className="flex items-center gap-2"><Check className="h-4 w-4 text-success" /> Unlimited AI Generations</li>
+                    <li className="flex items-center gap-2"><Check className="h-4 w-4 text-success" /> Advanced Analytics</li>
+                    <li className="flex items-center gap-2"><Check className="h-4 w-4 text-success" /> Smart Scheduling</li>
+                  </ul>
+                </CardContent>
+                <CardFooter>
+                  <Button className="w-full bg-brand-gradient text-primary-foreground">Choose Pro</Button>
+                </CardFooter>
+              </Card>
+              <Card className="flex flex-col">
+                <CardHeader>
+                  <CardTitle>Enterprise</CardTitle>
+                  <CardDescription>For large organizations with custom needs.</CardDescription>
+                  <div className="text-4xl font-bold pt-4">Custom</div>
+                </CardHeader>
+                <CardContent className="flex-1">
+                  <ul className="space-y-3">
+                    <li className="flex items-center gap-2"><Check className="h-4 w-4 text-success" /> Unlimited Profiles</li>
+                    <li className="flex items-center gap-2"><Check className="h-4 w-4 text-success" /> Dedicated AI Model</li>
+                    <li className="flex items-center gap-2"><Check className="h-4 w-4 text-success" /> Priority Support</li>
+                    <li className="flex items-center gap-2"><Check className="h-4 w-4 text-success" /> Custom Integrations</li>
+                  </ul>
+                </CardContent>
+                <CardFooter>
+                  <Button variant="outline" className="w-full">Contact Us</Button>
+                </CardFooter>
+              </Card>
+            </div>
+          </div>
+        </section>
+        <section id="testimonials" className="w-full py-12 md:py-24 lg:py-32 bg-muted/50">
+          <div className="container px-4 md:px-6">
+            <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
+              <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
+                Trusted by Professionals
+              </h2>
+              <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+                See what our users are saying about Dream Pixel Social Hub.
+              </p>
+            </div>
+            <Carousel
+              opts={{
+                align: "start",
+              }}
+              className="w-full max-w-4xl mx-auto"
+            >
+              <CarouselContent>
+                {Array.from({ length: 3 }).map((_, index) => (
+                  <CarouselItem key={index} className="md:basis-1/2">
+                    <div className="p-1">
+                      <Card>
+                        <CardContent className="flex flex-col items-start gap-4 p-6">
+                          <p className="text-muted-foreground">"This tool has been a game-changer for our content strategy. The AI suggestions are incredibly insightful and have saved us countless hours."</p>
+                          <div className="flex items-center gap-3 pt-2">
+                            <Avatar>
+                              <AvatarImage src={`https://i.pravatar.cc/150?u=a042581f4e29026704d${index}`} />
+                              <AvatarFallback>U</AvatarFallback>
+                            </Avatar>
+                            <div>
+                              <p className="font-semibold">Sarah L.</p>
+                              <p className="text-sm text-muted-foreground">Marketing Manager</p>
+                            </div>
+                          </div>
+                        </CardContent>
+                      </Card>
+                    </div>
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+              <CarouselPrevious />
+              <CarouselNext />
+            </Carousel>
+          </div>
+        </section>
+        <section id="cta" className="w-full py-12 md:py-24 lg:py-32">
+          <div className="container px-4 md:px-6">
+            <div className="rounded-lg bg-brand-gradient p-8 md:p-12 lg:p-16 text-center text-primary-foreground shadow-brand">
+              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
+                Ready to Elevate Your Social Media?
+              </h2>
+              <p className="mx-auto max-w-[600px] mt-4 md:text-xl">
+                Join thousands of creators and brands growing their audience with AI. Start your free trial today.
+              </p>
+              <div className="mt-6">
+                <Button size="lg" variant="secondary" className="bg-primary-foreground text-primary hover:bg-primary-foreground/90">
+                  Start Free Trial Now
+                </Button>
+              </div>
             </div>
           </div>
         </section>
