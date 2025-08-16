@@ -151,3 +151,58 @@
     @apply bg-background text-foreground;
   }
 }
+
+@layer components {
+  /* Button Styles */
+  .btn-primary {
+    @apply bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-3 rounded-lg font-medium hover:from-blue-700 hover:to-purple-700 transition-all duration-200;
+  }
+
+  .btn-secondary {
+    @apply bg-white text-gray-700 px-6 py-3 rounded-lg font-medium border border-gray-300 hover:bg-gray-50 transition-all duration-200;
+  }
+
+  /* Card Styles */
+  .card {
+    @apply bg-white rounded-xl shadow-sm border border-gray-100 p-6 hover-lift;
+  }
+
+  .card-gradient {
+    @apply bg-gradient-to-br from-white to-blue-50 rounded-xl shadow-sm border border-blue-100 p-6;
+  }
+
+  /* Layout */
+  .dashboard-grid {
+    @apply grid grid-cols-1 lg:grid-cols-3 gap-6;
+  }
+
+  .feature-grid {
+    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8;
+  }
+}
+
+@layer utilities {
+  /* Custom Gradients */
+  .bg-brand-gradient {
+    background: linear-gradient(135deg, #1e3a8a 0%, #7c3aed 100%);
+  }
+
+  .bg-feature-gradient {
+    background: linear-gradient(135deg, #06b6d4 0%, #ec4899 100%);
+  }
+
+  /* Custom Shadows */
+  .shadow-brand {
+    box-shadow: 0 10px 25px -5px rgba(124, 58, 237, 0.1), 0 8px 10px -6px rgba(124, 58, 237, 0.1);
+  }
+
+  /* Hover Effects */
+  .hover-lift {
+    transition: all 0.3s ease;
+  }
+
+  .hover-lift:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+  }
+}
