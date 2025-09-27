@@ -1,15 +1,15 @@
 import { HeroSection } from "./hero-section";
-import { AboutSection } from "./about-section";
-import { ServicesSection } from "./services-section";
+import { AboutSection } from "./about-section"; // Reintroducing AboutSection
+// The original ServicesSection is replaced by the more detailed DigitalSolutionsSection
 import { ContactSection } from "./contact-section";
 import { PageFooter } from "./page-footer";
 import { TestimonialsSection } from "./testimonials-section";
-import { PricingSection } from "./pricing-section";
-import { RecentWorksSection } from "./recent-works-section"; // New
-import { DigitalSolutionsSection } from "./digital-solutions-section"; // New
-import { WhatYouCanExpectSection } from "./what-you-can-expect-section"; // New
-import { WhatMakesUsUniqueSection } from "./what-makes-us-unique-section"; // New
-import { FAQSection } from "./faq-section"; // New
+import { PricingSection } from "./pricing-section"; // Reintroducing PricingSection
+import { RecentWorksSection } from "./recent-works-section";
+import { DigitalSolutionsSection } from "./digital-solutions-section";
+import { WhatYouCanExpectSection } from "./what-you-can-expect-section";
+import { WhatMakesUsUniqueSection } from "./what-makes-us-unique-section";
+import { FAQSection } from "./faq-section";
 
 export function LandingPage() {
   return (
@@ -17,12 +17,14 @@ export function LandingPage() {
       <main className="flex-grow">
         <HeroSection />
         <RecentWorksSection />
-        <DigitalSolutionsSection />
+        <DigitalSolutionsSection /> {/* This covers services in a more detailed way */}
         <WhatYouCanExpectSection />
         <WhatMakesUsUniqueSection />
+        <AboutSection /> {/* Placed after unique selling points */}
+        <PricingSection /> {/* Placed after about and before testimonials */}
         <TestimonialsSection />
         <FAQSection />
-        <ContactSection /> {/* Keeping contact section for now, can be adjusted later if needed */}
+        <ContactSection />
       </main>
       <PageFooter />
     </div>
