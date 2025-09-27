@@ -6,7 +6,7 @@ import { Label } from "@/components/ui/label";
 export function ContactSection() {
   return (
     <section id="contact" className="py-16 md:py-24 bg-gray-50 dark:bg-gray-900">
-      <div className="container mx-auto px-4 max-w-3xl text-center">
+      <div className="container mx-auto px-4 max-w-3xl text-center animate-in fade-in slide-in-from-bottom-16 duration-700">
         <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gray-900 dark:text-white">
           Get In Touch
         </h2>

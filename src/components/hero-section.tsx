@@ -3,14 +3,14 @@ import { Button } from "@/components/ui/button";
 export function HeroSection() {
   return (
     <section className="relative h-[60vh] md:h-[70vh] flex items-center justify-center text-center bg-gradient-to-r from-blue-600 to-purple-600 text-white p-4">
-      <div className="container mx-auto px-4">
-        <h1 className="text-4xl md:text-6xl font-bold mb-4 leading-tight">
+      <div className="container mx-auto px-4 animate-in fade-in zoom-in-90 duration-700">
+        <h1 className="text-4xl md:text-6xl font-bold mb-4 leading-tight animate-in fade-in slide-in-from-bottom-8 duration-700 delay-200">
           Empower Your Mind, Delight Your Senses
         </h1>
-        <p className="text-lg md:text-xl mb-8 max-w-2xl mx-auto">
+        <p className="text-lg md:text-xl mb-8 max-w-2xl mx-auto animate-in fade-in slide-in-from-bottom-8 duration-700 delay-300">
           Your hub for professional growth and a cozy spot for exceptional coffee.
         </p>
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+        <div className="flex flex-col sm:flex-row gap-4 justify-center animate-in fade-in slide-in-from-bottom-8 duration-700 delay-400">
           <Button size="lg" className="bg-white text-blue-600 hover:bg-gray-100">
             Explore Training
           </Button>

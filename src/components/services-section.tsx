@@ -27,7 +27,7 @@ export function ServicesSection() {
 
   return (
     <section id="services" className="py-16 md:py-24 bg-white dark:bg-gray-950">
-      <div className="container mx-auto px-4 text-center">
+      <div className="container mx-auto px-4 text-center animate-in fade-in slide-in-from-bottom-16 duration-700">
         <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gray-900 dark:text-white">
           What We Offer
         </h2>
@@ -36,7 +36,11 @@ export function ServicesSection() {
         </p>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {services.map((service, index) => (
-            <Card key={index} className="flex flex-col items-center p-6 text-center shadow-lg hover:shadow-xl transition-shadow duration-300">
+            <Card 
+              key={index} 
+              className={`flex flex-col items-center p-6 text-center shadow-lg hover:shadow-xl transition-shadow duration-300 
+                          animate-in fade-in slide-in-from-bottom-8 duration-700 delay-${index * 100 + 200}`}
+            >
               <CardHeader className="pb-4">
                 <div className="mb-4">{service.icon}</div>
                 <CardTitle className="text-xl font-semibold text-gray-900 dark:text-white">
