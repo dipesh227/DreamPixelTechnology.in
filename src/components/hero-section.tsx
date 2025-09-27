@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { CheckCircle2, TrendingUp, Users } from "lucide-react"; // Using different icons to match the image's vibe
+import { CheckCircle2, TrendingUp, Users } from "lucide-react";
 import Image from "next/image";
 
 export function HeroSection() {
@@ -40,8 +40,8 @@ export function HeroSection() {
         <div className="max-w-4xl mx-auto animate-in fade-in slide-in-from-bottom-16 duration-700">
           <div className="flex justify-center mb-8">
             <Image
-              src="/window.svg" // Using an existing public image as a placeholder for the robot
-              alt="Robot"
+              src="https://api.dicebear.com/7.x/lorelei/svg?seed=DreamPixelTeam" // Reverting to original image
+              alt="DreamPixel Technology Robot"
               width={150}
               height={150}
               className="h-32 w-32 object-contain"

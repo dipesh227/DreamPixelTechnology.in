@@ -11,7 +11,7 @@ import { Star } from "lucide-react";
 export function FAQSection() {
   const faqs = [
     {
-      question: "What makes blink2build different from agencies or freelancers?",
+      question: "What makes DreamPixel Technology different from agencies or freelancers?",
       answer: "We combine the best of both worlds: the structured approach and reliability of an agency with the agility and personalized attention of a freelancer. Our streamlined process ensures efficient delivery and clear communication."
     },
     {

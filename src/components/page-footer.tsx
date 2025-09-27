@@ -1,7 +1,7 @@
 import { MadeWithDyad } from "@/components/made-with-dyad";
 import Link from "next/link";
 import Image from "next/image";
-import { Instagram, Twitter, Linkedin } from "lucide-react"; // Using Twitter for X icon
+import { Instagram, Twitter, Linkedin } from "lucide-react";
 
 export function PageFooter() {
   const agencyLinks = [
@@ -30,13 +30,13 @@ export function PageFooter() {
         <div className="flex flex-col items-start">
           <div className="flex items-center gap-2 mb-4">
             <Image
-              src="/window.svg" // Using an existing public image as a placeholder for the robot logo
-              alt="Blink2Build Logo"
+              src="https://api.dicebear.com/7.x/lorelei/svg?seed=DreamPixelTeam" // Reverting to original image
+              alt="DreamPixel Technology Logo"
               width={50}
               height={50}
               className="h-12 w-12 object-contain"
             />
-            <span className="text-2xl font-bold text-black dark:text-white">Blink2Build</span>
+            <span className="text-2xl font-bold text-black dark:text-white">DreamPixel Technology</span>
           </div>
           <div className="flex gap-4 mt-4">
             <Link href="#" className="text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white transition-colors">
@@ -92,7 +92,7 @@ export function PageFooter() {
       </div>
       <div className="mt-12 border-t border-gray-200 dark:border-gray-700 pt-8 text-center">
         <p className="text-sm text-gray-500 dark:text-gray-400 mb-2">
-          &copy; {new Date().getFullYear()} blink2build. All rights reserved.
+          &copy; {new Date().getFullYear()} DreamPixel Technology. All rights reserved.
         </p>
         <MadeWithDyad />
       </div>

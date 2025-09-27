@@ -64,10 +64,10 @@ export function WhatMakesUsUniqueSection() {
         </h2>
         <div className="flex flex-col items-center gap-4 mb-12">
           <div className="flex items-center gap-2 text-green-600 dark:text-green-400 font-semibold text-lg">
-            <CheckCircle2 className="h-6 w-6" /> With blink2build
+            <CheckCircle2 className="h-6 w-6" /> With DreamPixel Technology
           </div>
           <div className="flex items-center gap-2 text-red-600 dark:text-red-400 font-semibold text-lg">
-            <XCircle className="h-6 w-6" /> Without blink2build
+            <XCircle className="h-6 w-6" /> Without DreamPixel Technology
           </div>
         </div>
 
