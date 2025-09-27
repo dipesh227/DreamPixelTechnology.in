@@ -1,5 +1,5 @@
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
-import { BookOpen, GraduationCap, Laptop, Users } from "lucide-react";
+import { BookOpen, GraduationCap, Laptop, Users, Smartphone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export function CoursesSection() {
