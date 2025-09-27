@@ -1,5 +1,5 @@
 import { Card, CardContent } from "@/components/ui/card";
-import { Settings, Code, TrendingUp, Users, LifeBuoy, CalendarCheck } from "lucide-react"; // Using relevant icons
+import { Settings, Code, TrendingUp, Users, LifeBuoy, CalendarCheck, Star } from "lucide-react"; // Using relevant icons
 
 export function WhatYouCanExpectSection() {
   const expectations = [
