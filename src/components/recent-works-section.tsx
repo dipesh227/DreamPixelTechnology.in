@@ -3,12 +3,12 @@ import { Star } from "lucide-react"; // Using Star icon as a placeholder for the
 
 export function RecentWorksSection() {
   const projects = [
-    { src: "https://via.placeholder.com/400x300/FFD700/FFFFFF?text=Project+1", alt: "Project 1" },
-    { src: "https://via.placeholder.com/400x300/8A2BE2/FFFFFF?text=Project+2", alt: "Project 2" },
-    { src: "https://via.placeholder.com/400x300/00CED1/FFFFFF?text=Project+3", alt: "Project 3" },
-    { src: "https://via.placeholder.com/400x300/FF6347/FFFFFF?text=Project+4", alt: "Project 4" },
-    { src: "https://via.placeholder.com/400x300/4682B4/FFFFFF?text=Project+5", alt: "Project 5" },
-    { src: "https://via.placeholder.com/400x300/DA70D6/FFFFFF?text=Project+6", alt: "Project 6" },
+    { src: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", alt: "Web Design Project" },
+    { src: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", alt: "Mobile App Development" },
+    { src: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", alt: "E-commerce Platform" },
+    { src: "https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", alt: "Data Dashboard Design" },
+    { src: "https://images.unsplash.com/photo-1522199755839-e2ba9b43c1ff?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", alt: "Branding & UI/UX" },
+    { src: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", alt: "Marketing Campaign Site" },
   ];
 
   return (

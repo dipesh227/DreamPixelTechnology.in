@@ -10,33 +10,33 @@ export function DigitalSolutionsSection() {
   const mobileAppContent = {
     title: "Mobile App",
     description: "Custom mobile applications that deliver exceptional user experiences across iOS and Android platforms.",
-    image: "https://via.placeholder.com/600x400/A020F0/FFFFFF?text=Mobile+App+Showcase",
+    image: "https://images.unsplash.com/photo-1551651767-8777b6735167?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", // Unsplash image for mobile app
     features: ["Native Development", "Cross-Platform Apps", "UI/UX Design", "App Maintenance"],
     showcaseImages: [
-      "https://via.placeholder.com/200x400/A020F0/FFFFFF?text=Screen+1",
-      "https://via.placeholder.com/200x400/A020F0/FFFFFF?text=Screen+2",
-      "https://via.placeholder.com/200x400/A020F0/FFFFFF?text=Screen+3",
+      "https://images.unsplash.com/photo-1587495979131-240221771a40?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "https://images.unsplash.com/photo-1552820728-8b83bb6b7844?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "https://images.unsplash.com/photo-1551651767-8777b6735167?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     ]
   };
 
   const webDevelopmentContent = {
     title: "Web Development",
     description: "Building responsive, scalable, and secure web applications using modern frameworks.",
-    image: "https://via.placeholder.com/600x400/4169E1/FFFFFF?text=Web+Dev+Showcase",
+    image: "https://images.unsplash.com/photo-1542831371-29b0f74f9713?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", // Unsplash image for web dev
     features: ["Frontend Development", "Backend Development", "E-commerce Solutions", "CMS Integration"],
   };
 
   const graphicDesignContent = {
     title: "Graphic Design",
     description: "Creating stunning visual identities, branding, and marketing materials that captivate your audience.",
-    image: "https://via.placeholder.com/600x400/3CB371/FFFFFF?text=Graphic+Design+Showcase",
+    image: "https://images.unsplash.com/photo-1581092918056-0c507785f723?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", // Unsplash image for graphic design
     features: ["Logo Design", "Branding", "UI/UX Graphics", "Marketing Collaterals"],
   };
 
   const digitalMarketingContent = {
     title: "Digital Marketing",
     description: "Driving online growth through effective SEO, social media, and content marketing strategies.",
-    image: "https://via.placeholder.com/600x400/FF8C00/FFFFFF?text=Digital+Marketing+Showcase",
+    image: "https://images.unsplash.com/photo-1557804506-669a67965da0?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", // Unsplash image for digital marketing
     features: ["SEO Optimization", "Social Media Marketing", "Content Strategy", "PPC Campaigns"],
   };
 
