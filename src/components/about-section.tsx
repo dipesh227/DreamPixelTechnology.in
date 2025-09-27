@@ -1,6 +1,7 @@
 import { Code, Lightbulb, Youtube, Twitter, Instagram, Facebook } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { Button } from "@/components/ui/button"; // Added import for Button
 
 export function AboutSection() {
   return (
