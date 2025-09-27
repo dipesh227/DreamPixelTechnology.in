@@ -3,27 +3,26 @@ import { AboutSection } from "./about-section";
 import { ServicesSection } from "./services-section";
 import { ContactSection } from "./contact-section";
 import { PageFooter } from "./page-footer";
-import { ArticlesAndDealsSection } from "./articles-and-deals-section"; // Renamed from FeaturesSection
 import { TestimonialsSection } from "./testimonials-section";
 import { PricingSection } from "./pricing-section";
-import { CoursesSection } from "./courses-section";
-import { PodcastSection } from "./podcast-section"; // New
-import { FeaturedInSection } from "./featured-in-section"; // New
+import { RecentWorksSection } from "./recent-works-section"; // New
+import { DigitalSolutionsSection } from "./digital-solutions-section"; // New
+import { WhatYouCanExpectSection } from "./what-you-can-expect-section"; // New
+import { WhatMakesUsUniqueSection } from "./what-makes-us-unique-section"; // New
+import { FAQSection } from "./faq-section"; // New
 
 export function LandingPage() {
   return (
     <div className="min-h-screen flex flex-col">
       <main className="flex-grow">
         <HeroSection />
-        <ArticlesAndDealsSection /> {/* Replaces FeaturesSection */}
-        <AboutSection />
-        <ServicesSection />
-        <CoursesSection />
+        <RecentWorksSection />
+        <DigitalSolutionsSection />
+        <WhatYouCanExpectSection />
+        <WhatMakesUsUniqueSection />
         <TestimonialsSection />
-        <PricingSection />
-        <PodcastSection />
-        <FeaturedInSection />
-        <ContactSection />
+        <FAQSection />
+        <ContactSection /> {/* Keeping contact section for now, can be adjusted later if needed */}
       </main>
       <PageFooter />
     </div>

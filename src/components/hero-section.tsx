@@ -1,48 +1,65 @@
 import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
-import { Globe, Shield, Cloud, ArrowRight } from "lucide-react";
+import { Card } from "@/components/ui/card";
+import { CheckCircle2, TrendingUp, Users } from "lucide-react"; // Using different icons to match the image's vibe
 import Image from "next/image";
 
 export function HeroSection() {
-  const featureCards = [
-    { icon: <Globe className="h-6 w-6 text-blue-600 dark:text-blue-400" />, text: "Best Web Hosting" },
-    { icon: <Shield className="h-6 w-6 text-green-600 dark:text-green-400" />, text: "Best VPN" },
-    { icon: <Cloud className="h-6 w-6 text-purple-600 dark:text-purple-400" />, text: "Best Cloud Storage" },
-  ];
-
   return (
-    <section className="relative py-16 md:py-24 bg-gradient-to-br from-blue-50 to-purple-50 dark:from-gray-950 dark:to-gray-900 overflow-hidden">
-      <div className="container mx-auto px-4 flex flex-col lg:flex-row items-center justify-between gap-12">
-        <div className="lg:w-1/2 text-center lg:text-left animate-in fade-in slide-in-from-left-16 duration-700">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-6 leading-tight text-gray-900 dark:text-white">
-            We Purchase, Test & Review Digital Tools For Small Business.
-          </h1>
-          <p className="text-lg md:text-xl text-gray-700 dark:text-gray-300 mb-8 max-w-xl lg:mx-0 mx-auto">
-            Led by <span className="font-semibold text-blue-600 dark:text-blue-400">DreamPixel Technology</span>
-          </p>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
-            {featureCards.map((card, index) => (
-              <Card key={index} className="p-4 flex items-center justify-center gap-2 shadow-md hover:shadow-lg transition-shadow duration-300">
-                {card.icon}
-                <span className="text-sm font-medium text-gray-800 dark:text-gray-200">{card.text}</span>
-              </Card>
-            ))}
-          </div>
-          <Button size="lg" className="bg-red-600 hover:bg-red-700 text-white shadow-lg hover:shadow-xl transition-all">
-            Get 80+ AI Tools List <ArrowRight className="ml-2 h-5 w-5" />
-          </Button>
+    <section className="relative py-16 md:py-24 bg-white dark:bg-gray-950 overflow-hidden text-center">
+      {/* Decorative elements */}
+      <div className="absolute top-1/4 left-1/4 -translate-x-1/2 -translate-y-1/2 w-48 h-48 bg-blue-200 dark:bg-blue-800 rounded-full mix-blend-multiply filter blur-xl opacity-10 animate-blob"></div>
+      <div className="absolute bottom-1/4 right-1/4 translate-x-1/2 translate-y-1/2 w-48 h-48 bg-purple-200 dark:bg-purple-800 rounded-full mix-blend-multiply filter blur-xl opacity-10 animate-blob animation-delay-2000"></div>
+      <div className="absolute top-1/2 right-1/3 w-48 h-48 bg-green-200 dark:bg-green-800 rounded-full mix-blend-multiply filter blur-xl opacity-10 animate-blob animation-delay-4000"></div>
+
+      <div className="container mx-auto px-4 relative z-10">
+        {/* Top right cards */}
+        <div className="absolute top-0 right-0 hidden lg:block">
+          <Card className="p-4 mb-4 shadow-lg bg-white/80 backdrop-blur-sm dark:bg-gray-800/80">
+            <div className="flex items-center gap-2">
+              <TrendingUp className="h-5 w-5 text-green-500" />
+              <span className="text-sm font-medium">Blog Traffic</span>
+              <span className="text-green-500 text-sm">+16.9%</span>
+            </div>
+            <p className="text-2xl font-bold mt-2">12,334</p>
+            <p className="text-xs text-gray-500 dark:text-gray-400">Since last week</p>
+          </Card>
+          <Card className="p-4 shadow-lg bg-white/80 backdrop-blur-sm dark:bg-gray-800/80">
+            <div className="flex items-center gap-2">
+              <Users className="h-5 w-5 text-blue-500" />
+              <span className="text-sm font-medium">Meeting with client</span>
+              <span className="text-blue-500 text-sm">40%</span>
+            </div>
+            <div className="flex -space-x-2 overflow-hidden mt-2">
+              <Image src="https://api.dicebear.com/7.x/lorelei/svg?seed=Client1" alt="Client 1" width={24} height={24} className="inline-block h-6 w-6 rounded-full ring-2 ring-white dark:ring-gray-950" />
+              <Image src="https://api.dicebear.com/7.x/lorelei/svg?seed=Client2" alt="Client 2" width={24} height={24} className="inline-block h-6 w-6 rounded-full ring-2 ring-white dark:ring-gray-950" />
+            </div>
+          </Card>
         </div>
-        <div className="lg:w-1/2 flex justify-center lg:justify-end animate-in fade-in zoom-in-90 duration-700 delay-200">
-          {/* Placeholder for the image of the person */}
-          <div className="relative w-64 h-64 md:w-80 md:h-80 bg-blue-200 dark:bg-blue-800 rounded-full flex items-center justify-center overflow-hidden shadow-2xl">
+
+        {/* Main content */}
+        <div className="max-w-4xl mx-auto animate-in fade-in slide-in-from-bottom-16 duration-700">
+          <div className="flex justify-center mb-8">
             <Image
-              src="https://api.dicebear.com/7.x/lorelei/svg?seed=DreamPixel"
-              alt="DreamPixel Technology Expert"
-              width={320}
-              height={320}
-              className="object-cover w-full h-full scale-110"
+              src="/window.svg" // Using an existing public image as a placeholder for the robot
+              alt="Robot"
+              width={150}
+              height={150}
+              className="h-32 w-32 object-contain"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-blue-600/20 to-transparent"></div>
+          </div>
+          <h1 className="text-4xl md:text-6xl font-extrabold mb-6 leading-tight text-gray-900 dark:text-white">
+            Transforming Ideas <br /> Into Digital Realities
+          </h1>
+          <p className="text-lg md:text-xl text-gray-700 dark:text-gray-300 mb-8 max-w-2xl mx-auto">
+            We're a full-service software development and design agency dedicated to turning your vision into an engaging online presence.
+          </p>
+          <div className="flex flex-col sm:flex-row justify-center gap-4">
+            <Button size="lg" className="bg-black text-white hover:bg-gray-800 dark:bg-white dark:text-black dark:hover:bg-gray-200 shadow-lg hover:shadow-xl transition-all">
+              Book a call
+            </Button>
+            <Button size="lg" variant="outline" className="border-green-600 text-green-600 hover:bg-green-50 dark:border-green-400 dark:text-green-400 dark:hover:bg-gray-800 shadow-lg hover:shadow-xl transition-all">
+              <CheckCircle2 className="mr-2 h-5 w-5" /> Available for new project
+            </Button>
           </div>
         </div>
       </div>
